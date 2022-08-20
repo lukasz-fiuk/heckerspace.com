@@ -19,5 +19,15 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  transformer: {
+    enabled: false,
+    config: {
+      prefix: "/api/",
+      responseTransforms: {
+        removeAttributesKey: true,
+        removeDataKey: true,
+      },
+    },
+  },
   // ...
 });

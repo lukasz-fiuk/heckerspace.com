@@ -18,6 +18,7 @@
     "better-sqlite3": "7.4.6",
     "pg": "^8.7.3",
     "pg-connection-string": "^2.5.0",
+    "strapi-plugin-transformer": "^2.0.2",
     "yarn": "^1.22.19"
   },
   "author": {
