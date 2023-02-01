@@ -51,8 +51,11 @@ export const GlobalStyles = styled.createGlobalStyle`
   // Font global styles
   /////////////////////////////////////
 
-  a {
+  a,
+  button {
+    color: inherit;
     cursor: pointer;
+    text-decoration: unset;
   }
 
   del,

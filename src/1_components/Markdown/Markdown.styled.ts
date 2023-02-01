@@ -76,16 +76,13 @@ export const DefaultSpacing = styled.div`
   }
 
   ul {
-    list-style-position: inside;
+    display: grid;
+    row-gap: 1em;
   }
 
   ol {
     list-style-type: decimal;
     list-style-position: inside;
-  }
-
-  li {
-    padding-left: 3.2rem;
   }
 
   img,

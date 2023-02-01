@@ -5,6 +5,7 @@ import { useDarkMode } from "usehooks-ts";
 
 import * as S from "./Markdown.styled";
 import CodeBlock from "./Overrides/CodeBlock/CodeBlock";
+import ListItem from "./Overrides/ListItem/ListItem";
 
 export interface MarkdownProps {
   markdown: string;
@@ -25,6 +26,7 @@ const Markdown: FC<MarkdownProps> = ({ markdown, raw, ...rest }) => {
   const compiledText = compiler(markdown, {
     wrapper: null,
     overrides: {
+      li: ListItem,
       code: ({ className, children }) => {
         const language =
           className !== undefined && className.replace("lang-", "");
