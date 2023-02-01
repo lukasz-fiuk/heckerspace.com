@@ -3,9 +3,9 @@ import React, { FC, useCallback, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { useCopyToClipboard } from "usehooks-ts";
 
-import FireConfetti from "1_components/FireConfetti/FireConfetti";
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
+import useConfetti from "hooks/useConfetii";
 
 import * as S from "./CopyButton.styled";
 
@@ -25,6 +25,8 @@ const CopyButton: FC<CopyButtonProps> = ({
   const [internalValueToCopy, setInternalValueToCopy] =
     useState<string>(valueToCopy);
 
+  const { ref: buttonRef, fireConfetti } = useConfetti();
+
   /////////////////////////////////////
   // If valueToCopy is empty string, copy current URL
   /////////////////////////////////////
@@ -37,30 +39,29 @@ const CopyButton: FC<CopyButtonProps> = ({
 
   const handleCopy = useCallback(() => {
     onCopy(internalValueToCopy);
+    fireConfetti();
     const resetTimeout = setTimeout(() => onCopy(""), 2000);
 
     return () => {
       clearTimeout(resetTimeout);
     };
-  }, [internalValueToCopy, onCopy]);
+  }, [internalValueToCopy, onCopy, fireConfetti]);
 
   return (
     <S.CopyButtonWrapper
+      ref={buttonRef}
       aria-label="Copy to clipboard"
       tabIndex={0}
       onClick={handleCopy}
-      onKeyPress={(e) => e.key === "Enter" && handleCopy()}
       {...rest}
     >
-      <FireConfetti>
-        <HoverReplace direction="up">
-          <AnimatePresence mode="wait">
-            <FadeInOut key={copiedValue} duration={0.2}>
-              {copiedValue ? copiedText : defaultText}
-            </FadeInOut>
-          </AnimatePresence>
-        </HoverReplace>
-      </FireConfetti>
+      <HoverReplace direction="up">
+        <AnimatePresence mode="wait">
+          <FadeInOut key={copiedValue} duration={0.2}>
+            {copiedValue ? copiedText : defaultText}
+          </FadeInOut>
+        </AnimatePresence>
+      </HoverReplace>
 
       {/* Accessibility feature to announce that text have been copied */}
       <div

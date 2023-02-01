@@ -2,7 +2,6 @@ import React, { FC, useEffect, useRef, useState } from "react";
 
 import { AnimatePresence } from "framer-motion";
 
-import FireConfetti from "1_components/FireConfetti/FireConfetti";
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import ArticleHeader, {
@@ -11,6 +10,7 @@ import ArticleHeader, {
 import ModuleRenderer, {
   Modules,
 } from "2_sections/ModuleRenderer/ModuleRenderer";
+import useConfetti from "hooks/useConfetii";
 import { useElementOffset } from "hooks/useElementOffset";
 import { estimateReadingTimeInMinutes } from "utils/estimateReadingTime";
 import { getArticleBadge, storeArticleBadge } from "utils/handleArticleBadge";
@@ -31,6 +31,7 @@ const Article: FC<ArticleProps> = ({
 }) => {
   const articleWrapperRef = useRef<HTMLElement>(null);
   const { offsetX } = useElementOffset(articleWrapperRef);
+  const { ref: buttonRef, fireConfetti } = useConfetti();
 
   const [isCompleted, setIsCompleted] = useState(false);
 
@@ -68,6 +69,12 @@ const Article: FC<ArticleProps> = ({
   const estimatedReadingTime = estimateReadingTime(modules);
   const shouldRenderChapters = allChapters.length > 1 && offsetX;
 
+  const handleCompleteButtonClick = () => {
+    storeArticleBadge(id, completedBadge);
+    setIsCompleted(true);
+    fireConfetti();
+  };
+
   return (
     <>
       <S.SingleArticleWrapper ref={articleWrapperRef}>
@@ -92,28 +99,21 @@ const Article: FC<ArticleProps> = ({
           )}
         </S.ArticleContent>
 
-        <S.CompleteButton
-          onClick={() => {
-            storeArticleBadge(id, completedBadge);
-            setIsCompleted(true);
-          }}
-        >
-          <FireConfetti>
-            <HoverReplace direction="up">
-              <AnimatePresence mode="wait">
-                <FadeInOut
-                  duration={0.2}
-                  key={
-                    getArticleBadge(id) === completedBadge
-                      ? "yay 🏆"
-                      : "mark as completed🤓"
-                  }
-                >
-                  {isCompleted ? "🏆 completed! 🏆" : "mark as completed"}
-                </FadeInOut>
-              </AnimatePresence>
-            </HoverReplace>
-          </FireConfetti>
+        <S.CompleteButton ref={buttonRef} onClick={handleCompleteButtonClick}>
+          <HoverReplace direction="up">
+            <AnimatePresence mode="wait">
+              <FadeInOut
+                duration={0.2}
+                key={
+                  getArticleBadge(id) === completedBadge
+                    ? "yay 🏆"
+                    : "mark as completed🤓"
+                }
+              >
+                {isCompleted ? "🏆 completed! 🏆" : "mark as completed"}
+              </FadeInOut>
+            </AnimatePresence>
+          </HoverReplace>
         </S.CompleteButton>
       </S.SingleArticleWrapper>
     </>
