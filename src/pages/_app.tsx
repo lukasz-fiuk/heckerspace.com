@@ -1,3 +1,4 @@
+import { Inter } from "@next/font/google";
 import { LazyMotion, MotionConfig } from "framer-motion";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
@@ -8,6 +9,8 @@ import { GlobalStyles } from "styled/style.globals";
 
 const loadFeatures = () =>
   import("utils/framerMotionFeatures").then((res) => res.default);
+
+const inter = Inter({ subsets: ["latin"] });
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -28,6 +31,11 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <LazyMotion features={loadFeatures} strict>
       <MotionConfig reducedMotion="user">
+        <style jsx global>{`
+          html {
+            font-family: ${inter.style.fontFamily};
+          }
+        `}</style>
         <GlobalStyles />
         <Layout head={pageProps.head}>
           <Component {...pageProps} />

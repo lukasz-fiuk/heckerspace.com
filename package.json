@@ -9,6 +9,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "@next/font": "^13.1.6",
     "canvas-confetti": "^1.6.0",
     "framer-motion": "^8.4.3",
     "graphql-request": "5.0.0",

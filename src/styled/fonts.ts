@@ -3,7 +3,7 @@ import { css } from "styled-components";
 export type FontFamily = keyof typeof fontFaces;
 
 export const fontFaces = {
-  helvetica: `"Helvetica Neue", "Helvetica", "Arial", sans-serif`,
+  helvetica: `"Helvetica Neue", "Inter", Arimo, Helvetica, Arial, sans-serif;`,
 };
 
 export const fonts = {
