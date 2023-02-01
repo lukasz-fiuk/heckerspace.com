@@ -45,6 +45,7 @@ const HamburgerButton: FC<HamburgerButtonProps> = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
+      whileTap={{ scale: 1.2 }}
       onClick={() => setIsOpen(true)}
       style={{ pointerEvents: isVisible ? "all" : "none" }}
       {...rest}

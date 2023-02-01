@@ -6,7 +6,7 @@ import { vh } from "styled/mixins";
 import { PALETTE } from "styled/theme";
 
 export const HamburgerButtonWrapper = styled(m.button)`
-  position: fixed;
+  position: absolute;
   top: ${vh(100)};
   left: 16px;
 
@@ -20,7 +20,8 @@ export const HamburgerButtonWrapper = styled(m.button)`
   width: 72px;
   height: 72px;
   pointer-events: all;
-  transform: translateY(calc(-100% - 16px));
+
+  margin-top: -88px; // Hamburger height + padding
 
   text-align: center;
   font-size: 16px;
