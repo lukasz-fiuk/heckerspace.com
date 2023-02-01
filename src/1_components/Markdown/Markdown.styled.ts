@@ -78,6 +78,7 @@ export const DefaultSpacing = styled.div`
   ul {
     display: grid;
     row-gap: 1em;
+    padding-bottom: 1em;
   }
 
   ol {

@@ -5,18 +5,17 @@ import Icon from "1_components/Icon/Icon";
 export const ListItemWrapper = styled.li`
   display: grid;
   grid-auto-flow: column;
-  gap: 1em;
+  grid-template-columns: min-content;
 
-  & p {
-    display: inline;
-  }
+  width: fit-content;
 `;
 
 export const ArrowRight = styled(Icon)`
-  align-self: top;
-
-  height: 1em;
-  width: 2em;
+  height: 24px;
+  width: 48px;
 
   transform: translateY(50%);
+  padding-right: 1em;
 `;
+
+export const Content = styled.div``;

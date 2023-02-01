@@ -10,7 +10,7 @@ const ListItem: FC<ListItemProps> = ({ children, ...rest }) => {
   return (
     <S.ListItemWrapper {...rest}>
       <S.ArrowRight variant="arrowRight" />
-      {children}
+      <S.Content>{children}</S.Content>
     </S.ListItemWrapper>
   );
 };
