@@ -9,6 +9,9 @@ export const HeroWrapper = styled.section`
   display: grid;
   place-items: center;
 
+  max-height: 100vh;
+  min-height: 100vh;
+
   height: ${vh(100)};
 `;
 
