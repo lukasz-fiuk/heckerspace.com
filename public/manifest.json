@@ -7,7 +7,7 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "orientation": "portrait",
+  "orientation": "any",
   "icons": [
     {
       "src": "/favicons/icon-192x192.png",
