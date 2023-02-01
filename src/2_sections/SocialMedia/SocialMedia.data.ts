@@ -1,7 +1,7 @@
 export const data = {
   socialMedia: [
     {
-      href: "https://github.com/lukasz-fiuk",
+      href: "https://github.com/lukasz-fiuk/heckerspace.com",
       title: "Heckerspace github",
       ariaLabel: "github repo",
       iconVariant: "github",
