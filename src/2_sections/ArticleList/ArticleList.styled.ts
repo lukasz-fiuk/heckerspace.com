@@ -9,7 +9,6 @@ import { fonts } from "styled/fonts";
 export const Articles = styled.section`
   display: grid;
 
-  padding-bottom: 180px;
   overflow: hidden;
 `;
 

@@ -9,7 +9,7 @@ export const DefaultSpacing = styled.div`
   h2 {
     ${fonts.h3}
     line-height: 2;
-    margin-top: 9.6rem;
+    margin-top: clamp(80px, 9.6rem, 104px);
   }
 
   blockquote {
