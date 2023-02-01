@@ -13,8 +13,10 @@ export const ListItemWrapper = styled.li`
 `;
 
 export const ArrowRight = styled(Icon)`
-  height: 1em;
-  transform: translateY(50%);
-
   align-self: top;
+
+  height: 1em;
+  width: 2em;
+
+  transform: translateY(50%);
 `;
