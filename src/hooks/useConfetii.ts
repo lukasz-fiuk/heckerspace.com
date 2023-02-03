@@ -1,7 +1,7 @@
 import { useRef, useEffect, useCallback } from "react";
 
 /////////////////////////////////////
-// Please note - this effect is ment to be triggered from button elements
+// Please note - this effect should be triggered from button elements
 /////////////////////////////////////
 
 /*
@@ -55,7 +55,10 @@ const useConfetti = ({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
+      if (
+        event.key === "Enter" &&
+        wrapperRef.current === document.activeElement
+      ) {
         fireConfetti();
       }
     };
