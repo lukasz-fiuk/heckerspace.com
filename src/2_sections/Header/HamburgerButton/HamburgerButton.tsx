@@ -1,11 +1,6 @@
-import React, {
-  Dispatch,
-  FC,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
+
+import useScrollDirection from "hooks/useScrollDirection";
 
 import * as S from "./HamburgerButton.styled";
 
@@ -19,35 +14,16 @@ const HamburgerButton: FC<HamburgerButtonProps> = ({
   label = "menu",
   ...rest
 }) => {
-  const [isVisible, setIsVisible] = useState(true);
-  const previousScrollYRef = useRef(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > previousScrollYRef.current) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      previousScrollYRef.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { isUserScrollingUp } = useScrollDirection();
 
   return (
     <S.HamburgerButtonWrapper
       initial={{ opacity: 0 }}
-      animate={{ opacity: isVisible ? 1 : 0 }}
+      animate={{ opacity: isUserScrollingUp ? 1 : 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       whileTap={{ scale: 1.2 }}
       onClick={() => setIsOpen(true)}
-      style={{ pointerEvents: isVisible ? "all" : "none" }}
+      style={{ pointerEvents: isUserScrollingUp ? "all" : "none" }}
       {...rest}
     >
       {label}
