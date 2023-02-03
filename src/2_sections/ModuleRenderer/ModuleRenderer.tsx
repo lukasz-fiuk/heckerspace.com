@@ -8,6 +8,7 @@ import ArticleList, {
   RecentArticles,
 } from "2_sections/ArticleList/ArticleList";
 import Hero, { HeroProps } from "2_sections/Hero/Hero";
+import useUniqueId from "hooks/useUniqueId";
 
 interface BaseModuleProps {
   id: string;
@@ -26,16 +27,19 @@ const ModuleRenderer: FC<ModuleRendererProps> = ({
   modules,
   recentArticles,
 }) => {
+  // Add unique ID to prevent double keys if used more than once on a single page
+  const componentId = useUniqueId();
+
   const renderModules = (modules: Modules) => {
     return modules.map(({ id, __typename, ...content }) => {
       switch (__typename) {
         case "Hero":
-          return <Hero key={id} {...(content as HeroProps)} />;
+          return <Hero key={id + componentId} {...(content as HeroProps)} />;
 
         case "ArticleList":
           return (
             <ArticleList
-              key={id}
+              key={id + componentId}
               recentArticles={recentArticles}
               {...(content as ArticleListProps)}
             />
@@ -43,7 +47,10 @@ const ModuleRenderer: FC<ModuleRendererProps> = ({
 
         case "Chapter":
           return (
-            <ArticleChapter key={id} {...(content as ArticleChapterProps)} />
+            <ArticleChapter
+              key={id + componentId}
+              {...(content as ArticleChapterProps)}
+            />
           );
       }
     });
