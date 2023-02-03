@@ -23,6 +23,7 @@ const SocialMedia: FC<SocialMediaProps> = ({ iconSize = 24, ...rest }) => {
           title={title}
           tabIndex={0}
           aria-label={ariaLabel}
+          target="_blank"
         >
           <HoverReplace direction="up">
             <S.IconComp

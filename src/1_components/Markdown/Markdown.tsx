@@ -4,6 +4,7 @@ import { compiler } from "markdown-to-jsx";
 import { useDarkMode } from "usehooks-ts";
 
 import * as S from "./Markdown.styled";
+import AnchorTag from "./Overrides/AnchorTag/AnchorTag";
 import CodeBlock from "./Overrides/CodeBlock/CodeBlock";
 import ListItem from "./Overrides/ListItem/ListItem";
 
@@ -26,6 +27,7 @@ const Markdown: FC<MarkdownProps> = ({ markdown, raw, ...rest }) => {
   const compiledText = compiler(markdown, {
     wrapper: null,
     overrides: {
+      a: AnchorTag,
       li: ListItem,
       code: ({ className, children }) => {
         const language =
