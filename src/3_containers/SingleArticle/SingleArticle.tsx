@@ -12,7 +12,7 @@ import ModuleRenderer, {
 } from "2_sections/ModuleRenderer/ModuleRenderer";
 import useConfetti from "hooks/useConfetii";
 import { useElementOffset } from "hooks/useElementOffset";
-import { estimateReadingTimeInMinutes } from "utils/estimateReadingTime";
+import { estimateTotalReadingTime } from "utils/estimateTotalReadingTime";
 import { getArticleBadge, storeArticleBadge } from "utils/handleArticleBadge";
 
 import * as S from "./SingleArticle.styled";
@@ -56,17 +56,7 @@ const Article: FC<ArticleProps> = ({
     return chapterNames;
   };
 
-  const estimateReadingTime = (modules: Modules) => {
-    let readingTime = 0;
-    modules.forEach((element: any) => {
-      readingTime = readingTime + estimateReadingTimeInMinutes(element.content);
-    });
-
-    return readingTime;
-  };
-
   const allChapters = extractChapterNames(modules);
-  const estimatedReadingTime = estimateReadingTime(modules);
   const shouldRenderChapters = allChapters.length > 1 && offsetX;
 
   const handleCompleteButtonClick = () => {
@@ -79,11 +69,10 @@ const Article: FC<ArticleProps> = ({
     <>
       <S.SingleArticleWrapper ref={articleWrapperRef}>
         <ArticleHeader
-          name="Łukasz Fiuk"
           cover={cover}
           title={title}
           publishedAt={publishedAt}
-          estimatedReadingTime={estimatedReadingTime}
+          estimatedReadingTime={estimateTotalReadingTime(modules)}
         />
 
         {shouldRenderChapters && (

@@ -5,13 +5,13 @@ import { formatDate } from "utils/formatDate";
 import * as S from "./AuthorDetails.styled";
 
 export interface AuthorDetailsProps {
-  name: string;
+  name?: string;
   publishedAt: string;
   estimatedReadingTime: number;
 }
 
 const AuthorDetails: FC<AuthorDetailsProps> = ({
-  name,
+  name = "Łukasz Fiuk",
   publishedAt,
   estimatedReadingTime,
   ...rest

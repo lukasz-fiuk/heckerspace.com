@@ -46,7 +46,6 @@ const ArticleHeader: FC<ArticleHeaderProps> = ({
       </S.Title>
 
       <AuthorDetails
-        name="Łukasz Fiuk"
         publishedAt={publishedAt}
         estimatedReadingTime={estimatedReadingTime}
       />
