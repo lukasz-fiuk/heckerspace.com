@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Inter } from "@next/font/google";
 import { LazyMotion, MotionConfig } from "framer-motion";
 import type { AppProps } from "next/app";
@@ -29,19 +31,21 @@ const App = ({ Component, pageProps }: AppProps) => {
   });
 
   return (
-    <LazyMotion features={loadFeatures} strict>
-      <MotionConfig reducedMotion="user">
-        <style jsx global>{`
-          html {
-            font-family: ${inter.style.fontFamily};
-          }
-        `}</style>
-        <GlobalStyles />
-        <Layout head={pageProps.head}>
-          <Component {...pageProps} />
-        </Layout>
-      </MotionConfig>
-    </LazyMotion>
+    <React.StrictMode>
+      <LazyMotion features={loadFeatures} strict>
+        <MotionConfig reducedMotion="user">
+          <style jsx global>{`
+            html {
+              font-family: ${inter.style.fontFamily};
+            }
+          `}</style>
+          <GlobalStyles />
+          <Layout head={pageProps.head}>
+            <Component {...pageProps} />
+          </Layout>
+        </MotionConfig>
+      </LazyMotion>
+    </React.StrictMode>
   );
 };
 export default App;
