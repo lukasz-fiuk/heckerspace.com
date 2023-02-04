@@ -8,6 +8,7 @@ import ScrollProgress from "1_components/ScrollProgress/ScrollProgress";
 import SEO, { SeoProps } from "1_components/SEO/SEO";
 import Footer from "2_sections/Footer/Footer";
 import Header from "2_sections/Header/Header";
+import { COMMONS } from "styled/commons";
 import { handleScrollTop } from "utils/handleScrollTop";
 
 import * as S from "./Layout.styled";
@@ -34,7 +35,11 @@ const Layout: FC<LayoutProps> = ({ children, head }) => {
         mode="wait"
         onExitComplete={() => handleScrollTop({ smooth: false })}
       >
-        <S.Main renderAs={m["main"]} key={"main" + asPath} duration={0.4}>
+        <S.Main
+          renderAs={m["main"]}
+          key={"main" + asPath}
+          duration={COMMONS.defaultTransitionDuration}
+        >
           {children}
         </S.Main>
       </AnimatePresence>

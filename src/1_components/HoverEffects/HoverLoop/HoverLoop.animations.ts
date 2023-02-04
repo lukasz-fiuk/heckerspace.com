@@ -1,3 +1,5 @@
+import { COMMONS } from "styled/commons";
+
 export const HoverLoopVariants = {
   up: {
     initial: { y: "100%" },
@@ -21,4 +23,7 @@ export const HoverLoopVariants = {
   },
 };
 
-export const TRANSITION = { duration: 0.4, ease: "easeInOut" };
+export const TRANSITION = {
+  duration: COMMONS.defaultTransitionDuration,
+  ease: "easeInOut",
+};

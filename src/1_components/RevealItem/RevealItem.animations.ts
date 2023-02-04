@@ -1,3 +1,5 @@
+import { COMMONS } from "styled/commons";
+
 export const RevealItemVariants = {
   up: {
     initial: { y: "110%" },
@@ -5,7 +7,10 @@ export const RevealItemVariants = {
     exit: {
       y: "-110%",
       opacity: 0,
-      transition: { duration: 0.4, ease: "easeInOut" },
+      transition: {
+        duration: COMMONS.defaultTransitionDuration,
+        ease: "easeInOut",
+      },
     },
   },
   down: {
@@ -14,7 +19,10 @@ export const RevealItemVariants = {
     exit: {
       y: "110%",
       opacity: 0,
-      transition: { duration: 0.4, ease: "easeInOut" },
+      transition: {
+        duration: COMMONS.defaultTransitionDuration,
+        ease: "easeInOut",
+      },
     },
   },
   left: {
@@ -23,7 +31,10 @@ export const RevealItemVariants = {
     exit: {
       x: "-110%",
       opacity: 0,
-      transition: { duration: 0.4, ease: "easeInOut" },
+      transition: {
+        duration: COMMONS.defaultTransitionDuration,
+        ease: "easeInOut",
+      },
     },
   },
   right: {
@@ -32,7 +43,10 @@ export const RevealItemVariants = {
     exit: {
       x: "110%",
       opacity: 0,
-      transition: { duration: 0.4, ease: "easeInOut" },
+      transition: {
+        duration: COMMONS.defaultTransitionDuration,
+        ease: "easeInOut",
+      },
     },
   },
 };

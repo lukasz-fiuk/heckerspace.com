@@ -1,3 +1,5 @@
+import { COMMONS } from "styled/commons";
+
 export const HoverReplaceVariants = {
   firstItem: {
     up: {
@@ -38,4 +40,7 @@ export const HoverReplaceVariants = {
   },
 };
 
-export const TRANSITION = { duration: 0.4, ease: "easeInOut" };
+export const TRANSITION = {
+  duration: COMMONS.defaultTransitionDuration,
+  ease: "easeInOut",
+};

@@ -2,6 +2,8 @@ import React, { FC } from "react";
 
 import { useScroll, useWillChange } from "framer-motion";
 
+import { COMMONS } from "styled/commons";
+
 import * as S from "./ScrollProgess.styled";
 
 export interface ScrollProgressProps {}
@@ -17,7 +19,7 @@ const ScrollProgress: FC<ScrollProgressProps> = ({ ...rest }) => {
         scaleX: [null, 1],
         scaleY: 0,
         opacity: 0,
-        transition: { duration: 0.4 },
+        transition: { duration: COMMONS.defaultTransitionDuration },
       }}
       style={{ scaleX: scrollYProgress, willChange }}
       {...rest}

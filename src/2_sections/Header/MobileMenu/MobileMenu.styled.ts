@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Logo from "1_components/Logo/Logo";
 import ThemeSwitch from "1_components/ThemeSwitch/ThemeSwitch";
+import { COMMONS } from "styled/commons";
 import media from "styled/mediaQueries";
 import { vh, zIndex } from "styled/mixins";
 
@@ -43,7 +44,7 @@ export const SvgLogo = styled(Logo)<{ $isOpen: boolean }>`
   padding: 24px;
   height: clamp(60px, 9.6rem, 96px);
 
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity ${COMMONS.defaultTransitionDuration}s ease-in-out;
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
 `;
 

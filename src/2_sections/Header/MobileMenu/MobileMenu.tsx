@@ -3,6 +3,7 @@ import React, { FC, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import useDisableScroll from "hooks/useDisableScroll";
+import { COMMONS } from "styled/commons";
 
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import { data } from "../Header.data";
@@ -39,7 +40,10 @@ const MobileMenu: FC<MobileMenuProps> = ({ ...rest }) => {
       <S.SideMenu
         initial={{ x: "100%" }}
         animate={{ x: isOpen ? 0 : "100%" }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        transition={{
+          duration: COMMONS.defaultTransitionDuration,
+          ease: "easeInOut",
+        }}
       >
         <S.NavigationLinks>
           <ul>{routes}</ul>

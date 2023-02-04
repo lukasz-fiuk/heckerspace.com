@@ -4,6 +4,7 @@ import AnimatedUnderline from "1_components/AnimatedLine/AnimatedLine";
 import IconButton from "1_components/Buttons/IconButton/IconButton";
 import Icon from "1_components/Icon/Icon";
 import RevealItem from "1_components/RevealItem/RevealItem";
+import { COMMONS } from "styled/commons";
 import { fonts } from "styled/fonts";
 
 export const Articles = styled.section`
@@ -43,7 +44,7 @@ export const Underline = styled(AnimatedUnderline)`
 
   height: 4px;
   background: var(--primary);
-  transition: background 0.4s ease-in-out;
+  transition: background ${COMMONS.defaultTransitionDuration}s ease-in-out;
 `;
 
 export const ListWrapper = styled.ul`

@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import { m } from "framer-motion";
 
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
+import { COMMONS } from "styled/commons";
 import { handleScrollTop } from "utils/handleScrollTop";
 
 import { data } from "./Footer.data";
@@ -15,7 +16,7 @@ const Footer: FC<FooterProps> = ({ ...rest }) => {
     <S.FooterWrapper
       renderAs={m["footer"]}
       aria-label="Heckerspace main footer"
-      duration={0.4}
+      duration={COMMONS.defaultTransitionDuration}
       {...rest}
     >
       <S.SocialLinks iconSize={24} />

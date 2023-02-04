@@ -3,6 +3,8 @@ import { PALETTE } from "./theme";
 export const COMMONS = {
   mobileBarColor: PALETTE.lavenderRose,
   maxWidth: 1200,
+  defaultTransitionDuration: 0.4,
+
   footerHeight: {
     mobile: 120,
     desktop: 196,
