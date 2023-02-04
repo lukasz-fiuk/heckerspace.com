@@ -7,7 +7,7 @@ import * as S from "./FadeInOut.styled";
 
 export interface FadeInOutProps {
   duration?: number;
-  children: ReactNode;
+  children?: ReactNode;
   renderAs?: ElementType;
 }
 
@@ -24,7 +24,7 @@ const FadeInOut: FC<FadeInOutProps> = ({
       transition={{ duration: duration, ease: "easeInOut" }}
       {...rest}
     >
-      {children}
+      {children && children}
     </S.FadeInOutWrapper>
   );
 };
