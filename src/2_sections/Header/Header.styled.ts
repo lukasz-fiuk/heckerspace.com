@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import LinearGradient from "1_components/LinearGradient/LinearGradient";
 import Logo from "1_components/Logo/Logo";
 import ThemeSwitch from "1_components/ThemeSwitch/ThemeSwitch";
 import media from "styled/mediaQueries";
@@ -59,5 +60,17 @@ export const NavigationLinks = styled.nav`
       display: grid;
       row-gap: 0.25em;
     }
+  }
+`;
+
+export const Fader = styled(LinearGradient)`
+  position: fixed;
+  inset: 0 0 auto 0;
+  pointer-events: none;
+
+  height: 60px;
+
+  ${media.tablet} {
+    height: 96px;
   }
 `;

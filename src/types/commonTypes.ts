@@ -14,3 +14,13 @@ export type Media = {
   height: number;
   fileName: string;
 };
+
+export type GradientDirection =
+  | "to right"
+  | "to left"
+  | "to top"
+  | "to bottom"
+  | "to top right"
+  | "to top left"
+  | "to bottom right"
+  | "to bottom left";

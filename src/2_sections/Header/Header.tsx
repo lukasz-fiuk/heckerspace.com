@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 
-import { useGlobalState } from "context/globalState";
+import { PALETTE } from "styled/theme";
 
-import Fader from "./Fader/Fader";
 import { data } from "./Header.data";
 import * as S from "./Header.styled";
 import MobileMenu from "./MobileMenu/MobileMenu";
@@ -11,8 +10,6 @@ import NavLink from "./NavLink/NavLink";
 export interface HeaderProps {}
 
 const Header: FC<HeaderProps> = ({ ...rest }) => {
-  const [isDarkMode] = useGlobalState("isDarkMode");
-
   const routes = data.navigationLinks.map(({ label, href }) => (
     <li key={label}>
       <NavLink label={label} href={href} />
@@ -23,7 +20,10 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
     <S.HeaderWrapper {...rest}>
       <MobileMenu />
 
-      <Fader key={isDarkMode ? "darkGradient" : "lightGradient"} />
+      <S.Fader
+        fromColor={{ light: PALETTE.white, dark: PALETTE.codGray }}
+        toColor={{ light: PALETTE.transparent, dark: PALETTE.transparent }}
+      />
 
       <S.SkipButton href="#main" title={data.skipButtonLabel} tabIndex={0}>
         {data.skipButtonLabel}

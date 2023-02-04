@@ -1,3 +1,5 @@
+import { GradientDirection } from "types/commonTypes";
+
 export const vh = (value: number) => {
   return `calc(var(--vh) * ${value})`;
 };
@@ -8,16 +10,6 @@ export const zIndex = (
   const order = ["", "aboveContent", "overlay", "header", "absoluteTop"];
   return order.indexOf(id) * 100;
 };
-
-type GradientDirection =
-  | "to right"
-  | "to left"
-  | "to top"
-  | "to bottom"
-  | "to top right"
-  | "to top left"
-  | "to bottom right"
-  | "to bottom left";
 
 export const linearGradient = (
   fromColor: string,

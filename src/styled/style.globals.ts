@@ -21,7 +21,6 @@ export const GlobalStyles = styled.createGlobalStyle`
       --primary_50: ${PALETTE.black_50};
       --primary_75: ${PALETTE.black_75};
       --secondary: ${PALETTE.gray};
-      --backgroundToTransparent: ${`linear-gradient(${PALETTE.white},${PALETTE.transparent})`};
     }
 
     [data-theme="dark"] {
@@ -31,10 +30,6 @@ export const GlobalStyles = styled.createGlobalStyle`
       --primary_50: ${PALETTE.white_50};
       --primary_75: ${PALETTE.white_75};
       --secondary: ${PALETTE.gray};
-      --backgroundToTransparent: ${`linear-gradient(
-        ${PALETTE.codGray},
-        ${PALETTE.transparent}
-      )`};
     }
   }
 
