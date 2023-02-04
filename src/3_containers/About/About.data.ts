@@ -5,6 +5,7 @@ import { getChapter } from "queries/getChapter.module";
 import { getHead } from "queries/getHead";
 import { getMedia } from "queries/getMedia";
 import { client } from "utils/cmsClient";
+import { convertMinutesToSeconds } from "utils/convertMinutesToSeconds.ts";
 
 export const getStaticProps: GetStaticProps = async () => {
   const query = gql`
@@ -28,6 +29,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: articles[0],
-    revalidate: 60 * 60,
+    revalidate: convertMinutesToSeconds(15),
   };
 };

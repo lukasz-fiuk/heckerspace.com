@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 
 import { getArticleList } from "queries/getArticleList.module";
 import { client } from "utils/cmsClient";
+import { convertMinutesToSeconds } from "utils/convertMinutesToSeconds.ts";
 
 export const getStaticProps: GetStaticProps = async () => {
   const query = gql`
@@ -25,6 +26,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { recentArticles, ...content },
-    revalidate: 60 * 60,
+    revalidate: convertMinutesToSeconds(15),
   };
 };
