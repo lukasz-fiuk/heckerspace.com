@@ -4,6 +4,7 @@ import Icon from "1_components/Icon/Icon";
 import Logo from "1_components/Logo/Logo";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import SocialMedia from "2_sections/SocialMedia/SocialMedia";
+import { COMMONS } from "styled/commons";
 import { fonts } from "styled/fonts";
 import media from "styled/mediaQueries";
 
@@ -14,11 +15,11 @@ export const FooterWrapper = styled(FadeInOut)`
   margin: 0 auto;
   max-width: calc(100vw - 32px);
 
-  height: 120px;
+  height: ${COMMONS.footerHeight.mobile}px;
 
   ${media.desktop} {
     max-width: 90vw;
-    height: 196px;
+    height: ${COMMONS.footerHeight.desktop}px;
   }
 `;
 

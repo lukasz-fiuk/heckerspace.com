@@ -3,6 +3,10 @@ import { PALETTE } from "./theme";
 export const COMMONS = {
   mobileBarColor: PALETTE.lavenderRose,
   maxWidth: 1200,
+  footerHeight: {
+    mobile: 120,
+    desktop: 196,
+  },
   breakpoints: {
     tablet: 640,
     desktop: 1024,
