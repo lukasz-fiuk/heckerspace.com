@@ -1,6 +1,7 @@
 import { gql } from "graphql-request";
 import { GetStaticProps } from "next";
 
+import { getArticleList } from "queries/getArticleList.module";
 import { client } from "utils/cmsClient";
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -8,18 +9,7 @@ export const getStaticProps: GetStaticProps = async () => {
     {
       content: page(where: { slug: "articles" }) {
         modules {
-          ... on ArticleList {
-            id
-            __typename
-            title
-            completedLabel
-            viewedLabel
-            buttonHref
-            buttonLabel
-            buttonHoverDirection
-            buttonIcon
-            buttonReverse
-          }
+         ${getArticleList()}
         }
       }
       recentArticles: articles {

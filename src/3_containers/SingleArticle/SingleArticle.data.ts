@@ -1,30 +1,22 @@
 import { gql } from "graphql-request";
 import { GetStaticProps, GetStaticPaths } from "next";
 
+import { getChapter } from "queries/getChapter.module";
 import { getHead } from "queries/getHead";
+import { getMedia } from "queries/getMedia";
 import { client } from "utils/cmsClient";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const query = gql`
   {
     articles(where: { slug: "${params!.slug}" }) {
-      ${getHead()}
+      head ${getHead()}
       id
       publishedAt
       title
-      cover {
-        height
-        url
-        width
-        fileName
-      }
+      cover ${getMedia()}
       modules {
-        ... on Chapter {
-          id
-          __typename
-          chapterName
-          content
-        }
+        ${getChapter()}
       }
     }
   }
