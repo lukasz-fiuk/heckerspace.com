@@ -42,6 +42,7 @@ export const DefaultSpacing = styled.div`
 
     &[data-theme="light"] {
       background: ${PALETTE.white_75};
+      border: 1px solid ${PALETTE.white_75};
     }
 
     &[data-theme="dark"] {
