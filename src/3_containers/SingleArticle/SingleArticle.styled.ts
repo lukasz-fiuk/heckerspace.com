@@ -7,7 +7,7 @@ export const SingleArticleWrapper = styled.article`
   position: relative;
   display: grid;
 
-  margin: 120px auto;
+  margin: 120px auto 0;
   max-width: 880px;
 `;
 
@@ -46,6 +46,7 @@ export const CompleteButton = styled.button`
   cursor: pointer;
   color: var(--primary_75);
   transition: 0.3s ease-in-out;
+  padding-bottom: 120px;
 
   &:hover {
     color: var(--primary);

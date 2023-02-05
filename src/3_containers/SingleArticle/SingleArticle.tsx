@@ -10,6 +10,8 @@ import ArticleHeader, {
 import ModuleRenderer, {
   Modules,
 } from "2_sections/ModuleRenderer/ModuleRenderer";
+import NextArticle from "2_sections/NextArticle/NextArticle";
+import { useGlobalState } from "context/globalState";
 import useConfetti from "hooks/useConfetii";
 import { useElementOffset } from "hooks/useElementOffset";
 import { estimateTotalReadingTime } from "utils/estimateTotalReadingTime";
@@ -34,6 +36,7 @@ const Article: FC<ArticleProps> = ({
   const { ref: buttonRef, fireConfetti } = useConfetti();
 
   const [isCompleted, setIsCompleted] = useState(false);
+  const [isDarkMode] = useGlobalState("isDarkMode");
 
   const completedBadge = "completed 🙌";
   const viewedBadge = "viewed 👀";
@@ -78,6 +81,7 @@ const Article: FC<ArticleProps> = ({
         {shouldRenderChapters && (
           <S.MobileChapterSelector chapters={allChapters} />
         )}
+
         <S.ArticleContent>
           <ModuleRenderer modules={modules} />
           {shouldRenderChapters && (
@@ -99,11 +103,19 @@ const Article: FC<ArticleProps> = ({
                     : "mark as completed🤓"
                 }
               >
-                {isCompleted ? "🏆 completed! 🏆" : "mark as completed"}
+                {isCompleted ? "🏆 completed! 🏆" : "mark as completed ✅"}
               </FadeInOut>
             </AnimatePresence>
           </HoverReplace>
         </S.CompleteButton>
+
+        <AnimatePresence mode="wait">
+          <NextArticle
+            key={isDarkMode ? "dark" : "light"}
+            title={title}
+            modules={modules}
+          />
+        </AnimatePresence>
       </S.SingleArticleWrapper>
     </>
   );
