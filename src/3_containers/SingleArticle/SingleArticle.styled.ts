@@ -38,17 +38,3 @@ export const DesktopChapterSelector = styled(TableOfContents)`
     bottom: 5vw;
   }
 `;
-
-export const CompleteButton = styled.button`
-  justify-self: center;
-
-  margin-top: 6rem;
-  cursor: pointer;
-  color: var(--primary_75);
-  transition: 0.3s ease-in-out;
-  margin-bottom: 120px;
-
-  &:hover {
-    color: var(--primary);
-  }
-`;

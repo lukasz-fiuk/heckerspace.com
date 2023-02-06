@@ -2,6 +2,7 @@ import React, { FC, useEffect, useRef, useState } from "react";
 
 import { AnimatePresence } from "framer-motion";
 
+import ConfettiButton from "1_components/Buttons/ConfettiButton/ConfettiButton";
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import ArticleHeader, {
@@ -40,7 +41,6 @@ const Article: FC<ArticleProps> = ({
 }) => {
   const articleWrapperRef = useRef<HTMLElement>(null);
   const { offsetX } = useElementOffset(articleWrapperRef);
-  const { ref: buttonRef, fireConfetti } = useConfetti();
 
   const [isCompleted, setIsCompleted] = useState(false);
 
@@ -71,7 +71,6 @@ const Article: FC<ArticleProps> = ({
   const handleCompleteButtonClick = () => {
     storeArticleBadge(id, completedBadge);
     setIsCompleted(true);
-    fireConfetti();
   };
 
   return (
@@ -98,22 +97,17 @@ const Article: FC<ArticleProps> = ({
           )}
         </S.ArticleContent>
 
-        <S.CompleteButton ref={buttonRef} onClick={handleCompleteButtonClick}>
-          <HoverReplace direction="up">
-            <AnimatePresence mode="wait">
-              <FadeInOut
-                duration={0.2}
-                key={
-                  getArticleBadge(id) === completedBadge
-                    ? "yay 🏆"
-                    : "mark as completed🤓"
-                }
-              >
-                {isCompleted ? "🏆 completed! 🏆" : "mark as completed ✅"}
-              </FadeInOut>
-            </AnimatePresence>
-          </HoverReplace>
-        </S.CompleteButton>
+        <ConfettiButton onClick={handleCompleteButtonClick}>
+          <AnimatePresence mode="wait">
+            <FadeInOut
+              duration={0.2}
+              key={isCompleted ? "🏆 completed! 🏆" : "mark as completed ✅"}
+            >
+              {isCompleted ? "🏆 completed! 🏆" : "mark as completed ✅"}
+            </FadeInOut>
+          </AnimatePresence>
+        </ConfettiButton>
+
         <Discussion />
         {nextArticleContent && (
           <NextArticle
