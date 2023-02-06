@@ -8,9 +8,8 @@ export interface DiscussionProps {}
 
 const Discussion: FC<DiscussionProps> = ({ ...rest }) => {
   return (
-    <S.DiscussionWrapper {...rest}>
-      <S.Divider />
-      <S.Title>Comments</S.Title>
+    <S.DiscussionWrapper aria-label="Comments section" {...rest}>
+      <S.Title>Comments 💬</S.Title>
       <Comments />
     </S.DiscussionWrapper>
   );

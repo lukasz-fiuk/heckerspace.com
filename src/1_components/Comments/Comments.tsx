@@ -21,7 +21,7 @@ const Comments: FC<CommentsProps> = () => {
         lang="en"
         mapping="title"
         emitMetadata="0"
-        inputPosition="bottom"
+        inputPosition="top"
         theme={isDarkMode ? "dark" : "light"}
         loading="lazy"
       />
