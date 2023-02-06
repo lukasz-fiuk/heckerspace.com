@@ -7,6 +7,7 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffectOnce } from "usehooks-ts";
 
+import KeydownHandler from "1_components/KeydownHandler/KeydownHandler";
 import Layout from "2_sections/Layout/Layout";
 import { GlobalStyles } from "styled/style.globals";
 
@@ -46,6 +47,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           </Layout>
         </MotionConfig>
       </LazyMotion>
+      <KeydownHandler />
       <Analytics />
     </React.StrictMode>
   );
