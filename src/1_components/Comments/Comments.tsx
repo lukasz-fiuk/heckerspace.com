@@ -23,6 +23,7 @@ const Comments: FC<CommentsProps> = () => {
         emitMetadata="0"
         inputPosition="bottom"
         theme={isDarkMode ? "dark" : "light"}
+        loading="lazy"
       />
     </S.CommentsWrapper>
   );
