@@ -1,5 +1,7 @@
 import React, { FC } from "react";
 
+import Link from "next/link";
+
 import Markdown from "1_components/Markdown/Markdown";
 import ModuleRenderer, {
   Modules,
@@ -10,9 +12,15 @@ import * as S from "./NextArticle.styled";
 export interface NextArticleProps {
   modules: Modules;
   title: string;
+  slug: string;
 }
 
-const NextArticle: FC<NextArticleProps> = ({ title, modules, ...rest }) => {
+const NextArticle: FC<NextArticleProps> = ({
+  title,
+  modules,
+  slug,
+  ...rest
+}) => {
   return (
     <S.NextArticleWrapper {...rest}>
       <S.Divider />
@@ -21,16 +29,20 @@ const NextArticle: FC<NextArticleProps> = ({ title, modules, ...rest }) => {
           label="Next article"
           iconVariant="arrowRight"
           hoverDirection="right"
-          href="/about"
+          href={`/article/${slug}`}
         />
-        <S.Title>
-          <Markdown markdown={title} raw />
-        </S.Title>
+        <Link href={`/article/${slug}`} scroll={false}>
+          <S.Title>
+            <Markdown markdown={title} raw />
+          </S.Title>
+        </Link>
       </S.Heading>
 
-      <S.FadedContentWrapper>
-        <ModuleRenderer modules={modules} />
-      </S.FadedContentWrapper>
+      <Link href={`/article/${slug}`} scroll={false}>
+        <S.FadedContentWrapper>
+          <ModuleRenderer modules={modules} />
+        </S.FadedContentWrapper>
+      </Link>
     </S.NextArticleWrapper>
   );
 };

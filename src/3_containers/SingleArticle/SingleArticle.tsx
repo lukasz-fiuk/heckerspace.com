@@ -22,6 +22,12 @@ import * as S from "./SingleArticle.styled";
 export interface ArticleProps extends ArticleHeaderProps {
   id: string;
   modules: Modules;
+  nextArticleContent: {
+    id: string;
+    title: string;
+    slug: string;
+    modules: Modules;
+  };
 }
 
 const Article: FC<ArticleProps> = ({
@@ -30,7 +36,9 @@ const Article: FC<ArticleProps> = ({
   modules,
   publishedAt,
   cover,
+  nextArticleContent,
 }) => {
+  console.log(nextArticleContent);
   const articleWrapperRef = useRef<HTMLElement>(null);
   const { offsetX } = useElementOffset(articleWrapperRef);
   const { ref: buttonRef, fireConfetti } = useConfetti();
@@ -108,7 +116,13 @@ const Article: FC<ArticleProps> = ({
           </HoverReplace>
         </S.CompleteButton>
         <Discussion />
-        <NextArticle title={title} modules={modules} />
+        {nextArticleContent && (
+          <NextArticle
+            title={nextArticleContent.title}
+            modules={nextArticleContent.modules}
+            slug={nextArticleContent.slug}
+          />
+        )}
       </S.SingleArticleWrapper>
     </>
   );
