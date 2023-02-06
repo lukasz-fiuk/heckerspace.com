@@ -2,11 +2,13 @@ import React, { FC, useEffect, useRef, useState } from "react";
 
 import { AnimatePresence } from "framer-motion";
 
+import Comments from "1_components/Comments/Comments";
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import ArticleHeader, {
   ArticleHeaderProps,
 } from "2_sections/ArticleHeader/ArticleHeader";
+import Discussion from "2_sections/Discussion/Discussion";
 import ModuleRenderer, {
   Modules,
 } from "2_sections/ModuleRenderer/ModuleRenderer";
@@ -109,13 +111,7 @@ const Article: FC<ArticleProps> = ({
           </HoverReplace>
         </S.CompleteButton>
 
-        <AnimatePresence mode="wait">
-          <NextArticle
-            key={isDarkMode ? "dark" : "light"}
-            title={title}
-            modules={modules}
-          />
-        </AnimatePresence>
+        <Discussion />
       </S.SingleArticleWrapper>
     </>
   );
