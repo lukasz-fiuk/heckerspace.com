@@ -79,5 +79,6 @@ export const GlobalStyles = styled.createGlobalStyle`
     transition: outline-offset 0.3s ease-in-out;
     outline: 1px solid;
     outline-offset: 0.25em;
+    border-radius: 4px;
   }
 `;
