@@ -8,9 +8,9 @@ import { client } from "utils/cmsClient";
 import { convertMinutesToSeconds } from "utils/convertMinutesToSeconds.ts";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const query = gql`
+  const fetchArticle = gql`
   {
-    articles(where: { slug: "hello-heckers" }) {
+    article(where: { slug: "hello-heckers" }) {
       head ${getHead()}
       id
       publishedAt
@@ -21,14 +21,42 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     }
   }
-  
-  `;
+`;
 
-  const data = await client.request(query);
-  const { articles } = data;
+  const data = await client.request(fetchArticle);
+  const { article } = data;
+  const { publishedAt } = article;
+
+  const fetchNextArticle = gql`
+  {
+    nextArticle: articlesConnection(
+      first:1
+      orderBy: publishedAt_DESC
+      where: {publishedAt_lt: "${publishedAt}"}
+    ) {
+      edges {
+        node {
+          id
+          title
+          slug
+          modules {
+           ${getChapter()}
+          }
+          publishedAt
+        }
+      }
+    }
+  }
+`;
+
+  const nextData = await client.request(fetchNextArticle);
+  const { nextArticle } = nextData;
+  const nextArticleContent = nextArticle.edges[0]
+    ? nextArticle.edges[0].node
+    : "";
 
   return {
-    props: articles[0],
+    props: { ...article, publishedAt, nextArticleContent },
     revalidate: convertMinutesToSeconds(15),
   };
 };

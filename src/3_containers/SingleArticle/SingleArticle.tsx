@@ -38,7 +38,6 @@ const Article: FC<ArticleProps> = ({
   cover,
   nextArticleContent,
 }) => {
-  console.log(nextArticleContent);
   const articleWrapperRef = useRef<HTMLElement>(null);
   const { offsetX } = useElementOffset(articleWrapperRef);
   const { ref: buttonRef, fireConfetti } = useConfetti();
