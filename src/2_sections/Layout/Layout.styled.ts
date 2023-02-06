@@ -1,4 +1,3 @@
-import { m } from "framer-motion";
 import styled from "styled-components";
 
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
@@ -7,7 +6,7 @@ import media from "styled/mediaQueries";
 
 export const Main = styled(FadeInOut)`
   margin: 0 auto;
-  padding: 0 16px 16px;
+  padding: 0 16px;
 
   max-width: ${COMMONS.maxWidth}px;
   min-height: 100vh;
@@ -15,14 +14,4 @@ export const Main = styled(FadeInOut)`
   ${media.desktop} {
     width: 75vw;
   }
-`;
-
-export const PageTransition = styled(m.div)`
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-
-  background-color: #2c2c2c;
-  pointer-events: none;
-  user-select: none;
 `;
