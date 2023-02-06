@@ -26,6 +26,7 @@ const AnimatedLine: FC<AnimatedLineProps> = ({
 
   return (
     <S.LineWrapper
+      aria-hidden
       ref={lineRef}
       initial="initial"
       animate={isInView ? "visible" : "initial"}

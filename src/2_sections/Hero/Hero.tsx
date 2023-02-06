@@ -12,7 +12,7 @@ const Hero: FC<HeroProps> = ({ title, ...rest }) => {
   return (
     <S.HeroWrapper {...rest}>
       <S.HeadingWrapper>
-        <S.SvgCircles alt="Decorative circles pattern" />
+        <S.SvgCircles aria-hidden />
 
         <S.Title>
           <Markdown markdown={title} raw />

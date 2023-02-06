@@ -23,6 +23,7 @@ const LinearGradient: FC<LinearGradientProps> = ({
   return (
     <S.LinearGradientWrapper
       key={isDarkMode ? "gradientDark" : "gradientLight"}
+      aria-hidden
       data-theme={isDarkMode ? "dark" : "light"}
       $fromColor={fromColor}
       $toColor={toColor}

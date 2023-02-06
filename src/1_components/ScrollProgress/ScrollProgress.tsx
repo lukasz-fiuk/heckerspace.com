@@ -14,6 +14,7 @@ const ScrollProgress: FC<ScrollProgressProps> = ({ ...rest }) => {
 
   return (
     <S.ScrollIndicator
+      aria-hidden
       initial={{ scaleX: 0, opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{
