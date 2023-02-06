@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const LandingPageWrapper = styled.article`
+export const LandingPageWrapper = styled.div`
   position: relative;
   display: grid;
 
-  margin-bottom: 12rem;
+  padding-bottom: 12rem;
 `;

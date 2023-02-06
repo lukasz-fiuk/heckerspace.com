@@ -14,9 +14,9 @@ export interface ArticlesProps {
 
 const Articles: FC<ArticlesProps> = ({ modules, recentArticles }) => {
   return (
-    <S.PageWrapper>
+    <S.ArticlesPageWrapper>
       <ModuleRenderer modules={modules} recentArticles={recentArticles} />
-    </S.PageWrapper>
+    </S.ArticlesPageWrapper>
   );
 };
 export default Articles;
