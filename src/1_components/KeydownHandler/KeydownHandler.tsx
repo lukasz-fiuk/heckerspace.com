@@ -1,16 +1,13 @@
-import { useEffect } from "react";
-
 import { useRouter } from "next/router";
-import { useDarkMode } from "usehooks-ts";
+import { useDarkMode, useEffectOnce } from "usehooks-ts";
 
 import { setGlobalState } from "context/globalState";
-import { handleScrollTop } from "utils/handleScrollTop";
 
 const KeydownHandler = () => {
   const router = useRouter();
   const { toggle: toggleTheme } = useDarkMode();
 
-  useEffect(() => {
+  useEffectOnce(() => {
     const handleKeydown = (event: KeyboardEvent) => {
       switch (event.key) {
         case "Tab":
@@ -27,10 +24,6 @@ const KeydownHandler = () => {
 
         case "t":
           toggleTheme();
-          break;
-
-        case "u":
-          handleScrollTop();
           break;
 
         case "h":
@@ -55,7 +48,7 @@ const KeydownHandler = () => {
     return () => {
       window.removeEventListener("keydown", handleKeydown);
     };
-  }, []);
+  });
 
   return null;
 };
