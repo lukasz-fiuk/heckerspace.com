@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 import AnimatedLine from "1_components/AnimatedLine/AnimatedLine";
 import IconButton from "1_components/Buttons/IconButton/IconButton";
-import LinearGradient from "1_components/LinearGradient/LinearGradient";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import { COMMONS } from "styled/commons";
 import { fonts } from "styled/fonts";
@@ -12,11 +11,11 @@ export const NextArticleWrapper = styled(FadeInOut)`
   display: grid;
   place-items: center;
   cursor: pointer;
-  height: calc(100vh - ${COMMONS.footerHeight.mobile}px);
   overflow-y: hidden;
 
   padding-bottom: 40px;
 
+  height: calc(100vh - ${COMMONS.footerHeight.mobile}px);
   ${media.desktop} {
     height: calc(100vh - ${COMMONS.footerHeight.desktop}px);
   }
@@ -27,7 +26,7 @@ export const Heading = styled.div`
   place-items: center;
 `;
 
-export const ReturnButton = styled(IconButton)`
+export const NextButton = styled(IconButton)`
   ${fonts.small}
   color:var(--primary);
   opacity: 0.5;
@@ -43,11 +42,6 @@ export const Title = styled.div`
   text-align: center;
 `;
 
-export const Fader = styled(LinearGradient)`
-  position: absolute;
-  inset: 0;
-`;
-
 export const Divider = styled(AnimatedLine)`
   width: 100%;
   height: 1px;
@@ -61,5 +55,5 @@ export const FadedContentWrapper = styled.div`
   height: 50vh;
   overflow: hidden;
 
-  mask-image: linear-gradient (black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent);
 `;

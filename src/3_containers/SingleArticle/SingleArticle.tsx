@@ -2,7 +2,6 @@ import React, { FC, useEffect, useRef, useState } from "react";
 
 import { AnimatePresence } from "framer-motion";
 
-import Comments from "1_components/Comments/Comments";
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import ArticleHeader, {
@@ -13,7 +12,6 @@ import ModuleRenderer, {
   Modules,
 } from "2_sections/ModuleRenderer/ModuleRenderer";
 import NextArticle from "2_sections/NextArticle/NextArticle";
-import { useGlobalState } from "context/globalState";
 import useConfetti from "hooks/useConfetii";
 import { useElementOffset } from "hooks/useElementOffset";
 import { estimateTotalReadingTime } from "utils/estimateTotalReadingTime";
@@ -38,7 +36,6 @@ const Article: FC<ArticleProps> = ({
   const { ref: buttonRef, fireConfetti } = useConfetti();
 
   const [isCompleted, setIsCompleted] = useState(false);
-  const [isDarkMode] = useGlobalState("isDarkMode");
 
   const completedBadge = "completed 🙌";
   const viewedBadge = "viewed 👀";
@@ -110,8 +107,8 @@ const Article: FC<ArticleProps> = ({
             </AnimatePresence>
           </HoverReplace>
         </S.CompleteButton>
-
         <Discussion />
+        <NextArticle title={title} modules={modules} />
       </S.SingleArticleWrapper>
     </>
   );
