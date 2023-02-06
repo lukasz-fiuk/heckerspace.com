@@ -5,18 +5,14 @@ import { useInView } from "framer-motion";
 import Markdown from "1_components/Markdown/Markdown";
 import { setGlobalState } from "context/globalState";
 
-import * as S from "./ArticleChapter.styled";
+import * as S from "./Chapter.styled";
 
-export interface ArticleChapterProps {
+export interface ChapterProps {
   chapterName: string;
   content: string;
 }
 
-const ArticleChapter: FC<ArticleChapterProps> = ({
-  chapterName,
-  content,
-  ...rest
-}) => {
+const Chapter: FC<ChapterProps> = ({ chapterName, content, ...rest }) => {
   const chapterRef = useRef<HTMLElement>(null);
   const isInView = useInView(chapterRef);
 
@@ -25,9 +21,9 @@ const ArticleChapter: FC<ArticleChapterProps> = ({
   }, [isInView, chapterName]);
 
   return (
-    <S.ArticleChapterWrapper id={chapterName} ref={chapterRef} {...rest}>
+    <S.ChapterWrapper id={chapterName} ref={chapterRef} {...rest}>
       <Markdown markdown={content} />
-    </S.ArticleChapterWrapper>
+    </S.ChapterWrapper>
   );
 };
-export default ArticleChapter;
+export default Chapter;
