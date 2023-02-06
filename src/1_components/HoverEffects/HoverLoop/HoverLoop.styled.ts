@@ -1,12 +1,15 @@
 import { m } from "framer-motion";
 import styled from "styled-components";
 
-export const HoverLoopWrapper = styled.div`
+export const HoverLoopWrapper = styled.span`
+  display: block;
+
   position: relative;
   overflow: hidden;
 `;
 
-export const LoopItem = styled(m.div)`
+export const LoopItem = styled(m.span)`
+  display: block;
   position: absolute;
   inset: 0;
 
@@ -14,7 +17,9 @@ export const LoopItem = styled(m.div)`
   height: 100%;
 `;
 
-export const DimensionGhost = styled.div`
+export const DimensionGhost = styled.span`
+  display: block;
+
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
