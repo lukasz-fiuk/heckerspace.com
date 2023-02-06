@@ -19,7 +19,7 @@ const Comments: FC<CommentsProps> = () => {
         categoryId="DIC_kwDOH2WtkM4CUBLM"
         reactionsEnabled="1"
         lang="en"
-        mapping="pathname"
+        mapping="title"
         emitMetadata="0"
         inputPosition="bottom"
         theme={isDarkMode ? "dark" : "light"}
