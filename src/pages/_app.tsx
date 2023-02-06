@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Inter } from "@next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { LazyMotion, MotionConfig } from "framer-motion";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
@@ -45,6 +46,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           </Layout>
         </MotionConfig>
       </LazyMotion>
+      <Analytics />
     </React.StrictMode>
   );
 };
