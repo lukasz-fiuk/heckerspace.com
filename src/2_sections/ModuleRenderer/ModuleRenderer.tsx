@@ -1,12 +1,10 @@
 import React, { FC } from "react";
 
-import ArticleChapter, {
-  ArticleChapterProps,
-} from "2_sections/ArticleChapter/ArticleChapter";
 import ArticleList, {
-  ArticleListProps,
   RecentArticles,
+  ArticleListProps,
 } from "2_sections/ArticleList/ArticleList";
+import Chapter, { ChapterProps } from "2_sections/Chapter/Chapter";
 import Hero, { HeroProps } from "2_sections/Hero/Hero";
 import useUniqueId from "hooks/useUniqueId";
 
@@ -47,10 +45,7 @@ const ModuleRenderer: FC<ModuleRendererProps> = ({
 
         case "Chapter":
           return (
-            <ArticleChapter
-              key={id + componentId}
-              {...(content as ArticleChapterProps)}
-            />
+            <Chapter key={id + componentId} {...(content as ChapterProps)} />
           );
       }
     });

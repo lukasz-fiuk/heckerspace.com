@@ -38,11 +38,9 @@ const NextArticle: FC<NextArticleProps> = ({
         </Link>
       </S.Heading>
 
-      <Link href={`/article/${slug}`} scroll={false}>
-        <S.FadedContentWrapper>
-          <ModuleRenderer modules={modules} />
-        </S.FadedContentWrapper>
-      </Link>
+      <S.FadedContentWrapper>
+        <ModuleRenderer modules={modules} />
+      </S.FadedContentWrapper>
     </S.NextArticleWrapper>
   );
 };
