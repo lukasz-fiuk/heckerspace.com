@@ -11,7 +11,6 @@ export const HeroWrapper = styled.section`
 
   max-height: 100vh;
   min-height: 100vh;
-
   height: ${vh(100)};
 `;
 
