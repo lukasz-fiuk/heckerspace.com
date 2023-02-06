@@ -3,19 +3,17 @@ import React, { FC, useEffect, useState } from "react";
 import { useDarkMode } from "usehooks-ts";
 
 import { setGlobalState } from "context/globalState";
-import useUniqueId from "hooks/useUniqueId";
 import { ThemeVariants } from "types/commonTypes";
 
 import * as S from "./ThemeSwitch.styled";
 
-export interface ThemeSwitchProps {}
+export interface ThemeSwitchProps {
+  uniqueId: string;
+}
 
-const ThemeSwitch: FC<ThemeSwitchProps> = ({ ...rest }) => {
+const ThemeSwitch: FC<ThemeSwitchProps> = ({ uniqueId, ...rest }) => {
   const [currentTheme, setCurrentTheme] = useState<ThemeVariants>("dark");
   const { toggle, isDarkMode } = useDarkMode();
-
-  // Add unique ID to prevent id clashing
-  const componentId = useUniqueId();
 
   useEffect(() => {
     setCurrentTheme(isDarkMode ? "dark" : "light");
@@ -38,14 +36,14 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({ ...rest }) => {
         $currentTheme={currentTheme}
       >
         <circle
-          mask={`url(#moon-mask-${componentId})`}
+          mask={`url(#moon-mask-${uniqueId})`}
           cx="12"
           cy="12"
           r="12"
           fill="currentColor"
         />
 
-        <S.Mask id={`moon-mask-${componentId}`} $currentTheme={currentTheme}>
+        <S.Mask id={`moon-mask-${uniqueId}`} $currentTheme={currentTheme}>
           <rect x="0" y="0" width="100%" height="100%" fill="white" />
           <circle cx="12" cy="12" r="12" fill="black" />
         </S.Mask>

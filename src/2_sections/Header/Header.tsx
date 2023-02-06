@@ -29,7 +29,7 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
         {data.skipButtonLabel}
       </S.SkipButton>
 
-      <S.ThemeToggle />
+      <S.ThemeToggle uniqueId="header_desktop" />
 
       <S.SvgLogo />
 

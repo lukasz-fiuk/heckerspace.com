@@ -54,7 +54,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ ...rest }) => {
             {menu.close}
           </S.CloseButton>
 
-          <S.ThemeToggle />
+          <S.ThemeToggle uniqueId="menu_mobile" />
         </S.TogglesWrapper>
       </S.SideMenu>
 
