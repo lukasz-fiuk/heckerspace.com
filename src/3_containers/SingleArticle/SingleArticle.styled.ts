@@ -46,7 +46,7 @@ export const CompleteButton = styled.button`
   cursor: pointer;
   color: var(--primary_75);
   transition: 0.3s ease-in-out;
-  padding-bottom: 120px;
+  margin-bottom: 120px;
 
   &:hover {
     color: var(--primary);
