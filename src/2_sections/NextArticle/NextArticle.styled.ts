@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import AnimatedLine from "1_components/AnimatedLine/AnimatedLine";
 import IconButton from "1_components/Buttons/IconButton/IconButton";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import { COMMONS } from "styled/commons";
@@ -10,12 +9,10 @@ import media from "styled/mediaQueries";
 export const NextArticleWrapper = styled(FadeInOut)`
   display: grid;
   place-items: center;
-  cursor: pointer;
-  overflow-y: hidden;
-
-  padding-bottom: 40px;
+  padding: 12rem 0;
 
   height: calc(100vh - ${COMMONS.footerHeight.mobile}px);
+
   ${media.desktop} {
     height: calc(100vh - ${COMMONS.footerHeight.desktop}px);
   }
@@ -40,14 +37,6 @@ export const Title = styled.div`
   ${fonts.h2}
   font-weight: bold;
   text-align: center;
-`;
-
-export const Divider = styled(AnimatedLine)`
-  width: 100%;
-  height: 1px;
-  background: var(--secondary);
-
-  margin: 0 0 120px 0;
 `;
 
 export const FadedContentWrapper = styled.div`

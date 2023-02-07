@@ -23,7 +23,6 @@ const NextArticle: FC<NextArticleProps> = ({
 }) => {
   return (
     <S.NextArticleWrapper {...rest}>
-      <S.Divider />
       <S.Heading>
         <S.NextButton
           label="Next article"
@@ -31,6 +30,7 @@ const NextArticle: FC<NextArticleProps> = ({
           hoverDirection="right"
           href={`/article/${slug}`}
         />
+
         <Link href={`/article/${slug}`} scroll={false}>
           <S.Title>
             <Markdown markdown={title} raw />

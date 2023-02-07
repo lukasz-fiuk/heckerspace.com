@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
+import AnimatedLine from "1_components/AnimatedLine/AnimatedLine";
 import { TableOfContents } from "2_sections/TableOfContents/TableOfContents";
 import media from "styled/mediaQueries";
 
-export const SingleArticleWrapper = styled.article`
+export const SingleArticleWrapper = styled.div`
   position: relative;
   display: grid;
+  row-gap: 12rem;
 
   margin: 120px auto 0;
   max-width: 880px;
 `;
 
-export const ArticleContent = styled.div`
+export const Article = styled.article`
   // Remove margins and padding from first H2 as spacing is added by Article Header
   & > *:first-child h2 {
     margin-top: 0;
@@ -37,4 +39,10 @@ export const DesktopChapterSelector = styled(TableOfContents)`
     position: sticky;
     bottom: 5vw;
   }
+`;
+
+export const Divider = styled(AnimatedLine)`
+  width: 100%;
+  height: 1px;
+  background: var(--secondary);
 `;

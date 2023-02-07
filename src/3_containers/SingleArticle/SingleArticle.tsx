@@ -3,7 +3,6 @@ import React, { FC, useEffect, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import ConfettiButton from "1_components/Buttons/ConfettiButton/ConfettiButton";
-import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import ArticleHeader, {
   ArticleHeaderProps,
@@ -13,7 +12,6 @@ import ModuleRenderer, {
   Modules,
 } from "2_sections/ModuleRenderer/ModuleRenderer";
 import NextArticle from "2_sections/NextArticle/NextArticle";
-import useConfetti from "hooks/useConfetii";
 import { useElementOffset } from "hooks/useElementOffset";
 import { estimateTotalReadingTime } from "utils/estimateTotalReadingTime";
 import { getArticleBadge, storeArticleBadge } from "utils/handleArticleBadge";
@@ -29,6 +27,8 @@ export interface ArticleProps extends ArticleHeaderProps {
     slug: string;
     modules: Modules;
   };
+  completedBadge: string;
+  viewedBadge: string;
 }
 
 const Article: FC<ArticleProps> = ({
@@ -38,14 +38,12 @@ const Article: FC<ArticleProps> = ({
   publishedAt,
   cover,
   nextArticleContent,
+  completedBadge,
+  viewedBadge,
 }) => {
-  const articleWrapperRef = useRef<HTMLElement>(null);
+  const articleWrapperRef = useRef<HTMLDivElement>(null);
   const { offsetX } = useElementOffset(articleWrapperRef);
-
   const [isCompleted, setIsCompleted] = useState(false);
-
-  const completedBadge = "completed 🙌";
-  const viewedBadge = "viewed 👀";
 
   useEffect(() => {
     if (getArticleBadge(id) === completedBadge) {
@@ -53,7 +51,7 @@ const Article: FC<ArticleProps> = ({
     } else {
       storeArticleBadge(id, viewedBadge);
     }
-  }, [id]);
+  }, [id, completedBadge, viewedBadge]);
 
   const extractChapterNames = (modules: Modules) => {
     const chapterNames: Array<string> = [];
@@ -76,26 +74,27 @@ const Article: FC<ArticleProps> = ({
   return (
     <>
       <S.SingleArticleWrapper ref={articleWrapperRef}>
-        <ArticleHeader
-          cover={cover}
-          title={title}
-          publishedAt={publishedAt}
-          estimatedReadingTime={estimateTotalReadingTime(modules)}
-        />
+        <S.Article>
+          <ArticleHeader
+            cover={cover}
+            title={title}
+            publishedAt={publishedAt}
+            estimatedReadingTime={estimateTotalReadingTime(modules)}
+          />
 
-        {shouldRenderChapters && (
-          <S.MobileChapterSelector chapters={allChapters} />
-        )}
+          {shouldRenderChapters && (
+            <S.MobileChapterSelector chapters={allChapters} />
+          )}
 
-        <S.ArticleContent>
           <ModuleRenderer modules={modules} />
+
           {shouldRenderChapters && (
             <S.DesktopChapterSelector
               chapters={allChapters}
               offsetX={offsetX}
             />
           )}
-        </S.ArticleContent>
+        </S.Article>
 
         <ConfettiButton onClick={handleCompleteButtonClick}>
           <AnimatePresence mode="wait">
@@ -108,7 +107,10 @@ const Article: FC<ArticleProps> = ({
           </AnimatePresence>
         </ConfettiButton>
 
+        <S.Divider />
+
         <Discussion />
+
         {nextArticleContent && (
           <NextArticle
             title={nextArticleContent.title}

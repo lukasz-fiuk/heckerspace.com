@@ -55,8 +55,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     ? nextArticle.edges[0].node
     : "";
 
+  const badges = {
+    completedBadge: "completed 🙌",
+    viewedBadge: "viewed 👀",
+  };
+
   return {
-    props: { ...article, publishedAt, nextArticleContent },
+    props: { ...article, publishedAt, nextArticleContent, ...badges },
     revalidate: convertMinutesToSeconds(15),
   };
 };
