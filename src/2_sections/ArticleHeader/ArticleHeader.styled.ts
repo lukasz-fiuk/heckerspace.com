@@ -4,12 +4,10 @@ import styled from "styled-components";
 import IconButton from "1_components/Buttons/IconButton/IconButton";
 import { fonts } from "styled/fonts";
 
-export const ArticleHeaderWrapper = styled.section`
+export const ArticleHeaderWrapper = styled.header`
   display: grid;
   place-items: center;
   row-gap: 24px;
-
-  margin: 12vh 0 6.4rem 0;
 `;
 
 export const CoverImage = styled(Image)`

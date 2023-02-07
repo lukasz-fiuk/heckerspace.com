@@ -4,9 +4,7 @@ import { AnimatePresence } from "framer-motion";
 
 import ConfettiButton from "1_components/Buttons/ConfettiButton/ConfettiButton";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
-import ArticleHeader, {
-  ArticleHeaderProps,
-} from "2_sections/ArticleHeader/ArticleHeader";
+import { ArticleHeaderProps } from "2_sections/ArticleHeader/ArticleHeader";
 import Discussion from "2_sections/Discussion/Discussion";
 import ModuleRenderer, {
   Modules,
@@ -67,24 +65,23 @@ const Article: FC<ArticleProps> = ({
     <>
       <S.SingleArticleWrapper ref={articleWrapperRef}>
         <S.Article>
-          <ArticleHeader
+          <S.Header
             cover={cover}
             title={title}
             publishedAt={publishedAt}
             estimatedReadingTime={estimateTotalReadingTime(modules)}
           />
 
-          {shouldRenderChapters && (
-            <S.MobileChapterSelector chapters={chaptersList} />
-          )}
-
           <ModuleRenderer modules={modules} />
 
           {shouldRenderChapters && (
-            <S.DesktopChapterSelector
-              chapters={chaptersList}
-              offsetX={offsetX}
-            />
+            <>
+              <S.MobileChapterSelector chapters={chaptersList} />
+              <S.DesktopChapterSelector
+                chapters={chaptersList}
+                offsetX={offsetX}
+              />
+            </>
           )}
         </S.Article>
 

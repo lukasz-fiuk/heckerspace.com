@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import AnimatedLine from "1_components/AnimatedLine/AnimatedLine";
+import ArticleHeader from "2_sections/ArticleHeader/ArticleHeader";
 import { TableOfContents } from "2_sections/TableOfContents/TableOfContents";
 import media from "styled/mediaQueries";
 
@@ -14,15 +15,16 @@ export const SingleArticleWrapper = styled.div`
 `;
 
 export const Article = styled.article`
-  // Remove margins and padding from first H2 as spacing is added by Article Header
-  & > *:first-child h2 {
-    margin-top: 0;
-    padding-top: 0;
-  }
+  display: grid;
+  row-gap: clamp(64px, 8rem, 96px);
+`;
+
+export const Header = styled(ArticleHeader)`
+  margin-top: 12rem;
 `;
 
 export const MobileChapterSelector = styled(TableOfContents)`
-  margin-bottom: 6.4rem;
+  grid-row: 2;
 
   ${media.desktopLarge} {
     display: none;
