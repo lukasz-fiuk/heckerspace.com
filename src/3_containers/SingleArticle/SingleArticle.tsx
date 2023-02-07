@@ -29,6 +29,7 @@ export interface ArticleProps extends ArticleHeaderProps {
   };
   completedBadge: string;
   viewedBadge: string;
+  chaptersList: Array<string> | null;
 }
 
 const Article: FC<ArticleProps> = ({
@@ -40,10 +41,11 @@ const Article: FC<ArticleProps> = ({
   nextArticleContent,
   completedBadge,
   viewedBadge,
+  chaptersList,
 }) => {
   const articleWrapperRef = useRef<HTMLDivElement>(null);
-  const { offsetX } = useElementOffset(articleWrapperRef);
   const [isCompleted, setIsCompleted] = useState(false);
+  const { offsetX } = useElementOffset(articleWrapperRef);
 
   useEffect(() => {
     if (getArticleBadge(id) === completedBadge) {
@@ -53,23 +55,13 @@ const Article: FC<ArticleProps> = ({
     }
   }, [id, completedBadge, viewedBadge]);
 
-  const extractChapterNames = (modules: Modules) => {
-    const chapterNames: Array<string> = [];
-    modules.forEach((module) => {
-      if (module.__typename === "Chapter") {
-        chapterNames.push(module.chapterName);
-      }
-    });
-    return chapterNames;
-  };
-
-  const allChapters = extractChapterNames(modules);
-  const shouldRenderChapters = allChapters.length > 1 && offsetX;
-
   const handleCompleteButtonClick = () => {
     storeArticleBadge(id, completedBadge);
     setIsCompleted(true);
   };
+
+  const shouldRenderChapters =
+    chaptersList && chaptersList.length > 1 && offsetX;
 
   return (
     <>
@@ -83,14 +75,14 @@ const Article: FC<ArticleProps> = ({
           />
 
           {shouldRenderChapters && (
-            <S.MobileChapterSelector chapters={allChapters} />
+            <S.MobileChapterSelector chapters={chaptersList} />
           )}
 
           <ModuleRenderer modules={modules} />
 
           {shouldRenderChapters && (
             <S.DesktopChapterSelector
-              chapters={allChapters}
+              chapters={chaptersList}
               offsetX={offsetX}
             />
           )}
