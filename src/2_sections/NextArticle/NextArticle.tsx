@@ -23,23 +23,27 @@ const NextArticle: FC<NextArticleProps> = ({
 }) => {
   return (
     <S.NextArticleWrapper {...rest}>
-      <S.Heading>
-        <S.NextButton
-          label="Next article"
-          iconVariant="arrowRight"
-          hoverDirection="right"
-          href={`/article/${slug}`}
-        />
+      <Link href={`/article/${slug}`} scroll={false}>
+        <S.Heading
+          initial={{ opacity: 0.5 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          <S.ArrowButton
+            label="Next article"
+            iconVariant="arrowRight"
+            hoverDirection="right"
+            removeFocus
+          />
 
-        <Link href={`/article/${slug}`} scroll={false}>
           <S.Title>
             <Markdown markdown={title} raw />
           </S.Title>
-        </Link>
-      </S.Heading>
+        </S.Heading>
+      </Link>
 
-      <S.FadedContentWrapper>
-        <ModuleRenderer modules={modules} />
+      <S.FadedContentWrapper aria-hidden>
+        <ModuleRenderer modules={modules} disableFocus />
       </S.FadedContentWrapper>
     </S.NextArticleWrapper>
   );

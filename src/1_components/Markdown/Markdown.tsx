@@ -12,9 +12,15 @@ export interface MarkdownProps {
   markdown: string;
   raw?: boolean;
   id?: string;
+  disableFocus?: boolean;
 }
 
-const Markdown: FC<MarkdownProps> = ({ markdown, raw, ...rest }) => {
+const Markdown: FC<MarkdownProps> = ({
+  markdown,
+  raw,
+  disableFocus,
+  ...rest
+}) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const { isDarkMode } = useDarkMode();
 
@@ -27,7 +33,11 @@ const Markdown: FC<MarkdownProps> = ({ markdown, raw, ...rest }) => {
   const compiledText = compiler(markdown, {
     wrapper: null,
     overrides: {
-      a: AnchorTag,
+      a: ({ children, ...rest }) => (
+        <AnchorTag {...rest} disableFocus={disableFocus} target="_blank">
+          {children}
+        </AnchorTag>
+      ),
       li: ListItem,
       code: ({ className, children }) => {
         const language =

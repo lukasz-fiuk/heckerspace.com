@@ -19,11 +19,13 @@ export type Modules = Array<BaseModuleProps>;
 export interface ModuleRendererProps {
   modules: Modules;
   recentArticles?: RecentArticles;
+  disableFocus?: boolean;
 }
 
 const ModuleRenderer: FC<ModuleRendererProps> = ({
   modules,
   recentArticles,
+  disableFocus,
 }) => {
   // Add unique ID to prevent double keys if used more than once on a single page
   const componentId = useUniqueId();
@@ -45,7 +47,11 @@ const ModuleRenderer: FC<ModuleRendererProps> = ({
 
         case "Chapter":
           return (
-            <Chapter key={id + componentId} {...(content as ChapterProps)} />
+            <Chapter
+              disableFocus={disableFocus}
+              key={id + componentId}
+              {...(content as ChapterProps)}
+            />
           );
       }
     });

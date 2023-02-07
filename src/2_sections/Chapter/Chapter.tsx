@@ -10,9 +10,15 @@ import * as S from "./Chapter.styled";
 export interface ChapterProps {
   chapterName: string;
   content: string;
+  disableFocus?: boolean;
 }
 
-const Chapter: FC<ChapterProps> = ({ chapterName, content, ...rest }) => {
+const Chapter: FC<ChapterProps> = ({
+  chapterName,
+  content,
+  disableFocus,
+  ...rest
+}) => {
   const chapterRef = useRef<HTMLElement>(null);
   const isInView = useInView(chapterRef);
 
@@ -22,7 +28,7 @@ const Chapter: FC<ChapterProps> = ({ chapterName, content, ...rest }) => {
 
   return (
     <S.ChapterWrapper id={chapterName} ref={chapterRef} {...rest}>
-      <Markdown markdown={content} />
+      <Markdown markdown={content} disableFocus={disableFocus} />
     </S.ChapterWrapper>
   );
 };

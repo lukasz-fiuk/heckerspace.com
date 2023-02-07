@@ -4,11 +4,16 @@ import * as S from "./AnchorTag.styled";
 
 export interface AnchorTagProps {
   children: ReactNode;
+  disableFocus?: boolean;
 }
 
-const AnchorTag: FC<AnchorTagProps> = ({ children, ...rest }) => {
+const AnchorTag: FC<AnchorTagProps> = ({ children, disableFocus, ...rest }) => {
   return (
-    <S.AnchorTagWrapper target="_blank" {...rest}>
+    <S.AnchorTagWrapper
+      tabIndex={disableFocus ? -1 : 0}
+      target="_blank"
+      {...rest}
+    >
       {children}
     </S.AnchorTagWrapper>
   );
