@@ -1,10 +1,10 @@
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import Icon from "1_components/Icon/Icon";
 import { fonts } from "styled/fonts";
 
-export const IconButtonWrapper = styled(Link)<{ $reverse: boolean }>`
+const buttonWrapperStyles = css<{ $reverse: boolean }>`
   display: grid;
   align-items: center;
   grid-auto-flow: column;
@@ -17,6 +17,14 @@ export const IconButtonWrapper = styled(Link)<{ $reverse: boolean }>`
   ${fonts.body}
   color: var(--primary);
   cursor: pointer;
+`;
+
+export const IconButtonWrapper = styled.button<{ $reverse: boolean }>`
+  ${buttonWrapperStyles}
+`;
+
+export const IconLinkWrapper = styled(Link)<{ $reverse: boolean }>`
+  ${buttonWrapperStyles}
 `;
 
 export const IconComp = styled(Icon)`

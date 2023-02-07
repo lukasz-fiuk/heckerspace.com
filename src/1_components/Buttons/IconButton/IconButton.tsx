@@ -10,33 +10,28 @@ export interface IconButtonProps {
   label?: string;
   href?: string;
   reverse?: boolean;
-
   iconVariant: IconVariant;
   hoverDirection: Directions;
-  onClick?: (e: MouseEvent) => void;
+  onClick?: (e: any) => void;
+  removeFocus?: boolean;
 }
 
 const IconButton: FC<IconButtonProps> = ({
   label,
-  href = "/",
+  href = "",
   iconVariant,
   hoverDirection,
   reverse = false,
+  removeFocus,
+
   ...rest
 }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const toggleHover = () => setIsHovering(!isHovering);
 
-  return (
-    <S.IconButtonWrapper
-      href={href}
-      onMouseEnter={toggleHover}
-      onMouseLeave={toggleHover}
-      $reverse={reverse}
-      scroll={false}
-      {...rest}
-    >
+  const content = (
+    <>
       {label}
 
       <HoverReplace
@@ -46,7 +41,39 @@ const IconButton: FC<IconButtonProps> = ({
       >
         <S.IconComp variant={iconVariant} />
       </HoverReplace>
-    </S.IconButtonWrapper>
+    </>
+  );
+
+  return (
+    <>
+      {href === "" ? (
+        <S.IconButtonWrapper
+          onMouseEnter={toggleHover}
+          onMouseLeave={toggleHover}
+          onFocus={toggleHover}
+          onBlur={toggleHover}
+          $reverse={reverse}
+          tabIndex={removeFocus ? -1 : 0}
+          {...rest}
+        >
+          {content}
+        </S.IconButtonWrapper>
+      ) : (
+        <S.IconLinkWrapper
+          href={href}
+          onMouseEnter={toggleHover}
+          onMouseLeave={toggleHover}
+          onFocus={toggleHover}
+          onBlur={toggleHover}
+          $reverse={reverse}
+          scroll={false}
+          tabIndex={removeFocus ? -1 : 0}
+          {...rest}
+        >
+          {content}
+        </S.IconLinkWrapper>
+      )}
+    </>
   );
 };
 export default IconButton;
