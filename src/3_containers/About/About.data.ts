@@ -6,6 +6,7 @@ import { getHead } from "queries/getHead";
 import { getMedia } from "queries/getMedia";
 import { client } from "utils/cmsClient";
 import { convertMinutesToSeconds } from "utils/convertMinutesToSeconds.ts";
+import { extractChapterNames } from "utils/extractChapterNames";
 
 export const getStaticProps: GetStaticProps = async () => {
   const fetchArticle = gql`
@@ -55,8 +56,21 @@ export const getStaticProps: GetStaticProps = async () => {
     ? nextArticle.edges[0].node
     : "";
 
+  const badges = {
+    completedBadge: "completed 🙌",
+    viewedBadge: "viewed 👀",
+  };
+
+  const chaptersList = extractChapterNames(article.modules);
+
   return {
-    props: { ...article, publishedAt, nextArticleContent },
+    props: {
+      ...article,
+      publishedAt,
+      nextArticleContent,
+      ...badges,
+      chaptersList,
+    },
     revalidate: convertMinutesToSeconds(15),
   };
 };

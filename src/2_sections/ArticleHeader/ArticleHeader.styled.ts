@@ -14,7 +14,7 @@ export const CoverImage = styled(Image)`
   margin-top: -8vh;
   object-fit: contain;
   max-width: 400px;
-  max-height: 50vh;
+  max-height: 40vh;
   width: 80%;
 `;
 
