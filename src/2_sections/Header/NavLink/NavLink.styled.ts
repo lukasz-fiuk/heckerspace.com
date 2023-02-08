@@ -7,7 +7,7 @@ import RevealItem from "1_components/RevealItem/RevealItem";
 export const NavLinkWrapper = styled(Link)<{ $isActive: boolean }>`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1em;
+  grid-template-columns: min-content 1em;
   gap: 8px;
 
   text-transform: lowercase;
@@ -17,6 +17,7 @@ export const NavLinkWrapper = styled(Link)<{ $isActive: boolean }>`
   font-size: 24px;
   line-height: 1;
   font-weight: 300;
+  text-align: right;
 
   transition: color 0.3s ease-in-out;
   cursor: pointer;

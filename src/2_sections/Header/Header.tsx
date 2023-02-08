@@ -14,9 +14,12 @@ export interface HeaderProps {}
 const Header: FC<HeaderProps> = ({ ...rest }) => {
   const [showKeyBinds] = useGlobalState("showKeyBinds");
 
-  const routes = data.navigationLinks.map(({ label, href }) => (
+  const routes = data.navigationLinks.map(({ label, href, keyBind }) => (
     <li key={label}>
-      <NavLink label={label} href={href} />
+      <S.Row style={{ justifyItems: "end" }}>
+        <ShortcutCue text={keyBind} style={{ justifySelf: "left" }} />
+        <NavLink label={label} href={href} />
+      </S.Row>
     </li>
   ));
 
@@ -33,20 +36,25 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
         {data.skipButtonLabel}
       </S.SkipButton>
 
-      <S.ThemeToggle uniqueId="header_desktop" />
+      <S.ColumnLeft>
+        <S.Row>
+          <S.ThemeToggle uniqueId="header_desktop" />
+          <ShortcutCue text="T" />
+        </S.Row>
+
+        <S.VisualCuesWrapper animate={{ opacity: showKeyBinds ? 1 : 0 }}>
+          <S.Row>
+            {data.hideVisualCues.label}
+            <ShortcutCue text={data.hideVisualCues.keyBind} />
+          </S.Row>
+        </S.VisualCuesWrapper>
+      </S.ColumnLeft>
 
       <S.SvgLogo />
 
       <S.NavigationLinks aria-label="Navigation links">
         <ul>{routes}</ul>
       </S.NavigationLinks>
-
-      <S.VisualCuesWrapper animate={{ opacity: showKeyBinds ? 1 : 0 }}>
-        <S.Row>
-          {data.hideVisualCues.label}
-          <ShortcutCue text={data.hideVisualCues.keyBind} />
-        </S.Row>
-      </S.VisualCuesWrapper>
     </S.HeaderWrapper>
   );
 };

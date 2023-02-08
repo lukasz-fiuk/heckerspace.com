@@ -36,13 +36,20 @@ export const SvgLogo = styled(Logo)`
   height: clamp(60px, 9.6rem, 96px);
 `;
 
+export const ColumnLeft = styled.div`
+  position: fixed;
+  left: 5vw;
+
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 40px;
+`;
+
 export const ThemeToggle = styled(ThemeSwitch)`
   display: none;
 
   ${media.desktop} {
     display: grid;
-    position: fixed;
-    left: 5vw;
     width: 24px;
   }
 `;
@@ -56,7 +63,6 @@ export const NavigationLinks = styled.nav`
     display: inline-block;
 
     margin-right: calc(-1em + 8px); // Shift icon outside
-    text-align: right;
 
     & ul {
       display: grid;
@@ -79,10 +85,6 @@ export const Fader = styled(LinearGradient)`
 
 export const VisualCuesWrapper = styled(m.aside)`
   ${media.desktop} {
-    position: fixed;
-    left: 10vw;
-
-    width: min-content;
     user-select: none;
     pointer-events: none;
 
@@ -91,9 +93,9 @@ export const VisualCuesWrapper = styled(m.aside)`
 `;
 
 export const Row = styled.div`
-  display: flex;
-  gap: 8px;
-  text-align: end;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 16px;
+
   white-space: nowrap;
-  width: min-content;
 `;
