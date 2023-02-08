@@ -14,12 +14,12 @@ const KeydownHandler = () => {
           setGlobalState("showKeyBinds", true);
           break;
 
-        case "Enter":
+        case "Escape":
           setGlobalState("showKeyBinds", false);
           break;
 
-        case "Escape":
-          setGlobalState("showKeyBinds", false);
+        case "ArrowLeft":
+          router.back();
           break;
 
         case "t":
@@ -44,9 +44,15 @@ const KeydownHandler = () => {
     };
 
     window.addEventListener("keydown", handleKeydown);
+    window.addEventListener("click", () =>
+      setGlobalState("showKeyBinds", false)
+    );
 
     return () => {
       window.removeEventListener("keydown", handleKeydown);
+      window.removeEventListener("onClick", () =>
+        setGlobalState("showKeyBinds", false)
+      );
     };
   });
 
