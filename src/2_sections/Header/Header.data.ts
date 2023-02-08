@@ -3,14 +3,17 @@ export const data = {
     {
       href: "/",
       label: "Home",
+      keyBind: "H",
     },
     {
       href: "/articles",
       label: "Articles",
+      keyBind: "B",
     },
     {
       href: "/about",
-      label: "About",
+      label: "about",
+      keyBind: "A",
     },
   ],
   skipButtonLabel: "⬇️ Skip to the main content ⬇️",
