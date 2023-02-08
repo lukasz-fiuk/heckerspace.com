@@ -15,7 +15,7 @@ const Footer: FC<FooterProps> = ({ ...rest }) => {
   return (
     <S.FooterWrapper
       renderAs={m["footer"]}
-      aria-label="Heckerspace main footer"
+      aria-label="Main footer"
       duration={COMMONS.defaultTransitionDuration}
       {...rest}
     >

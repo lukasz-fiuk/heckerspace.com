@@ -21,7 +21,7 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
   ));
 
   return (
-    <S.HeaderWrapper {...rest}>
+    <S.HeaderWrapper aria-label="Main navigation" {...rest}>
       <MobileMenu />
 
       <S.Fader
