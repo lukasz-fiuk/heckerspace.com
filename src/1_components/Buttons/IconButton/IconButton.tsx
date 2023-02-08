@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import { IconVariant } from "1_components/Icon/Icon";

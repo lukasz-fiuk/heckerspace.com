@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark as darkTheme } from "react-syntax-highlighter/dist/cjs/styles/prism";

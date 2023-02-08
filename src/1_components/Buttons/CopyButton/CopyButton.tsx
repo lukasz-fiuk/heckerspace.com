@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 
 import { AnimatePresence } from "framer-motion";
 import { useCopyToClipboard } from "usehooks-ts";

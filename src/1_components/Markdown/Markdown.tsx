@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { compiler } from "markdown-to-jsx";
 import { useDarkMode } from "usehooks-ts";

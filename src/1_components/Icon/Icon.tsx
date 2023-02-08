@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import * as S from "./Icon.styled";
 import { renderIcon } from "./renderIcon";

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useRef } from "react";
+import { FC, ReactNode, useRef } from "react";
 
 import { useInView } from "framer-motion";
 

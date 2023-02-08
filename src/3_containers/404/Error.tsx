@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import IconButton from "1_components/Buttons/IconButton/IconButton";
 

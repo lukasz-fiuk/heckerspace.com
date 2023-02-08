@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import { IconVariant } from "1_components/Icon/Icon";
 import { Directions } from "types/commonTypes";

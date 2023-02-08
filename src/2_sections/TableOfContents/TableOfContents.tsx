@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import { useGlobalState } from "context/globalState";

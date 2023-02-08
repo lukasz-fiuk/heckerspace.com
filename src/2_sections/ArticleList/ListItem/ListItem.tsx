@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import Markdown from "1_components/Markdown/Markdown";
 import { getArticleBadge } from "utils/handleArticleBadge";

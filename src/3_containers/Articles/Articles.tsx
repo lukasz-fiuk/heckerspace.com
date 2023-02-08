@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import { RecentArticles } from "2_sections/ArticleList/ArticleList";
 import ModuleRenderer, {

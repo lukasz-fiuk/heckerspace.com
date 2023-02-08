@@ -14,9 +14,9 @@ export interface HeaderProps {}
 const Header: FC<HeaderProps> = ({ ...rest }) => {
   const [showKeyBinds] = useGlobalState("showKeyBinds");
 
-  const routes = data.navigationLinks.map(({ label, href, keyBind }) => (
+  const routes = data.navigationLinks.map(({ label, href }) => (
     <li key={label}>
-      <NavLink label={label} href={href} keyBind={keyBind} />
+      <NavLink label={label} href={href} />
     </li>
   ));
 

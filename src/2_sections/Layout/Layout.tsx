@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 import { AnimatePresence, m } from "framer-motion";
 import { useRouter } from "next/router";

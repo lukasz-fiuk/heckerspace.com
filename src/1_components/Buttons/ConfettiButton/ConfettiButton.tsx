@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import useConfetti from "hooks/useConfetii";
