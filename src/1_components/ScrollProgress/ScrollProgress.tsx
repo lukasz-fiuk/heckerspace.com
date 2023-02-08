@@ -1,10 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import { useScroll, useWillChange } from "framer-motion";
 
-import { COMMONS } from "styled/commons";
-
 import * as S from "./ScrollProgess.styled";
+import { ScrollProgressVariants } from "./ScrollProgress.animation";
 
 export interface ScrollProgressProps {}
 
@@ -15,15 +14,8 @@ const ScrollProgress: FC<ScrollProgressProps> = ({ ...rest }) => {
   return (
     <S.ScrollIndicator
       aria-hidden
-      initial={{ scaleX: 0, opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{
-        scaleX: [null, 1],
-        scaleY: 0,
-        opacity: 0,
-        transition: { duration: COMMONS.defaultTransitionDuration },
-      }}
       style={{ scaleX: scrollYProgress, willChange }}
+      {...ScrollProgressVariants}
       {...rest}
     />
   );
