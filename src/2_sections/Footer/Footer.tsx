@@ -32,7 +32,7 @@ const Footer: FC<FooterProps> = ({ ...rest }) => {
         </HoverReplace>
       </S.ScrollTopButton>
 
-      <S.Version>stage: BETA</S.Version>
+      <S.Version>version: 1.0</S.Version>
     </S.FooterWrapper>
   );
 };
