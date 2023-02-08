@@ -7,10 +7,8 @@ import RevealItem from "1_components/RevealItem/RevealItem";
 import { COMMONS } from "styled/commons";
 import { fonts } from "styled/fonts";
 
-export const Articles = styled.section`
+export const ArticlesListWrapper = styled.section`
   display: grid;
-
-  overflow: hidden;
 `;
 
 export const TitleWrapper = styled.div`
@@ -31,11 +29,11 @@ export const Arrow = styled(Icon)`
 
 export const RevealWrapper = styled(RevealItem)`
   justify-self: center;
-  margin: 24px 0;
 `;
 
 export const ArrowButton = styled(IconButton)`
   cursor: pointer;
+  margin: 40px;
 `;
 
 export const Underline = styled(AnimatedUnderline)`
@@ -47,18 +45,20 @@ export const Underline = styled(AnimatedUnderline)`
   transition: background ${COMMONS.defaultTransitionDuration}s ease-in-out;
 `;
 
-export const ListWrapper = styled.ul`
+export const List = styled.ul`
   & > * {
     transition: opacity 0.3s ease-in-out;
   }
 
   &:hover > *,
-  :focus-visible > * {
+  :focus-within li a {
+    transition: opacity 0.3s ease-in-out;
     opacity: 0.4;
   }
 
   &:hover > :hover,
-  :focus-visible {
+  :focus-within :focus {
+    transition: opacity 0.3s ease-in-out;
     opacity: 1;
   }
 `;

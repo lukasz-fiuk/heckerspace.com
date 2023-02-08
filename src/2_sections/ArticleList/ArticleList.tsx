@@ -32,14 +32,14 @@ const ArticleList: FC<ArticleListProps> = ({
   ...rest
 }) => {
   return (
-    <S.Articles {...rest}>
+    <S.ArticlesListWrapper {...rest}>
       <S.TitleWrapper>
         <S.Title>{title}</S.Title>
 
         <S.Underline duration={2.4} />
       </S.TitleWrapper>
 
-      <S.ListWrapper>
+      <S.List>
         {recentArticles &&
           recentArticles.map(({ id, title, slug }, index) => (
             <ListItem
@@ -50,7 +50,7 @@ const ArticleList: FC<ArticleListProps> = ({
               href={"/article/" + slug}
             />
           ))}
-      </S.ListWrapper>
+      </S.List>
 
       <S.RevealWrapper>
         <S.ArrowButton
@@ -61,7 +61,7 @@ const ArticleList: FC<ArticleListProps> = ({
           reverse={buttonReverse}
         />
       </S.RevealWrapper>
-    </S.Articles>
+    </S.ArticlesListWrapper>
   );
 };
 export default ArticleList;

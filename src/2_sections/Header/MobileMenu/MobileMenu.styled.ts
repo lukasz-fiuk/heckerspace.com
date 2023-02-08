@@ -28,6 +28,7 @@ export const BackgroundFader = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   inset: 0;
 
+  height: 100vh;
   opacity: ${({ $isOpen }) => ($isOpen ? 0.8 : 0)};
   transition: opacity 0.3s ease-in-out;
   background: var(--background);
