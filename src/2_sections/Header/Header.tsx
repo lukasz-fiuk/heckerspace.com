@@ -43,7 +43,8 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
 
       <S.VisualCuesWrapper animate={{ opacity: showKeyBinds ? 1 : 0 }}>
         <S.Row>
-          Hide shortcuts <ShortcutCue text="ESC" />
+          {data.hideVisualCues.label}
+          <ShortcutCue text={data.hideVisualCues.keyBind} />
         </S.Row>
       </S.VisualCuesWrapper>
     </S.HeaderWrapper>

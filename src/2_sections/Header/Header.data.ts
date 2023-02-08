@@ -1,4 +1,8 @@
 export const data = {
+  hideVisualCues: {
+    label: "Hide shortcuts",
+    keyBind: "ESC",
+  },
   navigationLinks: [
     {
       href: "/",
