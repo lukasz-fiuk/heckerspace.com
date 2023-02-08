@@ -20,17 +20,6 @@ export const HeaderWrapper = styled.header`
   padding-top: 24px;
 `;
 
-export const SkipButton = styled.a`
-  position: absolute;
-  bottom: 0;
-  transform: translateY(-200px);
-
-  :focus {
-    transition: 0.3s ease-in-out;
-    transform: translateY(80px);
-  }
-`;
-
 export const SvgLogo = styled(Logo)`
   position: relative;
   height: clamp(60px, 9.6rem, 96px);

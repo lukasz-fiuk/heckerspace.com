@@ -32,10 +32,6 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
         toColor={{ light: PALETTE.transparent, dark: PALETTE.transparent }}
       />
 
-      <S.SkipButton href="#main" title={data.skipButtonLabel} tabIndex={0}>
-        {data.skipButtonLabel}
-      </S.SkipButton>
-
       <S.ColumnLeft>
         <S.Row>
           <S.ThemeToggle uniqueId="header_desktop" />

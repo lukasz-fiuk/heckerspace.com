@@ -20,7 +20,6 @@ export const data = {
       keyBind: "A",
     },
   ],
-  skipButtonLabel: "⬇️ Skip to the main content ⬇️",
   menu: {
     label: "menu",
     close: "close",
