@@ -15,7 +15,7 @@ export const MobileMenuWrapper = styled.div`
   z-index: ${zIndex("absoluteTop")};
 
   width: 100vw;
-  height: ${vh(100)};
+  height: 100vh;
   overflow-y: scroll;
   pointer-events: none;
 
@@ -29,7 +29,7 @@ export const BackgroundFader = styled.div<{ $isOpen: boolean }>`
   inset: 0;
 
   height: 100vh;
-  opacity: ${({ $isOpen }) => ($isOpen ? 0.8 : 0)};
+  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transition: opacity 0.3s ease-in-out;
   background: var(--background);
   pointer-events: none;
@@ -51,10 +51,12 @@ export const SvgLogo = styled(Logo)<{ $isOpen: boolean }>`
 
 export const SideMenu = styled(m.div)`
   position: absolute;
-  inset: 0;
+  inset: 0 0 auto 0;
   z-index: ${zIndex("overlay")};
   display: grid;
   grid-template-rows: 1fr min-content;
+
+  height: ${vh(100)};
 
   background: var(--background);
   pointer-events: all;

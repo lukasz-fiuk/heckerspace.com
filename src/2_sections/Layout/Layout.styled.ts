@@ -6,7 +6,7 @@ import media from "styled/mediaQueries";
 
 export const Main = styled(FadeInOut)`
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 12px;
 
   max-width: ${COMMONS.maxWidth}px;
   min-height: 100vh;

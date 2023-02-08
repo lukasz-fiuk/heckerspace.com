@@ -6,6 +6,11 @@ import { PALETTE } from "styled/theme";
 export const DefaultSpacing = styled.div`
   line-height: 2;
 
+  & * {
+    overflow-wrap: break-word;
+    word-wrap: anywhere;
+  }
+
   h2 {
     ${fonts.h3}
     line-height: 2;
