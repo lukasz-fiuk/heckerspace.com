@@ -1,5 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
+import ShortcutCue from "1_components/ShortcutCue/ShortcutCue";
+import { useGlobalState } from "context/globalState";
 import { PALETTE } from "styled/theme";
 
 import { data } from "./Header.data";
@@ -10,9 +12,11 @@ import NavLink from "./NavLink/NavLink";
 export interface HeaderProps {}
 
 const Header: FC<HeaderProps> = ({ ...rest }) => {
-  const routes = data.navigationLinks.map(({ label, href }) => (
+  const [showKeyBinds] = useGlobalState("showKeyBinds");
+
+  const routes = data.navigationLinks.map(({ label, href, keyBind }) => (
     <li key={label}>
-      <NavLink label={label} href={href} />
+      <NavLink label={label} href={href} keyBind={keyBind} />
     </li>
   ));
 
@@ -36,6 +40,12 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
       <S.NavigationLinks aria-label="Navigation links">
         <ul>{routes}</ul>
       </S.NavigationLinks>
+
+      <S.VisualCuesWrapper animate={{ opacity: showKeyBinds ? 1 : 0 }}>
+        <S.Row>
+          Hide shortcuts <ShortcutCue text="ESC" />
+        </S.Row>
+      </S.VisualCuesWrapper>
     </S.HeaderWrapper>
   );
 };

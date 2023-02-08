@@ -1,8 +1,10 @@
+import { m } from "framer-motion";
 import styled from "styled-components";
 
 import LinearGradient from "1_components/LinearGradient/LinearGradient";
 import Logo from "1_components/Logo/Logo";
 import ThemeSwitch from "1_components/ThemeSwitch/ThemeSwitch";
+import { fonts } from "styled/fonts";
 import media from "styled/mediaQueries";
 
 export const HeaderWrapper = styled.header`
@@ -73,4 +75,25 @@ export const Fader = styled(LinearGradient)`
   ${media.tablet} {
     height: 96px;
   }
+`;
+
+export const VisualCuesWrapper = styled(m.aside)`
+  ${media.desktop} {
+    position: fixed;
+    left: 10vw;
+
+    width: min-content;
+    user-select: none;
+    pointer-events: none;
+
+    ${fonts.small}
+  }
+`;
+
+export const Row = styled.div`
+  display: flex;
+  gap: 8px;
+  text-align: end;
+  white-space: nowrap;
+  width: min-content;
 `;
