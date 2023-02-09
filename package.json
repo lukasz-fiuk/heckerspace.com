@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@giscus/react": "^2.2.6",
+    "@mdx-js/loader": "^2.2.1",
+    "@mdx-js/react": "^2.2.1",
     "@next/font": "^13.1.6",
+    "@next/mdx": "^13.1.6",
     "@vercel/analytics": "^0.1.8",
     "canvas-confetti": "^1.6.0",
     "framer-motion": "^8.4.3",
@@ -23,6 +26,8 @@
     "react-dom": "^18.2.0",
     "react-hooks-global-state": "^2.1.0",
     "react-syntax-highlighter": "^15.5.0",
+    "rehype-pretty-code": "^0.9.3",
+    "shiki": "^0.14.0",
     "styled-components": "^5.3.5",
     "usehooks-ts": "^2.7.1"
   },
