@@ -1,7 +1,7 @@
 import { m } from "framer-motion";
 import styled from "styled-components";
 
-import { PALETTE } from "styled/theme";
+import { PALETTE } from "styled/palette";
 
 export const ShortcutCueWrapper = styled(m.kbd)`
   all: unset;

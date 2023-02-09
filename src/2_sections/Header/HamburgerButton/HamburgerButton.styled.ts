@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import media from "styled/mediaQueries";
 import { vh } from "styled/mixins";
-import { PALETTE } from "styled/theme";
+import { PALETTE } from "styled/palette";
 
 export const HamburgerButtonWrapper = styled(m.button)`
   position: absolute;

@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import ShortcutCue from "1_components/ShortcutCue/ShortcutCue";
 import { useGlobalState } from "context/globalState";
-import { PALETTE } from "styled/theme";
+import { PALETTE } from "styled/palette";
 
 import { data } from "./Header.data";
 import * as S from "./Header.styled";

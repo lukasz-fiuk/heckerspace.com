@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import Head from "next/head";
 
-import { PALETTE } from "styled/theme";
+import { PALETTE } from "styled/palette";
 
 export interface SeoProps {
   title: string;

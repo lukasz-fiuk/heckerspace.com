@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { fonts } from "styled/fonts";
-import { PALETTE } from "styled/theme";
+import { PALETTE } from "styled/palette";
 
 export const DefaultSpacing = styled.div`
   line-height: 2;

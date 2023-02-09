@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import CopyButton from "1_components/Buttons/CopyButton/CopyButton";
 import { fontFaces, fonts } from "styled/fonts";
-import { PALETTE } from "styled/theme";
+import { PALETTE } from "styled/palette";
 
 export const SyntaxHighlighterStyles = {
   background: "unset",

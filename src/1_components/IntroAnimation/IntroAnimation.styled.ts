@@ -2,7 +2,7 @@ import { m } from "framer-motion";
 import styled from "styled-components";
 
 import { zIndex } from "styled/mixins";
-import { PALETTE } from "styled/theme";
+import { PALETTE } from "styled/palette";
 
 export const LoadingScreen = styled(m.div)<{ $isDarkMode: boolean }>`
   position: fixed;

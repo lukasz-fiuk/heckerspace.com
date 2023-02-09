@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 import { fontFaces, fonts } from "./fonts";
+import { PALETTE } from "./palette";
 import { cssReset } from "./reset";
-import { PALETTE } from "./theme";
 
 // This "trick" fixes css formatting issue
 const styled = { createGlobalStyle };
