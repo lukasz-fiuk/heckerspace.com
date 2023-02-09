@@ -55,7 +55,7 @@ export const GlobalStyles = styled.createGlobalStyle`
 
   del,
   s {
-    color: var(--secondary);
+    color: var(--primary_75);
     text-decoration: line-through;
   }
 

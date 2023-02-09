@@ -27,7 +27,7 @@ export const Title = styled.h1`
 export const ReturnButton = styled(IconButton)`
   ${fonts.small}
   color:var(--primary);
-  opacity: 0.5;
+  opacity: 0.75;
 
   &:hover {
     opacity: 1;

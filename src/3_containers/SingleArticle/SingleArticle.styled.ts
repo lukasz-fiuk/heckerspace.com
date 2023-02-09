@@ -46,5 +46,5 @@ export const DesktopChapterSelector = styled(TableOfContents)`
 export const Divider = styled(AnimatedLine)`
   width: 100%;
   height: 1px;
-  background: var(--secondary);
+  background: var(--primary_75);
 `;
