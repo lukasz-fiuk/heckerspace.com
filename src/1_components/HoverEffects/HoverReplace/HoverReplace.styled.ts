@@ -12,6 +12,5 @@ export const ReplaceItem = styled(m.div)<{ $second?: boolean }>`
     css`
       position: absolute;
       inset: 0;
-      pointer-events: none;
     `};
 `;
