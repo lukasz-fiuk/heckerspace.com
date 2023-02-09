@@ -82,7 +82,7 @@ export const Dot = styled.span`
   height: 4px;
 
   border-radius: 100%;
-  background-color: var(--secondary);
+  background-color: var(--primary_75);
 `;
 
 export const CopyLink = styled(CopyButton)`
