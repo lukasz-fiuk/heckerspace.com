@@ -34,7 +34,7 @@ const Article: FC<ArticleProps> = ({
   id,
   title,
   modules,
-  publishedAt,
+  createdAt,
   cover,
   nextArticleContent,
   completedBadge,
@@ -68,7 +68,7 @@ const Article: FC<ArticleProps> = ({
           <S.Header
             cover={cover}
             title={title}
-            publishedAt={publishedAt}
+            createdAt={createdAt}
             estimatedReadingTime={estimateTotalReadingTime(modules)}
           />
 

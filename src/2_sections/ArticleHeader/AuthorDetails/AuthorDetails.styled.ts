@@ -56,7 +56,7 @@ const secondarySmall = css`
   color: var(--primary_75);
 `;
 
-export const PublishedAt = styled.time`
+export const CreatedAt = styled.time`
   ${secondarySmall}
   text-transform: uppercase;
 `;

@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
           ${getHero()}
         }
       }
-      recentArticles: articles(last: 5, orderBy: publishedAt_ASC) ${getRecentArticles()}
+      recentArticles: articles(first: 5, orderBy: createdAt_DESC) ${getRecentArticles()}
     }
   `;
 

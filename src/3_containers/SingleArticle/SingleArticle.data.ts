@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     article(where: { slug: "${params!.slug}" }) {
       head ${getHead()}
       id
-      publishedAt
+      createdAt
       title
       cover ${getMedia()}
       modules {
@@ -26,14 +26,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const data = await client.request(fetchArticle);
   const { article } = data;
-  const { publishedAt } = article;
+  const { createdAt } = article;
 
   const fetchNextArticle = gql`
   {
     nextArticle: articlesConnection(
       first:1
-      orderBy: publishedAt_DESC
-      where: {publishedAt_lt: "${publishedAt}"}
+      orderBy: createdAt_DESC
+      where: {createdAt_lt: "${createdAt}"}
     ) {
       edges {
         node {
@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           modules {
            ${getChapter()}
           }
-          publishedAt
+          createdAt
         }
       }
     }
@@ -66,7 +66,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       ...article,
-      publishedAt,
+      createdAt,
       nextArticleContent,
       ...badges,
       chaptersList,

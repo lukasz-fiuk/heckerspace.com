@@ -10,13 +10,13 @@ import * as S from "./ArticleHeader.styled";
 
 export interface ArticleHeaderProps extends AuthorDetailsProps {
   title: string;
-  publishedAt: string;
+  createdAt: string;
   cover?: Media;
 }
 
 const ArticleHeader: FC<ArticleHeaderProps> = ({
   title,
-  publishedAt,
+  createdAt,
   cover,
   estimatedReadingTime,
   ...rest
@@ -46,7 +46,7 @@ const ArticleHeader: FC<ArticleHeaderProps> = ({
       </S.Title>
 
       <AuthorDetails
-        publishedAt={publishedAt}
+        createdAt={createdAt}
         estimatedReadingTime={estimatedReadingTime}
       />
     </S.ArticleHeaderWrapper>

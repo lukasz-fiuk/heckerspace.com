@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
          ${getArticleList()}
         }
       }
-      recentArticles:   articles(orderBy: publishedAt_ASC) ${getRecentArticles()}
+      recentArticles:   articles(orderBy: createdAt_ASC) ${getRecentArticles()}
     }
   `;
 

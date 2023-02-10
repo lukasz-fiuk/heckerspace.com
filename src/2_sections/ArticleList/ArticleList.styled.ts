@@ -9,6 +9,8 @@ import { fonts } from "styled/fonts";
 
 export const ArticlesListWrapper = styled.section`
   display: grid;
+
+  overflow: hidden;
 `;
 
 export const TitleWrapper = styled.div`

@@ -6,17 +6,17 @@ import * as S from "./AuthorDetails.styled";
 
 export interface AuthorDetailsProps {
   name?: string;
-  publishedAt: string;
+  createdAt: string;
   estimatedReadingTime: number;
 }
 
 const AuthorDetails: FC<AuthorDetailsProps> = ({
   name = "Łukasz Fiuk",
-  publishedAt,
+  createdAt,
   estimatedReadingTime,
   ...rest
 }) => {
-  const formattedDate = formatDate(publishedAt);
+  const formattedDate = formatDate(createdAt);
   const formattedMinute = estimatedReadingTime > 1 ? "minutes" : "minute";
   const readingTimeText = `
   ${estimatedReadingTime}
@@ -41,7 +41,7 @@ const AuthorDetails: FC<AuthorDetailsProps> = ({
         </S.Row>
 
         <S.Row>
-          <S.PublishedAt>{formattedDate}</S.PublishedAt>
+          <S.CreatedAt>{formattedDate}</S.CreatedAt>
           <S.Dot />
           <S.ReadingTime>{readingTimeText}</S.ReadingTime>
           <S.MobileReadingTime aria-hidden>
