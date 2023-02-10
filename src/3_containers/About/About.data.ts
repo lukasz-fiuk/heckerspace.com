@@ -33,7 +33,6 @@ export const getStaticProps: GetStaticProps = async () => {
     nextArticle: articlesConnection(
       first:1
       orderBy: createdAt_DESC
-      where: {createdAt_lt: "${createdAt}"}
     ) {
       edges {
         node {
