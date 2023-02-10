@@ -27,7 +27,7 @@ const Layout: FC<LayoutProps> = ({ children, head }) => {
       <SEO {...head} />
       <Header />
 
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="wait">
         <ScrollProgress key={"scrollProgress" + asPath} />
       </AnimatePresence>
 

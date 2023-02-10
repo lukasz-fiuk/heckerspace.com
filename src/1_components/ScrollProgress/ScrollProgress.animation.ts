@@ -3,12 +3,15 @@ import { Variants } from "framer-motion";
 import { COMMONS } from "styled/commons";
 
 export const ScrollProgressVariants: Variants = {
-  initial: { scaleX: 0, opacity: 0 },
-  animate: { opacity: 1 },
+  initial: { scaleY: 0, opacity: 0 },
+  animate: { scaleY: 1, opacity: 1 },
   exit: {
-    scaleX: [null, 1],
+    x: "100%",
     scaleY: 0,
     opacity: 0,
-    transition: { duration: COMMONS.defaultTransitionDuration },
+    transition: {
+      duration: COMMONS.defaultTransitionDuration,
+      ease: "easeInOut",
+    },
   },
 };
