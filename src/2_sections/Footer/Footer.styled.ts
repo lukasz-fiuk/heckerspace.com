@@ -29,7 +29,6 @@ export const Copyright = styled.small`
 
   ${fonts.small}
   font-weight: 400;
-  color: var(--primary_75);
 `;
 
 export const HeckerspaceLogo = styled(Logo)`
@@ -78,5 +77,5 @@ export const Version = styled.span`
   bottom: 16px;
 
   ${fonts.small}
-  color: var(--secondary);
+  color: var(--primary_75);
 `;
