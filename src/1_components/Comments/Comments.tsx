@@ -24,6 +24,7 @@ const Comments: FC<CommentsProps> = () => {
         inputPosition="top"
         theme={isDarkMode ? "dark" : "light"}
         loading="lazy"
+        strict="1"
       />
     </S.CommentsWrapper>
   );
