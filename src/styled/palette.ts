@@ -11,7 +11,7 @@ export const PALETTE = {
 
   black: "#000",
   black_20: "#171717",
-  black_50: "#7F7D7C",
+  black_50: "#5A5858",
   black_75: "#403E3E",
 
   gray: "#878787",
