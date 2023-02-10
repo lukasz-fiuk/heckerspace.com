@@ -10,6 +10,7 @@ export type RecentArticles = Array<{
   id: string;
   slug: string;
   title: string;
+  publishedAt: string;
 }>;
 export interface ArticleListProps {
   title: string;

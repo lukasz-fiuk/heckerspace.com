@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 
 import { getArticleList } from "queries/getArticleList.module";
 import { getHero } from "queries/getHero.module";
+import { getRecentArticles } from "queries/getRecentArticles";
 import { client } from "utils/cmsClient";
 import { convertMinutesToSeconds } from "utils/convertMinutesToSeconds.ts";
 
@@ -15,11 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
           ${getHero()}
         }
       }
-      recentArticles: articles(last: 5) {
-        id
-        slug
-        title
-      }
+      recentArticles: articles(last: 5, orderBy: publishedAt_ASC) ${getRecentArticles()}
     }
   `;
 

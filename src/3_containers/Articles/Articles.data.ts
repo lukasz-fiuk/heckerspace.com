@@ -2,6 +2,7 @@ import { gql } from "graphql-request";
 import { GetStaticProps } from "next";
 
 import { getArticleList } from "queries/getArticleList.module";
+import { getRecentArticles } from "queries/getRecentArticles";
 import { client } from "utils/cmsClient";
 import { convertMinutesToSeconds } from "utils/convertMinutesToSeconds.ts";
 
@@ -13,11 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
          ${getArticleList()}
         }
       }
-      recentArticles: articles {
-        id
-        slug
-        title
-      }
+      recentArticles:   articles(orderBy: publishedAt_ASC) ${getRecentArticles()}
     }
   `;
 
