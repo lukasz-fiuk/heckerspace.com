@@ -27,7 +27,14 @@ const Chapter: FC<ChapterProps> = ({
   }, [isInView, chapterName]);
 
   return (
-    <S.ChapterWrapper id={chapterName} ref={chapterRef} {...rest}>
+    <S.ChapterWrapper
+      id={chapterName}
+      ref={chapterRef}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      {...rest}
+    >
       <Markdown markdown={content} disableFocus={disableFocus} />
     </S.ChapterWrapper>
   );

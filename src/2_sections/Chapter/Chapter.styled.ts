@@ -1,3 +1,4 @@
+import { m } from "framer-motion";
 import styled from "styled-components";
 
-export const ChapterWrapper = styled.section``;
+export const ChapterWrapper = styled(m.section)``;
