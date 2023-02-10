@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { IconVariant } from "1_components/Icon/Icon";
+import RevealItem from "1_components/RevealItem/RevealItem";
 import { Directions } from "types/commonTypes";
 
 import * as S from "./ArticleList.styled";
@@ -53,7 +54,7 @@ const ArticleList: FC<ArticleListProps> = ({
           ))}
       </S.List>
 
-      <S.RevealWrapper>
+      <RevealItem>
         <S.ArrowButton
           href={buttonHref}
           label={buttonLabel}
@@ -61,7 +62,7 @@ const ArticleList: FC<ArticleListProps> = ({
           hoverDirection={buttonHoverDirection}
           reverse={buttonReverse}
         />
-      </S.RevealWrapper>
+      </RevealItem>
     </S.ArticlesListWrapper>
   );
 };

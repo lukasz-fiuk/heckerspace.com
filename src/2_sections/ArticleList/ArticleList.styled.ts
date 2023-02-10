@@ -3,18 +3,19 @@ import styled from "styled-components";
 import AnimatedUnderline from "1_components/AnimatedLine/AnimatedLine";
 import IconButton from "1_components/Buttons/IconButton/IconButton";
 import Icon from "1_components/Icon/Icon";
-import RevealItem from "1_components/RevealItem/RevealItem";
 import { COMMONS } from "styled/commons";
 import { fonts } from "styled/fonts";
 
 export const ArticlesListWrapper = styled.section`
   display: grid;
+  place-items: center;
 
   overflow: hidden;
 `;
 
 export const TitleWrapper = styled.div`
   position: relative;
+  width: 100%;
 `;
 
 export const Title = styled.h2`
@@ -27,10 +28,6 @@ export const Title = styled.h2`
 export const Arrow = styled(Icon)`
   height: 1em;
   color: var(--primary_50);
-`;
-
-export const RevealWrapper = styled(RevealItem)`
-  justify-self: center;
 `;
 
 export const ArrowButton = styled(IconButton)`
