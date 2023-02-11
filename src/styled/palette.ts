@@ -6,7 +6,7 @@
 export const PALETTE = {
   white: "#fff",
   white_20: "#CBC7C6",
-  white_50: "#898989",
+  white_50: "#9E9E9E",
   white_75: "#d4d4d4",
 
   black: "#000",
