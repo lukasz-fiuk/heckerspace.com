@@ -30,7 +30,7 @@ const InfoMessage: FC<InfoMessageProps> = ({ ...rest }) => {
   }, DELAY_IN_SECONDS * 1000);
 
   const message = `This website supports keyboard navigation. 👻 <br/>
-  Press \`Tab\` to show visual cues 💡
+  Press *\`Tab\`* to show visual cues 💡
   `;
 
   return (

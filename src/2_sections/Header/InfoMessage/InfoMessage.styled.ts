@@ -14,11 +14,39 @@ export const InfoMessageWrapper = styled(m.dialog)`
 
   border-radius: 8px;
   background: ${PALETTE.black_75};
-  padding: 1em;
+  padding: 1em !important;
+  margin: 0;
 
-  font-size: 16px;
+  font-size: 16px !important;
   color: ${PALETTE.white};
   text-align: center;
+
+  & code {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 500;
+
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+      monospace;
+
+    border-radius: 8px;
+    padding: 0 0.25em;
+    margin: 0.1em 0;
+    color: var(--primary);
+
+    line-height: 1.5;
+    transition: 0.3s ease-in-out;
+
+    &[data-theme="light"] {
+      background: ${PALETTE.white_75};
+      border: 1px solid ${PALETTE.white_75};
+    }
+
+    &[data-theme="dark"] {
+      background: ${PALETTE.black_20};
+      border: 1px solid #262626;
+    }
+  }
 `;
 
 export const Shader = styled(m.div)`
