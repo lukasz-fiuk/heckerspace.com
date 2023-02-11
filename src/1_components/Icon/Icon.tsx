@@ -11,6 +11,7 @@ export type IconVariant =
   | "arrowLeft"
   | "arrowRight"
   | "star"
+  | "close"
   | "logoType"
   | "logoMark";
 
