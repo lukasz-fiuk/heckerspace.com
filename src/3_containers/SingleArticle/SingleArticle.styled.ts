@@ -11,7 +11,7 @@ export const SingleArticleWrapper = styled.div`
   row-gap: 12rem;
 
   margin: 120px auto 0;
-  max-width: 880px;
+  max-width: 800px;
 `;
 
 export const Article = styled.article`
