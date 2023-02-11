@@ -16,17 +16,6 @@ export const DefaultSpacing = styled.div`
     line-height: 2;
   }
 
-  blockquote {
-    border-left: 4px solid var(--secondary);
-    margin: clamp(24px, 4rem, 40px);
-    padding-left: clamp(24px, 4rem, 40px);
-    font-style: oblique;
-
-    & p {
-      color: var(--primary);
-    }
-  }
-
   code {
     display: inline-block;
     font-style: normal;
@@ -57,12 +46,24 @@ export const DefaultSpacing = styled.div`
 
   p {
     ${fonts.body}
-    padding-bottom: 1em;
+    padding: 1em 0;
     line-height: 2;
     color: var(--primary_75);
 
     &:last-child {
       padding-bottom: 0;
+    }
+  }
+
+  blockquote {
+    border-left: 4px solid var(--secondary);
+    margin: clamp(24px, 4rem, 40px);
+    padding-left: clamp(24px, 4rem, 40px);
+    font-style: oblique;
+
+    & p {
+      color: var(--primary);
+      padding: unset;
     }
   }
 
