@@ -16,7 +16,7 @@ export const SingleArticleWrapper = styled.div`
 
 export const Article = styled.article`
   display: grid;
-  row-gap: clamp(64px, 8rem, 96px);
+  row-gap: clamp(80px, 8rem, 96px);
 `;
 
 export const Header = styled(ArticleHeader)`
