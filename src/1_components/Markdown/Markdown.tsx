@@ -3,6 +3,8 @@ import { FC, useEffect, useState } from "react";
 import { compiler } from "markdown-to-jsx";
 import { useDarkMode } from "usehooks-ts";
 
+import { slugify } from "utils/slugify";
+
 import * as S from "./Markdown.styled";
 import AnchorTag from "./Overrides/AnchorTag/AnchorTag";
 import CodeBlock from "./Overrides/CodeBlock/CodeBlock";
@@ -32,7 +34,7 @@ const Markdown: FC<MarkdownProps> = ({
 
   const compiledText = compiler(markdown, {
     wrapper: null,
-    slugify: (source) => `h-${source}`,
+    slugify: (source) => slugify(`h-${source}`),
     overrides: {
       a: ({ children, ...rest }) => (
         <AnchorTag {...rest} disableFocus={disableFocus} target="_blank">
