@@ -1,6 +1,6 @@
 import { useState, ReactNode, FC, useEffect } from "react";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 import { Directions } from "types/commonTypes";
 
@@ -12,6 +12,7 @@ interface HoverLoopProps {
   direction: Directions;
   disableInnerHover?: boolean;
   isHovering?: boolean;
+  renderAs?: "div" | "span";
 }
 
 const HoverLoop: FC<HoverLoopProps> = ({
@@ -19,6 +20,7 @@ const HoverLoop: FC<HoverLoopProps> = ({
   isHovering,
   disableInnerHover = false,
   direction,
+  renderAs = "span",
   ...rest
 }) => {
   const [isExiting, setIsExiting] = useState(false);
@@ -38,6 +40,7 @@ const HoverLoop: FC<HoverLoopProps> = ({
     <S.HoverLoopWrapper
       onMouseEnter={!disableInnerHover ? handleMouseEnter : undefined}
       onMouseLeave={!disableInnerHover ? handleMouseLeave : undefined}
+      as={renderAs}
       {...rest}
     >
       <AnimatePresence mode="wait">
@@ -48,6 +51,7 @@ const HoverLoop: FC<HoverLoopProps> = ({
             onAnimationComplete={() => setIsExiting(false)}
             {...HoverLoopVariants[direction]}
             transition={TRANSITION}
+            as={m[renderAs]}
           >
             {children}
           </S.LoopItem>
