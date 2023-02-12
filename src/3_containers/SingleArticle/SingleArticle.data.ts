@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       ...badges,
       chaptersList,
     },
-    revalidate: convertMinutesToSeconds(15),
+    revalidate: convertMinutesToSeconds(300),
   };
 };
 
