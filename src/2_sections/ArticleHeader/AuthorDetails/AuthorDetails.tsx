@@ -41,7 +41,7 @@ const AuthorDetails: FC<AuthorDetailsProps> = ({
         </S.Row>
 
         <S.Row>
-          <S.CreatedAt>{formattedDate}</S.CreatedAt>
+          <S.CreatedAt dateTime={createdAt}>{formattedDate}</S.CreatedAt>
           <S.Dot />
           <S.ReadingTime>{readingTimeText}</S.ReadingTime>
           <S.MobileReadingTime aria-hidden>
