@@ -32,7 +32,7 @@ const Markdown: FC<MarkdownProps> = ({
 
   const compiledText = compiler(markdown, {
     wrapper: null,
-    slugify: (source) => `heading ${source}`,
+    slugify: (source) => `h-${source}`,
     overrides: {
       a: ({ children, ...rest }) => (
         <AnchorTag {...rest} disableFocus={disableFocus} target="_blank">
