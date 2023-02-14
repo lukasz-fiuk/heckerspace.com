@@ -45,7 +45,11 @@ const InfoMessage: FC<InfoMessageProps> = ({ ...rest }) => {
           open={isOpen}
           initial={{ x: "-50%", y: "150%" }}
           animate={{ y: isOpen ? "-50%" : "150%" }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
+          transition={{
+            duration: 0.4,
+            delay: isOpen ? 0.4 : 0,
+            ease: "easeInOut",
+          }}
         >
           <S.CloseButton onClick={hideDialog} tabIndex={isOpen ? 0 : -1}>
             <Icon variant="close" />
