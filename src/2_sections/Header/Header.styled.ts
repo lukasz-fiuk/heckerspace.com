@@ -73,7 +73,10 @@ export const Fader = styled(LinearGradient)`
 `;
 
 export const VisualCuesWrapper = styled(m.aside)`
+  display: none;
+
   ${media.desktop} {
+    display: block;
     user-select: none;
     pointer-events: none;
 
