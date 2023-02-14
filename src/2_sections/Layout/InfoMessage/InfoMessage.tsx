@@ -1,28 +1,27 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import { useTimeout } from "usehooks-ts";
 
 import Icon from "1_components/Icon/Icon";
 import Markdown from "1_components/Markdown/Markdown";
-import { setGlobalState } from "context/globalState";
+import { setGlobalState, useGlobalState } from "context/globalState";
 
 import * as S from "./InfoMessage.styled";
 
 export interface InfoMessageProps {}
 
 const InfoMessage: FC<InfoMessageProps> = ({ ...rest }) => {
-  const DELAY_IN_SECONDS = 3;
-
-  const [isOpen, setIsOpen] = useState(false);
+  const DELAY_IN_SECONDS = 1.2;
+  const [isOpen] = useGlobalState("showInfoDialog");
 
   const showDialog = () => {
     setGlobalState("showKeyBinds", true);
-    setIsOpen(true);
+    setGlobalState("showInfoDialog", true);
   };
 
   const hideDialog = () => {
     setGlobalState("showKeyBinds", false);
-    setIsOpen(false);
+    setGlobalState("showInfoDialog", false);
   };
 
   useTimeout(() => {
@@ -35,25 +34,24 @@ const InfoMessage: FC<InfoMessageProps> = ({ ...rest }) => {
 
   return (
     <>
-      <S.Shader
-        animate={{ opacity: isOpen ? 0.75 : 0 }}
+      <S.InfoMessageWrapper
         style={{ pointerEvents: isOpen ? "all" : "none" }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        isOpen={isOpen}
         onClick={hideDialog}
         title="Hide Message"
-      />
-      <S.InfoMessageWrapper
-        onKeyDown={(e) => e.code === "Escape" && hideDialog}
-        open={isOpen}
-        initial={{ x: "-50%", y: "150%" }}
-        animate={{ y: isOpen ? "-50%" : "150%" }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
         {...rest}
       >
-        <S.CloseButton onClick={hideDialog}>
-          <Icon variant="close" />
-        </S.CloseButton>
-        <Markdown raw markdown={message} />
+        <S.Message
+          open={isOpen}
+          initial={{ x: "-50%", y: "150%" }}
+          animate={{ y: isOpen ? "-50%" : "150%" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+        >
+          <S.CloseButton onClick={hideDialog} tabIndex={isOpen ? 0 : -1}>
+            <Icon variant="close" />
+          </S.CloseButton>
+          <Markdown raw markdown={message} />
+        </S.Message>
       </S.InfoMessageWrapper>
     </>
   );

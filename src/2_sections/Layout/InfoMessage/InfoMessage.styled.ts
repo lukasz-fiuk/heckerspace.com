@@ -1,10 +1,33 @@
 import { m } from "framer-motion";
 import styled from "styled-components";
 
+import media from "styled/mediaQueries";
 import { zIndex } from "styled/mixins";
 import { PALETTE } from "styled/palette";
 
-export const InfoMessageWrapper = styled(m.dialog)`
+export const InfoMessageWrapper = styled.div<{ isOpen?: boolean }>`
+  display: none;
+
+  ${media.desktop} {
+    display: grid;
+    position: fixed;
+    inset: 0;
+
+    z-index: ${zIndex("aboveContent")};
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: ${({ isOpen }) => (isOpen ? 0.75 : 0)};
+      background-color: var(--background);
+      transition: 0.8s ease-in-out;
+    }
+  }
+`;
+
+export const Message = styled(m.dialog)`
   all: unset;
 
   position: fixed;
@@ -47,16 +70,6 @@ export const InfoMessageWrapper = styled(m.dialog)`
       border: 1px solid #262626;
     }
   }
-`;
-
-export const Shader = styled(m.div)`
-  position: fixed;
-  inset: 0;
-
-  background-color: var(--background);
-
-  z-index: ${zIndex("aboveContent")};
-  cursor: pointer;
 `;
 
 export const CloseButton = styled.button`

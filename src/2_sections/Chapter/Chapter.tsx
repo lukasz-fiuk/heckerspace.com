@@ -4,6 +4,7 @@ import { useInView } from "framer-motion";
 
 import Markdown from "1_components/Markdown/Markdown";
 import { setGlobalState } from "context/globalState";
+import { slugify } from "utils/slugify";
 
 import * as S from "./Chapter.styled";
 
@@ -28,7 +29,7 @@ const Chapter: FC<ChapterProps> = ({
 
   return (
     <S.ChapterWrapper
-      id={chapterName}
+      id={slugify(chapterName)}
       ref={chapterRef}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}

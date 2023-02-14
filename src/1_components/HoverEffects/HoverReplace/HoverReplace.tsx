@@ -1,6 +1,6 @@
 import { ReactNode, FC, useState } from "react";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 import { Directions } from "types/commonTypes";
 
@@ -12,6 +12,7 @@ export interface HoverReplaceProps {
   direction: Directions;
   disableInnerHover?: boolean;
   isHovering?: boolean;
+  renderAs?: "div" | "span";
 }
 
 const HoverReplace: FC<HoverReplaceProps> = ({
@@ -19,6 +20,7 @@ const HoverReplace: FC<HoverReplaceProps> = ({
   direction = "right",
   disableInnerHover = false,
   isHovering,
+  renderAs = "span",
   ...rest
 }) => {
   const [isInnerHover, setIsInnerHover] = useState(false);
@@ -30,10 +32,12 @@ const HoverReplace: FC<HoverReplaceProps> = ({
     <S.HoverReplaceWrapper
       onMouseEnter={!disableInnerHover ? handleMouseEnter : undefined}
       onMouseLeave={!disableInnerHover ? handleMouseLeave : undefined}
+      as={renderAs}
       {...rest}
     >
       <AnimatePresence>
         <S.ReplaceItem
+          as={m[renderAs]}
           key="first child"
           initial="initial"
           animate="animate"
@@ -45,6 +49,7 @@ const HoverReplace: FC<HoverReplaceProps> = ({
         </S.ReplaceItem>
 
         <S.ReplaceItem
+          as={m[renderAs]}
           key="second child"
           aria-hidden
           $second

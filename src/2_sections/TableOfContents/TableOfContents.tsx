@@ -3,6 +3,7 @@ import { FC } from "react";
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import { useGlobalState } from "context/globalState";
 import { scrollToId } from "utils/scrollToID";
+import { slugify } from "utils/slugify";
 
 import * as S from "./TableOfContents.styled";
 
@@ -30,7 +31,7 @@ export const TableOfContents: FC<TableOfContentsProps> = ({
           >
             <button
               onClick={() => {
-                scrollToId(chapterName, MARGIN_TOP);
+                scrollToId(slugify(chapterName), MARGIN_TOP);
                 setCurrentChapter(chapterName);
               }}
             >

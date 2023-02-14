@@ -45,6 +45,8 @@ export const Underline = styled(AnimatedUnderline)`
 `;
 
 export const List = styled.ul`
+  width: 100%;
+
   & > * {
     transition: opacity 0.3s ease-in-out;
   }

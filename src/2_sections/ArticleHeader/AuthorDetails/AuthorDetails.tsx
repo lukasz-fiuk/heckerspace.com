@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { formatDate } from "utils/formatDate";
+import { validateDateTime } from "utils/validateDateTime";
 
 import * as S from "./AuthorDetails.styled";
 
@@ -29,8 +30,8 @@ const AuthorDetails: FC<AuthorDetailsProps> = ({
   return (
     <S.AuthorDetailsWrapper {...rest}>
       <S.Thumbnail
-        src="/assets/portrait.jpg"
-        alt={`Author image of ${name}`}
+        src="/assets/lukasz-fiuk.webp"
+        alt={`image of the author - ${name}`}
         width={100}
         height={100}
       />
@@ -41,7 +42,9 @@ const AuthorDetails: FC<AuthorDetailsProps> = ({
         </S.Row>
 
         <S.Row>
-          <S.CreatedAt>{formattedDate}</S.CreatedAt>
+          <S.CreatedAt dateTime={validateDateTime(createdAt)}>
+            {formattedDate}
+          </S.CreatedAt>
           <S.Dot />
           <S.ReadingTime>{readingTimeText}</S.ReadingTime>
           <S.MobileReadingTime aria-hidden>

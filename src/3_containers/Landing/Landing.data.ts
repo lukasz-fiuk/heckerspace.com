@@ -25,6 +25,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { recentArticles, ...content },
-    revalidate: convertMinutesToSeconds(15),
+    revalidate: convertMinutesToSeconds(300),
   };
 };

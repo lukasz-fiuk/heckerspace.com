@@ -16,6 +16,7 @@ const KeydownHandler = () => {
 
         case "Escape":
           setGlobalState("showKeyBinds", false);
+          setGlobalState("showInfoDialog", false);
           break;
 
         case "ArrowLeft":

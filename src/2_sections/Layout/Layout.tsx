@@ -11,6 +11,7 @@ import Header from "2_sections/Header/Header";
 import { COMMONS } from "styled/commons";
 import { handleScrollTop } from "utils/handleScrollTop";
 
+import InfoMessage from "./InfoMessage/InfoMessage";
 import * as S from "./Layout.styled";
 
 export interface LayoutProps {
@@ -25,6 +26,7 @@ const Layout: FC<LayoutProps> = ({ children, head }) => {
     <>
       <IntroAnimation />
       <SEO {...head} />
+      <InfoMessage />
       <Header />
 
       <AnimatePresence mode="wait">

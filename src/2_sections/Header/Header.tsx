@@ -6,7 +6,6 @@ import { PALETTE } from "styled/palette";
 
 import { data } from "./Header.data";
 import * as S from "./Header.styled";
-import InfoMessage from "./InfoMessage/InfoMessage";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import NavLink from "./NavLink/NavLink";
 
@@ -26,7 +25,6 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
 
   return (
     <>
-      <InfoMessage />
       <S.HeaderWrapper aria-label="Main navigation" {...rest}>
         <MobileMenu />
 
