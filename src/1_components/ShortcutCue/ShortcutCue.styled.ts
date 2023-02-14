@@ -13,7 +13,7 @@ export const ShortcutCueWrapper = styled(m.kbd)`
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 500;
-    color: ${PALETTE.black_50};
+    color: var(--primary_75);
     white-space: nowrap;
     line-height: 1;
 
