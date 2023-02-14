@@ -51,7 +51,11 @@ const InfoMessage: FC<InfoMessageProps> = ({ ...rest }) => {
             ease: "easeInOut",
           }}
         >
-          <S.CloseButton onClick={hideDialog} tabIndex={isOpen ? 0 : -1}>
+          <S.CloseButton
+            onClick={hideDialog}
+            aria-label="Close info dialog"
+            tabIndex={isOpen ? 0 : -1}
+          >
             <Icon variant="close" />
           </S.CloseButton>
           <Markdown raw markdown={message} />
