@@ -30,8 +30,8 @@ const AuthorDetails: FC<AuthorDetailsProps> = ({
   return (
     <S.AuthorDetailsWrapper {...rest}>
       <S.Thumbnail
-        src="/assets/portrait.jpg"
-        alt={`Author image of ${name}`}
+        src="/assets/lukasz-fiuk.webp"
+        alt={`image of the author - ${name}`}
         width={100}
         height={100}
       />
