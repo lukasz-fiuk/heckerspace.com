@@ -12,10 +12,7 @@ export interface SocialMediaProps {
 
 const SocialMedia: FC<SocialMediaProps> = ({ iconSize = 24, ...rest }) => {
   return (
-    <S.SocialMediaWrapper
-      aria-label="Social media SocialMediaWrapper"
-      {...rest}
-    >
+    <S.SocialMediaWrapper aria-label="Explore our social medias" {...rest}>
       {data.socialMedia.map(({ href, title, ariaLabel, iconVariant }) => (
         <S.IconWrapper
           key={title}

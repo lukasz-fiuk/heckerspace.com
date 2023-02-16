@@ -25,8 +25,7 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({ uniqueId, ...rest }) => {
     <S.ToggleWrapper
       onClick={toggle}
       title="Toggles light & dark theme"
-      aria-label={currentTheme}
-      aria-live="polite"
+      aria-label={`Switch to ${isDarkMode ? "light" : "dark"} theme`}
       {...rest}
     >
       <S.Planet
