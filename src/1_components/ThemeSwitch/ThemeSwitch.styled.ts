@@ -17,6 +17,10 @@ export const ToggleWrapper = styled.button`
 
   & * {
     transition: transform 0.6s ease-in-out;
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
   }
 `;
 

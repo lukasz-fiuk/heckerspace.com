@@ -14,4 +14,8 @@ export const ScrollIndicator = styled(m.div)`
 
   transform-origin: left;
   transform: scaleX(0);
+
+  @media (prefers-reduced-motion) {
+    display: none;
+  }
 `;

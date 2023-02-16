@@ -25,7 +25,7 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
 
   return (
     <>
-      <S.HeaderWrapper aria-label="Main navigation" {...rest}>
+      <S.HeaderWrapper {...rest}>
         <MobileMenu />
 
         <S.Fader
@@ -49,7 +49,7 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
 
         <S.SvgLogo />
 
-        <S.NavigationLinks aria-label="Navigation links">
+        <S.NavigationLinks aria-label="Main navigation">
           <ul>{routes}</ul>
         </S.NavigationLinks>
       </S.HeaderWrapper>

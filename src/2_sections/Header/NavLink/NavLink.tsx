@@ -26,13 +26,13 @@ const NavLink: FC<NavLinkProps> = ({ label, href, ...rest }) => {
     <S.NavLinkWrapper
       key={label}
       href={href}
-      tabIndex={0}
       scroll={false}
       $isActive={isActive}
       onMouseOver={enableHover}
       onMouseLeave={disableHover}
       onFocus={enableHover}
       onBlur={disableHover}
+      aria-current={isActive ? "page" : "false"}
       {...rest}
     >
       <HoverReplace direction="up" disableInnerHover isHovering={isHovering}>
