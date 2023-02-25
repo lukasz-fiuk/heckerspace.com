@@ -4,7 +4,6 @@ import { Inter } from "@next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { LazyMotion, MotionConfig } from "framer-motion";
 import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
 import { useEffectOnce } from "usehooks-ts";
 
 import KeydownHandler from "1_components/KeydownHandler/KeydownHandler";
@@ -17,19 +16,12 @@ const loadFeatures = () =>
 const inter = Inter({ subsets: ["latin"] });
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const router = useRouter();
-
   useEffectOnce(() => {
     document.body.style.opacity = "1";
 
     // Set VH size for mobile devices
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-    router.beforePopState((state) => {
-      state.options.scroll = false;
-      return true;
-    });
   });
 
   return (
