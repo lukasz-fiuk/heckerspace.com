@@ -18,4 +18,8 @@ export const ArrowRight = styled(Icon)`
   padding-right: 1em;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  & * {
+    padding-top: 0 !important; // Override any markdown styles to make sure that content aligns with the arrow
+  }
+`;
