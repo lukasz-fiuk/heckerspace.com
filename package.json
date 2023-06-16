@@ -1,12 +1,15 @@
 {
   "name": "heckerspace",
-  "version": "beta: 0.1",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "build": "next build",
     "start": "next dev",
     "lint": "next lint",
-    "export": "next export"
+    "export": "next export",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_88a156bf8fb78b8"
   },
   "dependencies": {
     "@giscus/react": "^2.2.6",
@@ -27,6 +30,13 @@
     "usehooks-ts": "^2.7.1"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.21",
+    "@storybook/addon-interactions": "^7.0.21",
+    "@storybook/addon-links": "^7.0.21",
+    "@storybook/blocks": "^7.0.21",
+    "@storybook/nextjs": "^7.0.21",
+    "@storybook/react": "^7.0.21",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@svgr/webpack": "^6.3.1",
     "@types/canvas-confetti": "^1.6.0",
     "@types/mailchimp__mailchimp_marketing": "^3.0.6",
@@ -39,9 +49,14 @@
     "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
+    "chromatic": "^6.19.7",
     "eslint": "^8.23.0",
     "eslint-config-next": "^13.1.1",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-storybook": "^0.6.12",
+    "storybook": "^7.0.21",
     "typescript": "4.8.2"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "heckerspace@1.0.1"
 }

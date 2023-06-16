@@ -1,7 +1,13 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "import"],
+  "plugins": [
+    "@typescript-eslint",
+    "import"
+  ],
   "rules": {
     "import/order": [
       "error",
@@ -37,7 +43,9 @@
             "group": "internal"
           }
         ],
-        "pathGroupsExcludedImportTypes": ["builtin"]
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ]
       }
     ],
     "@typescript-eslint/no-unused-vars": "warn"
