@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { useGlobalState } from "context/globalState";
 
@@ -9,20 +9,27 @@ export interface IntroAnimationProps {}
 
 const IntroAnimation: FC<IntroAnimationProps> = () => {
   const [isDarkMode] = useGlobalState("isDarkMode");
+  const [isVisible, setIsVisible] = useState(true);
   return (
     <>
-      <S.LoadingScreen
-        aria-hidden
-        {...IntroAnimationVariants.firstItem}
-        transition={IntroAnimationVariants.transition}
-        $isDarkMode={isDarkMode}
-      />
-      <S.LoadingScreen
-        aria-hidden
-        {...IntroAnimationVariants.secondItem}
-        transition={IntroAnimationVariants.transition}
-        $isDarkMode={isDarkMode}
-      />
+      {isVisible && (
+        <>
+          <S.LoadingScreen
+            aria-hidden
+            {...IntroAnimationVariants.firstItem}
+            transition={IntroAnimationVariants.transition}
+            $isDarkMode={isDarkMode}
+            onAnimationComplete={() => setIsVisible(false)}
+          />
+          <S.LoadingScreen
+            aria-hidden
+            {...IntroAnimationVariants.secondItem}
+            transition={IntroAnimationVariants.transition}
+            $isDarkMode={isDarkMode}
+            onAnimationComplete={() => setIsVisible(false)}
+          />
+        </>
+      )}
     </>
   );
 };
