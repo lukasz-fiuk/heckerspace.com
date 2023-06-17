@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Inter } from "@next/font/google";
-import Lenis from "@studio-freight/lenis";
 import { Analytics } from "@vercel/analytics/react";
 import { LazyMotion, MotionConfig } from "framer-motion";
 import type { AppProps } from "next/app";
@@ -23,18 +22,6 @@ const App = ({ Component, pageProps }: AppProps) => {
     // Set VH size for mobile devices
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-    // Lenis
-    const lenis = new Lenis({
-      duration: 1,
-    });
-
-    const raf = (time: any) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-
-    requestAnimationFrame(raf);
   });
 
   return (
