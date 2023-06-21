@@ -9,6 +9,7 @@ import { useEffectOnce } from "usehooks-ts";
 import KeydownHandler from "1_components/KeydownHandler/KeydownHandler";
 import Layout from "2_sections/Layout/Layout";
 import { GlobalStyles } from "styled/style.globals";
+import "styled/style.globals.scss";
 
 const loadFeatures = () =>
   import("utils/framerMotionFeatures").then((res) => res.default);

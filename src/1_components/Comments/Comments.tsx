@@ -3,14 +3,14 @@ import { FC } from "react";
 import Giscus from "@giscus/react";
 import { useDarkMode } from "usehooks-ts";
 
-import * as S from "./Comments.styled";
+import S from "./Comments.module.scss";
 
 export interface CommentsProps {}
 
 const Comments: FC<CommentsProps> = () => {
   const { isDarkMode } = useDarkMode();
   return (
-    <S.CommentsWrapper>
+    <section className={S.CommentsWrapper}>
       <Giscus
         id="comments"
         repo="lukasz-fiuk/heckerspace.com"
@@ -26,7 +26,7 @@ const Comments: FC<CommentsProps> = () => {
         loading="lazy"
         strict="1"
       />
-    </S.CommentsWrapper>
+    </section>
   );
 };
 export default Comments;

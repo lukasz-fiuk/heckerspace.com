@@ -1,10 +1,11 @@
 import { FC } from "react";
 
+import { m } from "framer-motion";
 import { CSSProperties } from "styled-components";
 
 import { useGlobalState } from "context/globalState";
 
-import * as S from "./ShortcutCue.styled";
+import S from "./ShortcutCue.module.scss";
 
 export interface ShortcutCueProps {
   text: string;
@@ -14,9 +15,13 @@ export interface ShortcutCueProps {
 const ShortcutCue: FC<ShortcutCueProps> = ({ text, ...rest }) => {
   const [showKeyBinds] = useGlobalState("showKeyBinds");
   return (
-    <S.ShortcutCueWrapper animate={{ opacity: showKeyBinds ? 1 : 0 }} {...rest}>
+    <m.kbd
+      className={S.ShortcutCueWrapper}
+      animate={{ opacity: showKeyBinds ? 1 : 0 }}
+      {...rest}
+    >
       {text}
-    </S.ShortcutCueWrapper>
+    </m.kbd>
   );
 };
 export default ShortcutCue;

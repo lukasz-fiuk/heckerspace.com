@@ -1,11 +1,10 @@
 import { FC, useRef } from "react";
 
-import { useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 
 import { Directions } from "types/commonTypes";
 
 import { AnimatedLineVariants } from "./AnimatedLine.animations";
-import * as S from "./AnimatedLine.styled";
 
 export interface AnimatedLineProps {
   duration?: number;
@@ -25,7 +24,7 @@ const AnimatedLine: FC<AnimatedLineProps> = ({
   const isInView = useInView(lineRef, { once: true });
 
   return (
-    <S.LineWrapper
+    <m.div
       aria-hidden
       ref={lineRef}
       initial="initial"

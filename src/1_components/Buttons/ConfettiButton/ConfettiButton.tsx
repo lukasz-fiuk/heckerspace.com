@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import useConfetti from "hooks/useConfetii";
 
-import * as S from "./ConfettiButton.styled";
+import S from "./ConfettiButton.module.scss";
 
 export interface ConfettiButtonProps {
   children?: ReactNode;
@@ -23,13 +23,14 @@ const ConfettiButton: FC<ConfettiButtonProps> = ({
   };
 
   return (
-    <S.ConfettiButtonWrapper
+    <button
+      className={S.ConfettiButtonWrapper}
       ref={buttonRef}
       onClick={handleCompleteButtonClick}
       {...rest}
     >
       <HoverReplace direction="up">{children}</HoverReplace>
-    </S.ConfettiButtonWrapper>
+    </button>
   );
 };
 export default ConfettiButton;

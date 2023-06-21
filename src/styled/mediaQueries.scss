@@ -1,0 +1,23 @@
+// Define your breakpoints
+$tablet: 640px;
+$desktop: 1024px;
+$desktop-large: 1280px;
+
+// Mixins for responsive design
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media (min-width: $desktop-large) {
+    @content;
+  }
+}

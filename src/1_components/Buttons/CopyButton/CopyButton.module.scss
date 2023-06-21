@@ -1,0 +1,9 @@
+@import "../../../styled/fonts.scss";
+
+.CopyButtonWrapper {
+  @include small;
+  cursor: pointer;
+  height: min-content;
+  overflow: hidden;
+  border: 2px solid red;
+}

@@ -1,9 +1,11 @@
 import { FC, useState } from "react";
 
+import { m } from "framer-motion";
+
 import { useGlobalState } from "context/globalState";
 
 import { IntroAnimationVariants } from "./IntroAnimation.animations";
-import * as S from "./IntroAnimation.styled";
+import S from "./IntroAnimation.module.scss";
 
 export interface IntroAnimationProps {}
 
@@ -14,18 +16,20 @@ const IntroAnimation: FC<IntroAnimationProps> = () => {
     <>
       {isVisible && (
         <>
-          <S.LoadingScreen
+          <m.div
             aria-hidden
+            className={S.LoadingScreen}
+            data-theme={isDarkMode ? "dark" : "light"}
             {...IntroAnimationVariants.firstItem}
             transition={IntroAnimationVariants.transition}
-            $isDarkMode={isDarkMode}
             onAnimationComplete={() => setIsVisible(false)}
           />
-          <S.LoadingScreen
+          <m.div
             aria-hidden
+            className={S.LoadingScreen}
+            data-theme={isDarkMode ? "dark" : "light"}
             {...IntroAnimationVariants.secondItem}
             transition={IntroAnimationVariants.transition}
-            $isDarkMode={isDarkMode}
             onAnimationComplete={() => setIsVisible(false)}
           />
         </>

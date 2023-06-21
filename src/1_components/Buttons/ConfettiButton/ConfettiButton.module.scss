@@ -1,6 +1,4 @@
-import styled from "styled-components";
-
-export const ConfettiButtonWrapper = styled.button`
+.ConfettiButtonWrapper {
   cursor: pointer;
   color: var(--primary_75);
   transition: 0.3s ease-in-out;
@@ -8,4 +6,4 @@ export const ConfettiButtonWrapper = styled.button`
   &:hover {
     color: var(--primary);
   }
-`;
+}

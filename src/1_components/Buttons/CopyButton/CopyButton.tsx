@@ -7,7 +7,7 @@ import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import useConfetti from "hooks/useConfetii";
 
-import * as S from "./CopyButton.styled";
+import S from "./CopyButton.module.scss";
 
 export interface CopyButtonProps {
   valueToCopy?: string;
@@ -48,7 +48,8 @@ const CopyButton: FC<CopyButtonProps> = ({
   }, [internalValueToCopy, onCopy, fireConfetti]);
 
   return (
-    <S.CopyButtonWrapper
+    <button
+      className={S.CopyButtonWrapper}
       ref={buttonRef}
       aria-label="Copy to clipboard"
       tabIndex={0}
@@ -72,7 +73,7 @@ const CopyButton: FC<CopyButtonProps> = ({
       >
         {copiedValue ? copiedText : defaultText}
       </div>
-    </S.CopyButtonWrapper>
+    </button>
   );
 };
 export default CopyButton;
