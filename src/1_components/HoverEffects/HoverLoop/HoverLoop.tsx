@@ -5,7 +5,7 @@ import { AnimatePresence, m } from "framer-motion";
 import { Directions } from "types/commonTypes";
 
 import { HoverLoopVariants, TRANSITION } from "./HoverLoop.animations";
-import * as S from "./HoverLoop.styled";
+import S from "./HoverLoop.module.scss";
 
 interface HoverLoopProps {
   children: ReactNode;
@@ -36,30 +36,35 @@ const HoverLoop: FC<HoverLoopProps> = ({
   const handleMouseEnter = () => setInnerHover(true);
   const handleMouseLeave = () => setInnerHover(false);
 
+  const Tag = m[renderAs];
+  const HoverLoopWrapper = renderAs;
+
   return (
-    <S.HoverLoopWrapper
+    <HoverLoopWrapper
+      {...rest}
+      className={S.HoverLoopWrapper}
       onMouseEnter={!disableInnerHover ? handleMouseEnter : undefined}
       onMouseLeave={!disableInnerHover ? handleMouseLeave : undefined}
-      as={renderAs}
-      {...rest}
     >
       <AnimatePresence mode="wait">
         {(isHovering || (!disableInnerHover && innerHover)) && (
-          <S.LoopItem
+          <Tag
+            className={S.LoopItem}
             key={key}
             onAnimationStart={() => setIsExiting(true)}
             onAnimationComplete={() => setIsExiting(false)}
             {...HoverLoopVariants[direction]}
             transition={TRANSITION}
-            as={m[renderAs]}
           >
             {children}
-          </S.LoopItem>
+          </Tag>
         )}
       </AnimatePresence>
 
-      <S.DimensionGhost aria-hidden>{children}</S.DimensionGhost>
-    </S.HoverLoopWrapper>
+      <div className={S.DimensionGhost} aria-hidden>
+        {children}
+      </div>
+    </HoverLoopWrapper>
   );
 };
 

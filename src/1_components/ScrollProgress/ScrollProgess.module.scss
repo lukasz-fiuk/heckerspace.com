@@ -1,12 +1,8 @@
-import { m } from "framer-motion";
-import styled from "styled-components";
-
-import { zIndex } from "styled/mixins";
-
-export const ScrollIndicator = styled(m.div)`
+.ScrollIndicator {
   position: fixed;
   inset: 0 0 auto 0;
-  z-index: ${zIndex("absoluteTop")};
+  /* z-index: ${zIndex("absoluteTop")}; */
+  z-index: 100000;
 
   width: 100vw;
   height: 8px;
@@ -18,4 +14,4 @@ export const ScrollIndicator = styled(m.div)`
   @media (prefers-reduced-motion) {
     display: none;
   }
-`;
+}

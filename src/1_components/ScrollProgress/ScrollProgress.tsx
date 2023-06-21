@@ -1,8 +1,8 @@
 import { FC } from "react";
 
-import { useScroll, useWillChange } from "framer-motion";
+import { m, useScroll, useWillChange } from "framer-motion";
 
-import * as S from "./ScrollProgess.styled";
+import S from "./ScrollProgess.module.scss";
 import { ScrollProgressVariants } from "./ScrollProgress.animation";
 
 export interface ScrollProgressProps {}
@@ -12,7 +12,8 @@ const ScrollProgress: FC<ScrollProgressProps> = ({ ...rest }) => {
   const willChange = useWillChange();
 
   return (
-    <S.ScrollIndicator
+    <m.div
+      className={S.ScrollIndicator}
       aria-hidden
       style={{ scaleX: scrollYProgress, willChange }}
       {...ScrollProgressVariants}
