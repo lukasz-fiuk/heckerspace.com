@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Inter } from "@next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { LazyMotion, MotionConfig } from "framer-motion";
 import type { AppProps } from "next/app";
+import { Inter } from "next/font/google";
 import { useEffectOnce } from "usehooks-ts";
 
 import KeydownHandler from "1_components/KeydownHandler/KeydownHandler";
