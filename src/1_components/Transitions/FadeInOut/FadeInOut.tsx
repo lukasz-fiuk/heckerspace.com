@@ -17,9 +17,9 @@ const FadeInOut: FC<FadeInOutProps> = ({
   renderAs = m["div"],
   ...rest
 }) => {
-  const Tag = renderAs;
+  const FadeInOutWrapper = renderAs;
   return (
-    <Tag
+    <FadeInOutWrapper
       as={renderAs}
       className={S.FadeInOutWrapper}
       {...FadeInOutVariants}
@@ -27,7 +27,7 @@ const FadeInOut: FC<FadeInOutProps> = ({
       {...rest}
     >
       {children && children}
-    </Tag>
+    </FadeInOutWrapper>
   );
 };
 export default FadeInOut;
