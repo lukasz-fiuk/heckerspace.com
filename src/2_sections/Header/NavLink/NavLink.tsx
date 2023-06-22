@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
 import { AnimatePresence } from "framer-motion";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 
@@ -15,8 +15,7 @@ export interface NavLinkProps {
 const NavLink: FC<NavLinkProps> = ({ label, href, ...rest }) => {
   const [isHovering, setIsHovering] = useState(false);
 
-  const router = useRouter();
-  const currentRoute = router.pathname;
+  const currentRoute = usePathname();
   const isActive = currentRoute === href;
 
   const enableHover = () => setIsHovering(true);

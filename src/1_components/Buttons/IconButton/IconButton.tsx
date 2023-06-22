@@ -1,10 +1,13 @@
 import { FC, useState } from "react";
 
+import clsx from "clsx";
+import Link from "next/link";
+
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
-import { IconVariant } from "1_components/Icon/Icon";
+import Icon, { IconVariant } from "1_components/Icon/Icon";
 import { Directions } from "types/commonTypes";
 
-import * as S from "./IconButton.styled";
+import S from "./IconButton.module.scss";
 
 export interface IconButtonProps {
   label?: string;
@@ -14,6 +17,7 @@ export interface IconButtonProps {
   hoverDirection: Directions;
   onClick?: (e: any) => void;
   removeFocus?: boolean;
+  className?: string;
 }
 
 const IconButton: FC<IconButtonProps> = ({
@@ -22,6 +26,7 @@ const IconButton: FC<IconButtonProps> = ({
   iconVariant,
   hoverDirection,
   reverse = false,
+  className,
   removeFocus,
 
   ...rest
@@ -39,7 +44,7 @@ const IconButton: FC<IconButtonProps> = ({
         disableInnerHover
         direction={hoverDirection}
       >
-        <S.IconComp variant={iconVariant} />
+        <Icon className={S.IconComp} variant={iconVariant} />
       </HoverReplace>
     </>
   );
@@ -47,31 +52,31 @@ const IconButton: FC<IconButtonProps> = ({
   return (
     <>
       {href === "" ? (
-        <S.IconButtonWrapper
+        <button
+          {...rest}
+          className={clsx(S.ButtonWrapperStyles, className)}
           onMouseEnter={toggleHover}
           onMouseLeave={toggleHover}
           onFocus={toggleHover}
           onBlur={toggleHover}
-          $reverse={reverse}
           tabIndex={removeFocus ? -1 : 0}
-          {...rest}
         >
           {content}
-        </S.IconButtonWrapper>
+        </button>
       ) : (
-        <S.IconLinkWrapper
+        <Link
+          {...rest}
+          className={clsx(S.ButtonWrapperStyles, className)}
           href={href}
           onMouseEnter={toggleHover}
           onMouseLeave={toggleHover}
           onFocus={toggleHover}
           onBlur={toggleHover}
-          $reverse={reverse}
           scroll={false}
           tabIndex={removeFocus ? -1 : 0}
-          {...rest}
         >
           {content}
-        </S.IconLinkWrapper>
+        </Link>
       )}
     </>
   );

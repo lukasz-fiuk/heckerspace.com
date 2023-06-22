@@ -1,4 +1,5 @@
-import { useRouter } from "next/router";
+"use client";
+import { useRouter } from "next/navigation";
 import { useDarkMode, useEffectOnce } from "usehooks-ts";
 
 import { setGlobalState } from "context/globalState";
@@ -28,15 +29,15 @@ const KeydownHandler = () => {
           break;
 
         case "h":
-          router.push("/", undefined, { scroll: false });
+          router.push("/");
           break;
 
         case "b":
-          router.push("/articles", undefined, { scroll: false });
+          router.push("/articles");
           break;
 
         case "a":
-          router.push("/about", undefined, { scroll: false });
+          router.push("/about");
           break;
 
         default:

@@ -1,0 +1,22 @@
+@import "styled/fonts.scss";
+
+.ButtonWrapperStyles {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 8px;
+  align-items: center;
+  // direction: ${({ $reverse }) => ($reverse ? "rtl" : "ltr")};
+
+  width: fit-content;
+  transition: 0.3s ease-in-out;
+
+  @include body;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.IconComp {
+  width: 2em;
+  height: 2em;
+  padding: 4px;
+}

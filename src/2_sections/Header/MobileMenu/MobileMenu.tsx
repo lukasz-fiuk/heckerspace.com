@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import useDisableScroll from "hooks/useDisableScroll";
 import { COMMONS } from "styled/commons";
@@ -13,8 +13,7 @@ import * as S from "./MobileMenu.styled";
 export interface MobileMenuProps {}
 
 const MobileMenu: FC<MobileMenuProps> = ({ ...rest }) => {
-  const router = useRouter();
-  const currentPath = router.asPath;
+  const currentPath = usePathname();
 
   const [isOpen, setIsOpen] = useState(false);
 

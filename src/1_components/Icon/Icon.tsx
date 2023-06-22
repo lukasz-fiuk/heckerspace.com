@@ -1,6 +1,8 @@
 import { FC } from "react";
 
-import * as S from "./Icon.styled";
+import clsx from "clsx";
+
+import S from "./Icon.module.scss";
 import { renderIcon } from "./renderIcon";
 
 export type IconVariant =
@@ -17,9 +19,14 @@ export type IconVariant =
 
 export interface IconProps {
   variant: IconVariant;
+  className?: string;
 }
 
-const Icon: FC<IconProps> = ({ variant, ...rest }) => {
-  return <S.IconWrapper {...rest}>{renderIcon(variant)}</S.IconWrapper>;
+const Icon: FC<IconProps> = ({ variant, className, ...rest }) => {
+  return (
+    <div {...rest} className={clsx(S.IconWrapper, className)}>
+      {renderIcon(variant)}
+    </div>
+  );
 };
 export default Icon;

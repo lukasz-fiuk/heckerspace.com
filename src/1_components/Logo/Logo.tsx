@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import Icon from "1_components/Icon/Icon";
 import { handleScrollTop } from "utils/handleScrollTop";
@@ -13,12 +13,12 @@ export interface LogoProps {
 }
 
 const Logo: FC<LogoProps> = ({ href = "/", variant = "logoType", ...rest }) => {
-  const router = useRouter();
+  const currentPath = usePathname();
 
   function handleRedirect(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {
-    if (href === router.asPath) {
+    if (href === currentPath) {
       event.preventDefault();
       handleScrollTop();
     }

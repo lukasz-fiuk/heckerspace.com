@@ -1,8 +1,8 @@
 .LoadingScreen {
   position: fixed;
-  inset: 0 0 50vh 0;
   // z-index: ${zIndex("absoluteTop")};
   z-index: 10000;
+  inset: 0 0 50vh 0;
 
   &[data-theme="dark"] {
     background: var(--black);

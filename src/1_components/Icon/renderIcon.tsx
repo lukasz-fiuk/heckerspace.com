@@ -1,45 +1,44 @@
-import SvgLogoMark from "svg/branding/logomark.svg";
-import SvgLogoType from "svg/branding/logotype.svg";
-import SvgArrowRight from "svg/icons/arrowRight.svg";
-import SvgArrowUp from "svg/icons/arrowUp.svg";
-import SvgClose from "svg/icons/close.svg";
-import SvgGithubLogo from "svg/icons/githubLogo.svg";
-import SvgStar from "svg/icons/star.svg";
-import SvgTwitterLogo from "svg/icons/twitterLogo.svg";
+import Logomark from "1_components/Svgs/branding/Logomark";
+import Logotype from "1_components/Svgs/branding/Logotype";
+import ArrowRight from "1_components/Svgs/icons/ArrowRight";
+import ArrowUp from "1_components/Svgs/icons/ArrowUp";
+import Close from "1_components/Svgs/icons/Close";
+import GithubLogo from "1_components/Svgs/icons/GithubLogo";
+import Star from "1_components/Svgs/icons/Star";
+import TwitterLogo from "1_components/Svgs/icons/TwitterLogo";
 
 import { IconVariant } from "./Icon";
-import * as S from "./Icon.styled";
 
 export const renderIcon = (variant: IconVariant) => {
   switch (variant) {
     case "twitter":
-      return <SvgTwitterLogo />;
+      return <TwitterLogo />;
 
     case "github":
-      return <SvgGithubLogo />;
+      return <GithubLogo />;
 
     case "arrowUp":
-      return <SvgArrowUp />;
+      return <ArrowUp />;
 
     case "arrowDown":
-      return <S.SvgArrowDown />;
+      return <ArrowUp />;
 
     case "arrowLeft":
-      return <S.SvgArrowLeft />;
+      return <ArrowRight />;
 
     case "arrowRight":
-      return <SvgArrowRight />;
+      return <ArrowRight />;
 
     case "star":
-      return <SvgStar />;
+      return <Star />;
 
     case "close":
-      return <SvgClose />;
+      return <Close />;
 
     case "logoType":
-      return <SvgLogoType />;
+      return <Logotype />;
 
     case "logoMark":
-      return <SvgLogoMark />;
+      return <Logomark />;
   }
 };

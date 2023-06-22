@@ -1,0 +1,12 @@
+@import "styled/mediaQueries.scss";
+
+.Main {
+  max-width: var(--max-width);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 12px;
+
+  @include desktop {
+    width: 75vw;
+  }
+}
