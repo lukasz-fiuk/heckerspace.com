@@ -9,7 +9,7 @@ export default function Document() {
         strategy="beforeInteractive"
       />
       <Head />
-      <body style={{ opacity: 0 }}>
+      <body style={{ opacity: 1 }}>
         <Main />
         <NextScript />
       </body>
