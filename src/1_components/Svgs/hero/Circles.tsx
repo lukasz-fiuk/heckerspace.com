@@ -1,11 +1,16 @@
 import { FC } from "react";
 
-export interface CirclesProps {}
+import clsx from "clsx";
 
-const Circles: FC<CirclesProps> = ({ ...rest }) => {
+export interface CirclesProps {
+  className?: string;
+}
+
+const Circles: FC<CirclesProps> = ({ className, ...rest }) => {
   return (
     <svg
       {...rest}
+      className={clsx(className)}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 345 196"
