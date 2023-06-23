@@ -1,19 +1,23 @@
 import { FC } from "react";
 
+import clsx from "clsx";
+
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import { useGlobalState } from "context/globalState";
 import { scrollToId } from "utils/scrollToID";
 import { slugify } from "utils/slugify";
 
-import * as S from "./TableOfContents.styled";
+import S from "./TableOfContents.module.scss";
 
 export interface TableOfContentsProps {
   chapters: Array<string>;
   offsetX?: number;
+  className?: string;
 }
 export const TableOfContents: FC<TableOfContentsProps> = ({
   chapters,
   offsetX,
+  className,
   ...rest
 }) => {
   const [currentChapter, setCurrentChapter] = useGlobalState("currentChapter");
@@ -21,13 +25,17 @@ export const TableOfContents: FC<TableOfContentsProps> = ({
   const MARGIN_TOP = 240;
 
   return (
-    <S.TableOfContentsWrapper {...rest}>
-      <S.MobileTitle>Table of contents</S.MobileTitle>
-      <S.ListOfChapters offsetX={offsetX}>
+    <nav {...rest} className={clsx(S.TableOfContentsWrapper, className)}>
+      <h2 className={S.MobileTitle}>Table of contents</h2>
+      <ul
+        className={S.ListOfChapters}
+        //  offsetX={offsetX}
+      >
         {chapters.map((chapterName) => (
-          <S.ListItem
+          <li
+            className={S.ListItem}
             key={chapterName}
-            isHighlighted={currentChapter === chapterName}
+            // isHighlighted={currentChapter === chapterName}
           >
             <button
               onClick={() => {
@@ -37,9 +45,9 @@ export const TableOfContents: FC<TableOfContentsProps> = ({
             >
               <HoverReplace direction="up">{chapterName}</HoverReplace>
             </button>
-          </S.ListItem>
+          </li>
         ))}
-      </S.ListOfChapters>
-    </S.TableOfContentsWrapper>
+      </ul>
+    </nav>
   );
 };

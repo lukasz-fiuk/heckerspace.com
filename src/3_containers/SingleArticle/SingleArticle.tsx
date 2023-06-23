@@ -2,19 +2,23 @@ import { FC, useEffect, useRef, useState } from "react";
 
 import { AnimatePresence } from "framer-motion";
 
+import AnimatedLine from "1_components/AnimatedLine/AnimatedLine";
 import ConfettiButton from "1_components/Buttons/ConfettiButton/ConfettiButton";
 import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
-import { ArticleHeaderProps } from "2_sections/ArticleHeader/ArticleHeader";
+import ArticleHeader, {
+  ArticleHeaderProps,
+} from "2_sections/ArticleHeader/ArticleHeader";
 import Discussion from "2_sections/Discussion/Discussion";
 import ModuleRenderer, {
   Modules,
 } from "2_sections/ModuleRenderer/ModuleRenderer";
 import NextArticle from "2_sections/NextArticle/NextArticle";
+import { TableOfContents } from "2_sections/TableOfContents/TableOfContents";
 import { useElementOffset } from "hooks/useElementOffset";
 import { estimateTotalReadingTime } from "utils/estimateTotalReadingTime";
 import { getArticleBadge, storeArticleBadge } from "utils/handleArticleBadge";
 
-import * as S from "./SingleArticle.styled";
+import S from "./SingleArticle.module.scss";
 
 export interface ArticleProps extends ArticleHeaderProps {
   id: string;
@@ -63,9 +67,10 @@ const Article: FC<ArticleProps> = ({
 
   return (
     <>
-      <S.SingleArticleWrapper ref={articleWrapperRef}>
-        <S.Article>
-          <S.Header
+      <div className={S.SingleArticleWrapper} ref={articleWrapperRef}>
+        <article className={S.Article}>
+          <ArticleHeader
+            className={S.Header}
             cover={cover}
             title={title}
             createdAt={createdAt}
@@ -76,14 +81,18 @@ const Article: FC<ArticleProps> = ({
 
           {shouldRenderChapters && (
             <>
-              <S.MobileChapterSelector chapters={chaptersList} />
-              <S.DesktopChapterSelector
+              <TableOfContents
+                className={S.MobileChapterSelector}
+                chapters={chaptersList}
+              />
+              <TableOfContents
+                className={S.DesktopChapterSelector}
                 chapters={chaptersList}
                 offsetX={offsetX}
               />
             </>
           )}
-        </S.Article>
+        </article>
 
         <ConfettiButton onClick={handleCompleteButtonClick}>
           <AnimatePresence mode="wait">
@@ -96,7 +105,7 @@ const Article: FC<ArticleProps> = ({
           </AnimatePresence>
         </ConfettiButton>
 
-        <S.Divider />
+        <AnimatedLine className={S.Divider} />
 
         <Discussion />
 
@@ -107,7 +116,7 @@ const Article: FC<ArticleProps> = ({
             slug={nextArticleContent.slug}
           />
         )}
-      </S.SingleArticleWrapper>
+      </div>
     </>
   );
 };

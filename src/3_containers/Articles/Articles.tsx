@@ -5,7 +5,7 @@ import ModuleRenderer, {
   Modules,
 } from "2_sections/ModuleRenderer/ModuleRenderer";
 
-import * as S from "./Articles.styled";
+import S from "./Articles.module.scss";
 
 export interface ArticlesProps {
   modules: Modules;
@@ -14,9 +14,9 @@ export interface ArticlesProps {
 
 const Articles: FC<ArticlesProps> = ({ modules, recentArticles }) => {
   return (
-    <S.ArticlesPageWrapper>
+    <div className={S.ArticlesPageWrapper}>
       <ModuleRenderer modules={modules} recentArticles={recentArticles} />
-    </S.ArticlesPageWrapper>
+    </div>
   );
 };
 export default Articles;

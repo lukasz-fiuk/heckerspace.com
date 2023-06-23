@@ -1,0 +1,46 @@
+@import "styled/mediaQueries.scss";
+@import "styled/fonts.scss";
+
+.SingleArticleWrapper {
+  display: grid;
+  position: relative;
+  row-gap: 12rem;
+
+  margin: 120px auto 0;
+  max-width: 800px;
+}
+
+.Article {
+  display: grid;
+  row-gap: clamp(80px, 8rem, 96px);
+}
+
+.Header {
+  margin-top: 12rem;
+}
+
+.MobileChapterSelector {
+  grid-row: 2;
+
+  @include desktopLarge {
+    display: none;
+  }
+}
+
+.DesktopChapterSelector {
+  display: none;
+
+  @include desktopLarge {
+    display: block;
+
+    position: sticky;
+    bottom: 5vw;
+    height: 0;
+  }
+}
+
+.Divider {
+  background: var(--primary_75);
+  width: 100%;
+  height: 1px;
+}

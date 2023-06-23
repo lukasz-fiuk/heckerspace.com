@@ -5,7 +5,7 @@ import ModuleRenderer, {
   Modules,
 } from "2_sections/ModuleRenderer/ModuleRenderer";
 
-import * as S from "./Landing.styled";
+import S from "./Landing.module.scss";
 
 export interface LandingProps {
   recentArticles: RecentArticles;
@@ -14,9 +14,10 @@ export interface LandingProps {
 
 const Landing: FC<LandingProps> = ({ recentArticles, modules }) => {
   return (
-    <S.LandingPageWrapper>
+    <div className={S.LandingPageWrapper}>
       <ModuleRenderer modules={modules} recentArticles={recentArticles} />
-    </S.LandingPageWrapper>
+    </div>
   );
 };
+
 export default Landing;

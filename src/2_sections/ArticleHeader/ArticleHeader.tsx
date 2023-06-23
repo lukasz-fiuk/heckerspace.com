@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import clsx from "clsx";
 import Image from "next/image";
 
 import IconButton from "1_components/Buttons/IconButton/IconButton";
@@ -15,6 +16,7 @@ export interface ArticleHeaderProps extends AuthorDetailsProps {
   title: string;
   createdAt: string;
   cover?: Media;
+  className?: string;
 }
 
 const ArticleHeader: FC<ArticleHeaderProps> = ({
@@ -22,10 +24,11 @@ const ArticleHeader: FC<ArticleHeaderProps> = ({
   createdAt,
   cover,
   estimatedReadingTime,
+  className,
   ...rest
 }) => {
   return (
-    <header {...rest} className={S.ArticleHeaderWrapper}>
+    <header {...rest} className={clsx(S.ArticleHeaderWrapper, className)}>
       {cover && (
         <Image
           className={S.CoverImage}

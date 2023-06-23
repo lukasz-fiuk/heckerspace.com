@@ -1,10 +1,12 @@
 import { FC } from "react";
 
+import AnimatedLine from "1_components/AnimatedLine/AnimatedLine";
+import IconButton from "1_components/Buttons/IconButton/IconButton";
 import { IconVariant } from "1_components/Icon/Icon";
 import RevealItem from "1_components/RevealItem/RevealItem";
 import { Directions } from "types/commonTypes";
 
-import * as S from "./ArticleList.styled";
+import S from "./ArticleList.module.scss";
 import ListItem from "./ListItem/ListItem";
 
 export type RecentArticles = Array<{
@@ -34,14 +36,14 @@ const ArticleList: FC<ArticleListProps> = ({
   ...rest
 }) => {
   return (
-    <S.ArticlesListWrapper {...rest}>
-      <S.TitleWrapper>
-        <S.Title>{title}</S.Title>
+    <section className={S.ArticlesListWrapper} {...rest}>
+      <div className={S.TitleWrapper}>
+        <h2 className={S.Title}>{title}</h2>
 
-        <S.Underline duration={2.4} />
-      </S.TitleWrapper>
+        <AnimatedLine className={S.Underline} duration={2.4} />
+      </div>
 
-      <S.List>
+      <ul className={S.List}>
         {recentArticles &&
           recentArticles.map(({ id, title, slug }, index) => (
             <ListItem
@@ -52,10 +54,11 @@ const ArticleList: FC<ArticleListProps> = ({
               href={"/article/" + slug}
             />
           ))}
-      </S.List>
+      </ul>
 
       <RevealItem>
-        <S.ArrowButton
+        <IconButton
+          className={S.ArrowButton}
           href={buttonHref}
           label={buttonLabel}
           iconVariant={buttonIcon}
@@ -63,7 +66,7 @@ const ArticleList: FC<ArticleListProps> = ({
           reverse={buttonReverse}
         />
       </RevealItem>
-    </S.ArticlesListWrapper>
+    </section>
   );
 };
 export default ArticleList;

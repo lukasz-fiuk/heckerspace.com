@@ -52,9 +52,9 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({
         />
 
         <mask
+          data-theme={currentTheme}
           className={S.Mask}
           id={`moon-mask-${uniqueId}`}
-          data-theme={currentTheme}
         >
           <rect x="0" y="0" width="100%" height="100%" fill="white" />
           <circle cx="12" cy="12" r="12" fill="black" />

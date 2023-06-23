@@ -1,7 +1,6 @@
 import { FC } from "react";
 
 import { m } from "framer-motion";
-import { CSSProperties } from "styled-components";
 
 import { useGlobalState } from "context/globalState";
 
@@ -9,7 +8,6 @@ import S from "./ShortcutCue.module.scss";
 
 export interface ShortcutCueProps {
   text: string;
-  style?: CSSProperties;
 }
 
 const ShortcutCue: FC<ShortcutCueProps> = ({ text, ...rest }) => {

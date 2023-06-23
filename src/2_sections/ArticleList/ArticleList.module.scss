@@ -1,0 +1,59 @@
+@import "styled/fonts.scss";
+
+.ArticlesListWrapper {
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+}
+
+.TitleWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.Title {
+  @include h1;
+
+  padding-bottom: 0.25em;
+  font-weight: bold;
+}
+
+.Arrow {
+  height: 1em;
+  color: var(--primary_50);
+}
+
+.ArrowButton {
+  cursor: pointer;
+  margin: 40px;
+}
+
+.Underline {
+  position: absolute;
+  transition: background 0.4s ease-in-out;
+  inset: auto 0 0 0;
+  background: var(--primary);
+
+  height: 4px;
+}
+
+.List {
+  width: 100%;
+
+  & > * {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover > *,
+  :focus-within li a {
+    opacity: 0.4;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover > :hover,
+  :focus-within :focus {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+}

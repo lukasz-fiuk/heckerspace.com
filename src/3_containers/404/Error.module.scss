@@ -1,0 +1,18 @@
+@import "styled/fonts.scss";
+
+.ErrorPageWrapper {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.HeadingWrapper {
+  display: grid;
+  row-gap: 16px;
+  place-items: center;
+}
+
+.ErrorMessage {
+  @include h1;
+  font-weight: bold;
+}

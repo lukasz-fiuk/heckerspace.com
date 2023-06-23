@@ -1,0 +1,61 @@
+.TableOfContentsWrapper {
+  /* z-index: ${zIndex("aboveContent")}; */
+  z-index: 100;
+}
+
+.MobileTitle {
+  @include h3;
+  font-weight: bold;
+  line-height: 2;
+
+  @include desktopLarge {
+    display: none;
+  }
+}
+
+.ListOfChapters {
+  display: grid;
+
+  list-style-type: square;
+  list-style-position: inside;
+
+  @include desktopLarge {
+    position: absolute;
+    bottom: 0.5em;
+    left: 5vw;
+    // margin-left: ${({ offsetX }) => offsetX && `${-offsetX}px`};
+
+    list-style-type: none;
+    @include small;
+  }
+}
+
+.ListItem {
+  display: list-item;
+
+  @include body;
+  opacity: 0.5;
+  transition: 0.3s ease-in-out;
+  color: var(--primary);
+  line-height: 2;
+  white-space: nowrap;
+
+  // ${({ isHighlighted }) =>
+  //   isHighlighted &&
+  //   css`
+  //     opacity: 1;
+  //   `}
+
+  & > * {
+    cursor: pointer;
+  }
+
+  @include desktopLarge {
+    @include small;
+    color: var(--primary);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
