@@ -1,12 +1,15 @@
 import { FC } from "react";
 
+import Image from "next/image";
+
+import IconButton from "1_components/Buttons/IconButton/IconButton";
 import Markdown from "1_components/Markdown/Markdown";
 import AuthorDetails, {
   AuthorDetailsProps,
 } from "2_sections/ArticleHeader/AuthorDetails/AuthorDetails";
 import { Media } from "types/commonTypes";
 
-import * as S from "./ArticleHeader.styled";
+import S from "./ArticleHeader.module.scss";
 
 export interface ArticleHeaderProps extends AuthorDetailsProps {
   title: string;
@@ -22,9 +25,10 @@ const ArticleHeader: FC<ArticleHeaderProps> = ({
   ...rest
 }) => {
   return (
-    <S.ArticleHeaderWrapper {...rest}>
+    <header {...rest} className={S.ArticleHeaderWrapper}>
       {cover && (
-        <S.CoverImage
+        <Image
+          className={S.CoverImage}
           alt={cover.fileName}
           src={cover.url}
           width={cover.width}
@@ -33,7 +37,8 @@ const ArticleHeader: FC<ArticleHeaderProps> = ({
         />
       )}
 
-      <S.ReturnButton
+      <IconButton
+        className={S.ReturnButton}
         label="all articles"
         iconVariant="arrowLeft"
         hoverDirection="left"
@@ -41,15 +46,15 @@ const ArticleHeader: FC<ArticleHeaderProps> = ({
         href="/articles"
       />
 
-      <S.Title>
+      <h1 className={S.Title}>
         <Markdown markdown={title} raw />
-      </S.Title>
+      </h1>
 
       <AuthorDetails
         createdAt={createdAt}
         estimatedReadingTime={estimatedReadingTime}
       />
-    </S.ArticleHeaderWrapper>
+    </header>
   );
 };
 export default ArticleHeader;

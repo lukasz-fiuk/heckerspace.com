@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 
 import Giscus from "@giscus/react";
@@ -10,7 +11,7 @@ export interface CommentsProps {}
 const Comments: FC<CommentsProps> = () => {
   const { isDarkMode } = useDarkMode();
   return (
-    <section className={S.CommentsWrapper}>
+    <div className={S.CommentsWrapper}>
       <Giscus
         id="comments"
         repo="lukasz-fiuk/heckerspace.com"
@@ -26,7 +27,7 @@ const Comments: FC<CommentsProps> = () => {
         loading="lazy"
         strict="1"
       />
-    </section>
+    </div>
   );
 };
 export default Comments;

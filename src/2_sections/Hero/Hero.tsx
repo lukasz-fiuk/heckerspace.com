@@ -1,8 +1,9 @@
 import { FC } from "react";
 
 import Markdown from "1_components/Markdown/Markdown";
+import Circles from "1_components/Svgs/hero/Circles";
 
-import * as S from "./Hero.styled";
+import S from "./Hero.module.scss";
 
 export interface HeroProps {
   title: string;
@@ -10,15 +11,15 @@ export interface HeroProps {
 
 const Hero: FC<HeroProps> = ({ title, ...rest }) => {
   return (
-    <S.HeroWrapper {...rest}>
-      <S.HeadingWrapper>
-        <S.SvgCircles aria-hidden />
+    <section {...rest} className={S.HeroWrapper}>
+      <div className={S.HeadingWrapper}>
+        <Circles className={S.SvgCircles} aria-hidden />
 
-        <S.Title>
+        <h1 className={S.Title}>
           <Markdown markdown={title} raw />
-        </S.Title>
-      </S.HeadingWrapper>
-    </S.HeroWrapper>
+        </h1>
+      </div>
+    </section>
   );
 };
 export default Hero;

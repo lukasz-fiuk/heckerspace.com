@@ -1,12 +1,19 @@
 @import "styled/mediaQueries.scss";
 
 .Main {
-  max-width: var(--max-width);
-  min-height: 100vh;
   margin: 0 auto;
   padding: 0 12px;
+  max-width: var(--max-width);
+  min-height: 100vh;
 
   @include desktop {
     width: 75vw;
   }
+}
+
+.example {
+  display: grid;
+  position: fixed;
+  row-gap: 12px;
+  font-size: 16px;
 }

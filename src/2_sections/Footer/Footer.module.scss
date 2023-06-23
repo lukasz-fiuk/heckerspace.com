@@ -1,0 +1,72 @@
+@import "styled/fonts.scss";
+@import "styled/mediaQueries.scss";
+
+.FooterWrapper {
+  display: grid;
+  position: relative;
+  place-items: center;
+  margin: 0 auto;
+  max-width: calc(100vw - 32px);
+  height: var(--footer-height-mobile);
+
+  @include desktop {
+    max-width: 90vw;
+    height: var(--footer-height-desktop);
+  }
+}
+
+.Copyright {
+  position: absolute;
+  bottom: 16px;
+
+  @include small;
+  font-weight: 400;
+}
+
+.HeckerspaceLogo {
+  display: none;
+
+  @include desktop {
+    display: block;
+    height: clamp(24px, 3.2rem, 40px);
+  }
+}
+
+.ScrollTopButton {
+  position: absolute;
+  right: 0;
+  appearance: none;
+  opacity: 0.5;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  margin: -8px;
+  padding: 8px;
+  width: 48px;
+  overflow: hidden;
+  color: var(--primary);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.ArrowIcon {
+  padding: 8px 0;
+}
+
+.SocialLinks {
+  position: absolute;
+
+  @include desktop {
+    left: 0;
+  }
+}
+
+.Version {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+
+  @include small;
+  color: var(--primary_75);
+}

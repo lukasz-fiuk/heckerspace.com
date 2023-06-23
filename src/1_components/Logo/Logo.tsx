@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
 import Icon from "1_components/Icon/Icon";
@@ -10,9 +11,15 @@ import * as S from "./Logo.styled";
 export interface LogoProps {
   href?: string;
   variant?: "logoType" | "logoMark";
+  className?: string;
 }
 
-const Logo: FC<LogoProps> = ({ href = "/", variant = "logoType", ...rest }) => {
+const Logo: FC<LogoProps> = ({
+  href = "/",
+  className,
+  variant = "logoType",
+  ...rest
+}) => {
   const currentPath = usePathname();
 
   function handleRedirect(
@@ -26,12 +33,13 @@ const Logo: FC<LogoProps> = ({ href = "/", variant = "logoType", ...rest }) => {
 
   return (
     <S.LogoWrapper
+      {...rest}
+      className={clsx(className)}
       href={href}
       aria-label="Home"
       title="Return to the homepage"
       onClick={handleRedirect}
       scroll={false}
-      {...rest}
     >
       <Icon variant={variant} />
     </S.LogoWrapper>

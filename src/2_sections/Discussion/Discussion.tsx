@@ -1,18 +1,21 @@
-"use client";
 import { FC } from "react";
 
 import Comments from "1_components/Comments/Comments";
 
-import * as S from "./Discussion.styled";
+import S from "./Discussion.module.scss";
 
 export interface DiscussionProps {}
 
 const Discussion: FC<DiscussionProps> = ({ ...rest }) => {
   return (
-    <S.DiscussionWrapper aria-label="Comments section" {...rest}>
-      <S.Title>Comments 💬</S.Title>
+    <section
+      {...rest}
+      className={S.DiscussionWrapper}
+      aria-label="Comments section"
+    >
+      <h2 className={S.Title}>Comments 💬</h2>
       <Comments />
-    </S.DiscussionWrapper>
+    </section>
   );
 };
 export default Discussion;

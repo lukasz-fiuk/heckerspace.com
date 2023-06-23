@@ -1,5 +1,6 @@
 import { FC, useCallback, useEffect, useState } from "react";
 
+import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
 import { useCopyToClipboard } from "usehooks-ts";
 
@@ -13,12 +14,14 @@ export interface CopyButtonProps {
   valueToCopy?: string;
   defaultText?: string;
   copiedText?: string;
+  className?: string;
 }
 
 const CopyButton: FC<CopyButtonProps> = ({
   valueToCopy = "",
   defaultText = "copy link 🔗",
   copiedText = "copied! 🎉",
+  className,
   ...rest
 }) => {
   const [copiedValue, onCopy] = useCopyToClipboard();
@@ -49,7 +52,7 @@ const CopyButton: FC<CopyButtonProps> = ({
 
   return (
     <button
-      className={S.CopyButtonWrapper}
+      className={clsx(S.CopyButtonWrapper, className)}
       ref={buttonRef}
       aria-label="Copy to clipboard"
       tabIndex={0}

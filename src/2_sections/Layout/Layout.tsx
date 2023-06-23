@@ -1,17 +1,14 @@
 "use client";
 import { FC, ReactNode } from "react";
 
-import { AnimatePresence, LazyMotion, m, MotionConfig } from "framer-motion";
+import { AnimatePresence, LazyMotion, MotionConfig } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 import IntroAnimation from "1_components/IntroAnimation/IntroAnimation";
 import ScrollProgress from "1_components/ScrollProgress/ScrollProgress";
 import { SeoProps } from "1_components/SEO/SEO";
-import FadeInOut from "1_components/Transitions/FadeInOut/FadeInOut";
 import Footer from "2_sections/Footer/Footer";
 import Header from "2_sections/Header/Header";
-import { COMMONS } from "styled/commons";
-import { handleScrollTop } from "utils/handleScrollTop";
 
 import InfoMessage from "./InfoMessage/InfoMessage";
 import S from "./Layout.module.scss";
@@ -40,19 +37,19 @@ const Layout: FC<LayoutProps> = ({ children, head }) => {
             <ScrollProgress key={"scrollProgress" + asPath} />
           </AnimatePresence>
 
-          <AnimatePresence
+          {/* <AnimatePresence
             mode="wait"
             onExitComplete={() => handleScrollTop({ smooth: false })}
+          > */}
+          <main
+            className={S.Main}
+            // renderAs={m["main"]}
+            // key={"main" + asPath}
+            // duration={COMMONS.defaultTransitionDuration}
           >
-            <FadeInOut
-              className={S.Main}
-              renderAs={m["main"]}
-              key={"main" + asPath}
-              duration={COMMONS.defaultTransitionDuration}
-            >
-              {children}
-            </FadeInOut>
-          </AnimatePresence>
+            {children}
+          </main>
+          {/* </AnimatePresence> */}
 
           <AnimatePresence mode="wait" initial={false}>
             <Footer key={"footer" + asPath} />

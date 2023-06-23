@@ -1,0 +1,36 @@
+@import "styled/fonts.scss";
+@import "styled/mediaQueries.scss";
+
+.HeroWrapper {
+  display: grid;
+  place-items: center;
+  height: calc(var(--vh) * 100);
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.HeadingWrapper {
+  display: grid;
+  position: relative;
+  place-items: center;
+  gap: 1em;
+  transform: translateY(-1em);
+  width: clamp(196px, 20vw, 400px);
+}
+
+.SvgCircles {
+  transition: color 0.3s ease-in-out;
+  color: var(--primary_50);
+}
+
+.Title {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(150%);
+  width: calc(100vw - 32px);
+  max-width: calc(var(---max-width) / 2);
+
+  @include h3;
+  font-weight: normal;
+  text-align: center;
+}

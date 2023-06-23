@@ -1,12 +1,10 @@
 import { FC, useEffect, useRef } from "react";
 
-import { useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 
 import Markdown from "1_components/Markdown/Markdown";
 import { setGlobalState } from "context/globalState";
 import { slugify } from "utils/slugify";
-
-import * as S from "./Chapter.styled";
 
 export interface ChapterProps {
   chapterName: string;
@@ -28,7 +26,7 @@ const Chapter: FC<ChapterProps> = ({
   }, [isInView, chapterName]);
 
   return (
-    <S.ChapterWrapper
+    <m.section
       id={slugify(chapterName)}
       ref={chapterRef}
       initial={{ opacity: 0 }}
@@ -37,7 +35,7 @@ const Chapter: FC<ChapterProps> = ({
       {...rest}
     >
       <Markdown markdown={content} disableFocus={disableFocus} />
-    </S.ChapterWrapper>
+    </m.section>
   );
 };
 export default Chapter;

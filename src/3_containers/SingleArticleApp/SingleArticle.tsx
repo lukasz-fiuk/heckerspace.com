@@ -1,9 +1,6 @@
 import { ArticleHeaderProps } from "2_sections/ArticleHeader/ArticleHeader";
 import Discussion from "2_sections/Discussion/Discussion";
 import { Modules } from "2_sections/ModuleRenderer/ModuleRenderer";
-import NextArticle from "2_sections/NextArticle/NextArticle";
-
-import { getArticle } from "./SingleArticle.data";
 
 export interface ArticleProps extends ArticleHeaderProps {
   id: string;
@@ -21,8 +18,8 @@ export interface ArticleProps extends ArticleHeaderProps {
 }
 
 const ArticleApp = async ({ params }: any) => {
-  const data = await getArticle(params.slug);
-  const { title, nextArticleContent } = data;
+  // const data = await getArticle(params.slug);
+  // const { title, nextArticleContent } = data;
   // const articleWrapperRef = useRef<HTMLDivElement>(null);
   // const [isCompleted, setIsCompleted] = useState(false);
   // const { offsetX } = useElementOffset(articleWrapperRef);
@@ -45,7 +42,7 @@ const ArticleApp = async ({ params }: any) => {
 
   return (
     <>
-      <h1>{title}</h1>
+      <h1>{params.slug}</h1>
 
       {/* <S.SingleArticleWrapper ref={articleWrapperRef}>
         <S.Article>
@@ -84,13 +81,13 @@ const ArticleApp = async ({ params }: any) => {
 
       <Discussion />
 
-      {nextArticleContent && (
+      {/* {nextArticleContent && (
         <NextArticle
           title={nextArticleContent.title}
           modules={nextArticleContent.modules}
           slug={nextArticleContent.slug}
         />
-      )}
+      )} */}
       {/* </S.SingleArticleWrapper> */}
     </>
   );

@@ -4,6 +4,8 @@
 html {
   --vh: 1vh;
   --max-width: 1200px;
+  --footer-height-mobile: 120px;
+  --footer-height-desktop: 196px;
 
   /////////////////////////////////////
   // Color Palette
@@ -46,18 +48,18 @@ html {
 }
 
 body {
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
   background-color: var(--background);
   color: var(--primary);
   font-family: $helvetica;
-  transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
   @include body;
 }
 
 a,
 button {
+  cursor: pointer;
   color: inherit;
   text-decoration: none;
-  cursor: pointer;
 }
 
 del,
@@ -80,8 +82,8 @@ mark {
 }
 
 :focus-visible {
-  border-radius: 4px;
+  transition: outline-offset 0.3s ease-in-out;
   outline: 1px solid;
   outline-offset: 0.25em;
-  transition: outline-offset 0.3s ease-in-out;
+  border-radius: 4px;
 }

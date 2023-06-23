@@ -1,0 +1,13 @@
+@import "styled/fonts.scss";
+
+.DiscussionWrapper {
+  display: grid;
+
+  row-gap: 6.4rem;
+  place-items: center;
+}
+
+.Title {
+  @include h2;
+  font-weight: bold;
+}

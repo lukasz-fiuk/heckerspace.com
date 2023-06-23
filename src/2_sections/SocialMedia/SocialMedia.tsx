@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import clsx from "clsx";
+
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
 import { IconVariant } from "1_components/Icon/Icon";
 
@@ -8,11 +10,20 @@ import * as S from "./SocialMedia.styled";
 
 export interface SocialMediaProps {
   iconSize?: number;
+  className?: string;
 }
 
-const SocialMedia: FC<SocialMediaProps> = ({ iconSize = 24, ...rest }) => {
+const SocialMedia: FC<SocialMediaProps> = ({
+  iconSize = 24,
+  className,
+  ...rest
+}) => {
   return (
-    <S.SocialMediaWrapper aria-label="Explore our social medias" {...rest}>
+    <S.SocialMediaWrapper
+      {...rest}
+      aria-label="Explore our social medias"
+      className={clsx(className)}
+    >
       {data.socialMedia.map(({ href, title, ariaLabel, iconVariant }) => (
         <S.IconWrapper
           key={title}

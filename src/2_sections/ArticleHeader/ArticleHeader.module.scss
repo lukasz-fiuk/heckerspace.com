@@ -1,0 +1,31 @@
+@import "styled/fonts.scss";
+
+.ArticleHeaderWrapper {
+  display: grid;
+  row-gap: 24px;
+  place-items: center;
+}
+
+.CoverImage {
+  margin-top: -8vh;
+  width: 80%;
+  max-width: 400px;
+  max-height: 40vh;
+  object-fit: contain;
+}
+
+.Title {
+  @include h2;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ReturnButton {
+  @include small;
+  opacity: 0.75;
+  color: var(--primary);
+
+  &:hover {
+    opacity: 1;
+  }
+}
