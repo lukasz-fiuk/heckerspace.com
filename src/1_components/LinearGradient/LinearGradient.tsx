@@ -1,35 +1,28 @@
 import { FC } from "react";
 
+import clsx from "clsx";
+import { m } from "framer-motion";
+
 import { useGlobalState } from "context/globalState";
-import { GradientDirection } from "types/commonTypes";
 
 import { LinearGradientVariants } from "./LinearGradient.animations";
-import * as S from "./LinearGradient.styled";
+import S from "./LinearGradient.module.scss";
 
 export interface LinearGradientProps {
-  fromColor: { light: string; dark: string };
-  toColor: { light: string; dark: string };
-  direction?: GradientDirection;
+  className?: string;
 }
 
-const LinearGradient: FC<LinearGradientProps> = ({
-  fromColor,
-  toColor,
-  direction = "to bottom",
-  ...rest
-}) => {
+const LinearGradient: FC<LinearGradientProps> = ({ className, ...rest }) => {
   const [isDarkMode] = useGlobalState("isDarkMode");
 
   return (
-    <S.LinearGradientWrapper
+    <m.div
+      {...rest}
+      className={clsx(S.LinearGradientWrapper, className)}
       key={isDarkMode ? "gradientDark" : "gradientLight"}
       aria-hidden
       data-theme={isDarkMode ? "dark" : "light"}
-      $fromColor={fromColor}
-      $toColor={toColor}
-      $direction={direction}
       {...LinearGradientVariants}
-      {...rest}
     />
   );
 };

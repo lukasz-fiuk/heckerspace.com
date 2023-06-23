@@ -1,12 +1,10 @@
-import styled from "styled-components";
-
-export const AnchorTagWrapper = styled.a`
+.AnchorTagWrapper {
+  transition: 0.4s ease-in-out;
   color: var(--primary);
+  font-weight: 500;
   text-decoration: underline;
   text-decoration-color: var(--secondary);
   text-underline-offset: 0.25rem;
-  font-weight: 500;
-  transition: 0.4s ease-in-out;
 
   &:hover,
   :focus-visible {
@@ -18,4 +16,4 @@ export const AnchorTagWrapper = styled.a`
       text-decoration-color: yellow;
     }
   }
-`;
+}

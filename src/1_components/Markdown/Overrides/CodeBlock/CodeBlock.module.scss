@@ -1,0 +1,43 @@
+@import "styled/fonts";
+
+.CodeBlockWrapper {
+  position: relative;
+  transition: background 0.3s ease-in-out;
+  margin: 2rem 0;
+
+  border: 1px solid #262626;
+
+  border-radius: 8px;
+  background: #1d1d1d;
+  padding-bottom: 16px;
+  overflow: hidden;
+
+  // Removes styles specified by syntax highlighter theme
+  & pre * {
+    transition: unset;
+    border: unset;
+    background: unset !important;
+  }
+}
+
+.Topbar {
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  margin-bottom: 16px;
+
+  padding: 8px 16px;
+
+  @include small;
+
+  background: #2f2f2f;
+  color: var(--white);
+  font-weight: bold;
+}
+
+.CopyCode {
+  transition: 0.3s ease-in-out;
+  color: var(--white);
+  font-weight: normal;
+  font-family: $helvetica;
+}

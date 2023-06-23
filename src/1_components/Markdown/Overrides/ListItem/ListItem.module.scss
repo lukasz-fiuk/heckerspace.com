@@ -1,0 +1,20 @@
+.ListItemWrapper {
+  display: grid;
+  grid-template-columns: min-content;
+  grid-auto-flow: column;
+
+  width: fit-content;
+}
+
+.ArrowRight {
+  transform: translateY(50%);
+  padding-right: 1em;
+  width: 48px;
+  height: 24px;
+}
+
+.Content {
+  & * {
+    padding-top: 0 !important; // Override any markdown styles to make sure that content aligns with the arrow
+  }
+}

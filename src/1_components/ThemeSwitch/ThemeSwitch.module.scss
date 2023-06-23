@@ -1,0 +1,61 @@
+.ToggleWrapper {
+  -webkit-tap-highlight-color: transparent;
+  display: grid;
+  position: relative;
+  place-items: center;
+  cursor: pointer;
+
+  border-radius: 100%;
+  aspect-ratio: 1;
+  width: 100%;
+  overflow: hidden;
+  touch-action: manipulation;
+
+  & * {
+    transition: transform 0.6s ease-in-out;
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
+  }
+}
+
+.Planet {
+  position: absolute;
+
+  z-index: 1;
+  inset: 0;
+
+  &[data-theme="light"] {
+    transform: scale(1);
+  }
+
+  &[data-theme="dark"] {
+    transform: scale(0.5);
+  }
+}
+
+.Mask {
+  & circle {
+    &[data-theme="light"] {
+      transform: translate(40%, -32%);
+    }
+
+    &[data-theme="dark"] {
+      transform: translate(100%, -100%);
+    }
+  }
+}
+
+.SvgSunbeams {
+  position: absolute;
+  inset: 0;
+
+  &[data-theme="light"] {
+    transform: scale(0);
+  }
+
+  &[data-theme="dark"] {
+    transform: scale(1) rotate(180deg);
+  }
+}

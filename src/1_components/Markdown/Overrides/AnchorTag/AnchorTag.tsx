@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 
 import { useDarkMode } from "usehooks-ts";
 
-import * as S from "./AnchorTag.styled";
+import S from "./AnchorTag.module.scss";
 
 export interface AnchorTagProps {
   children: ReactNode;
@@ -13,14 +13,15 @@ const AnchorTag: FC<AnchorTagProps> = ({ children, disableFocus, ...rest }) => {
   const { isDarkMode } = useDarkMode();
 
   return (
-    <S.AnchorTagWrapper
+    <a
+      className={S.AnchorTagWrapper}
       tabIndex={disableFocus ? -1 : 0}
       target="_blank"
       data-theme={isDarkMode ? "dark" : "light"}
       {...rest}
     >
       {children}
-    </S.AnchorTagWrapper>
+    </a>
   );
 };
 export default AnchorTag;

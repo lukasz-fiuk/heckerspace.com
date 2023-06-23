@@ -1,17 +1,24 @@
 import { FC, useEffect, useState } from "react";
 
+import clsx from "clsx";
 import { useDarkMode } from "usehooks-ts";
 
+import Sunbeams from "1_components/Svgs/themeSwitch/Sunbeams";
 import { setGlobalState } from "context/globalState";
 import { ThemeVariants } from "types/commonTypes";
 
-import * as S from "./ThemeSwitch.styled";
+import S from "./ThemeSwitch.module.scss";
 
 export interface ThemeSwitchProps {
   uniqueId: string;
+  className?: string;
 }
 
-const ThemeSwitch: FC<ThemeSwitchProps> = ({ uniqueId, ...rest }) => {
+const ThemeSwitch: FC<ThemeSwitchProps> = ({
+  uniqueId,
+  className,
+  ...rest
+}) => {
   const [currentTheme, setCurrentTheme] = useState<ThemeVariants>("dark");
   const { toggle, isDarkMode } = useDarkMode();
 
@@ -22,17 +29,19 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({ uniqueId, ...rest }) => {
   }, [isDarkMode, currentTheme]);
 
   return (
-    <S.ToggleWrapper
+    <button
+      {...rest}
+      className={clsx(S.ToggleWrapper, className)}
       onClick={toggle}
       title="Toggles light & dark theme"
       aria-label={`Switch to ${isDarkMode ? "light" : "dark"} theme`}
-      {...rest}
     >
-      <S.Planet
+      <svg
+        className={S.Planet}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        $currentTheme={currentTheme}
+        data-theme={currentTheme}
       >
         <circle
           mask={`url(#moon-mask-${uniqueId})`}
@@ -42,14 +51,18 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({ uniqueId, ...rest }) => {
           fill="currentColor"
         />
 
-        <S.Mask id={`moon-mask-${uniqueId}`} $currentTheme={currentTheme}>
+        <mask
+          className={S.Mask}
+          id={`moon-mask-${uniqueId}`}
+          data-theme={currentTheme}
+        >
           <rect x="0" y="0" width="100%" height="100%" fill="white" />
           <circle cx="12" cy="12" r="12" fill="black" />
-        </S.Mask>
-      </S.Planet>
+        </mask>
+      </svg>
 
-      <S.SvgSunbeams $currentTheme={currentTheme} />
-    </S.ToggleWrapper>
+      <Sunbeams className={S.SvgSunbeams} data-theme={currentTheme} />
+    </button>
   );
 };
 export default ThemeSwitch;

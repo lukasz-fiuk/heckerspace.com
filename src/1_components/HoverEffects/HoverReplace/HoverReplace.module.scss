@@ -1,0 +1,14 @@
+.HoverReplaceWrapper {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.ReplaceItem {
+  display: block;
+}
+
+.SecondItem {
+  position: absolute;
+  inset: 0;
+}

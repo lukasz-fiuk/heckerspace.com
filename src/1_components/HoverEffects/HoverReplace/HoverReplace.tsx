@@ -1,11 +1,12 @@
 import { ReactNode, FC, useState } from "react";
 
+import clsx from "clsx";
 import { AnimatePresence, m } from "framer-motion";
 
 import { Directions } from "types/commonTypes";
 
 import { HoverReplaceVariants, TRANSITION } from "./HoverReplace.animations";
-import * as S from "./HoverReplace.styled";
+import S from "./HoverReplace.module.scss";
 
 export interface HoverReplaceProps {
   children: ReactNode;
@@ -13,6 +14,7 @@ export interface HoverReplaceProps {
   disableInnerHover?: boolean;
   isHovering?: boolean;
   renderAs?: "div" | "span";
+  className?: string;
 }
 
 const HoverReplace: FC<HoverReplaceProps> = ({
@@ -21,6 +23,7 @@ const HoverReplace: FC<HoverReplaceProps> = ({
   disableInnerHover = false,
   isHovering,
   renderAs = "span",
+  className,
   ...rest
 }) => {
   const [isInnerHover, setIsInnerHover] = useState(false);
@@ -28,16 +31,18 @@ const HoverReplace: FC<HoverReplaceProps> = ({
   const handleMouseEnter = () => setIsInnerHover(true);
   const handleMouseLeave = () => setIsInnerHover(false);
 
+  const HoverReplaceWrapper = renderAs;
+  const ReplaceItem = m[renderAs];
   return (
-    <S.HoverReplaceWrapper
+    <HoverReplaceWrapper
+      {...rest}
+      className={clsx(S.HoverReplaceWrapper, className)}
       onMouseEnter={!disableInnerHover ? handleMouseEnter : undefined}
       onMouseLeave={!disableInnerHover ? handleMouseLeave : undefined}
-      as={renderAs}
-      {...rest}
     >
       <AnimatePresence>
-        <S.ReplaceItem
-          as={m[renderAs]}
+        <ReplaceItem
+          className={S.ReplaceItem}
           key="first child"
           initial="initial"
           animate="animate"
@@ -46,13 +51,12 @@ const HoverReplace: FC<HoverReplaceProps> = ({
           transition={TRANSITION}
         >
           {children}
-        </S.ReplaceItem>
+        </ReplaceItem>
 
-        <S.ReplaceItem
-          as={m[renderAs]}
+        <ReplaceItem
+          className={clsx(S.ReplaceItem, S.SecondItem)}
           key="second child"
           aria-hidden
-          $second
           initial="initial"
           animate="animate"
           custom={{ isHovering: disableInnerHover ? isHovering : isInnerHover }}
@@ -60,9 +64,9 @@ const HoverReplace: FC<HoverReplaceProps> = ({
           transition={TRANSITION}
         >
           {children}
-        </S.ReplaceItem>
+        </ReplaceItem>
       </AnimatePresence>
-    </S.HoverReplaceWrapper>
+    </HoverReplaceWrapper>
   );
 };
 

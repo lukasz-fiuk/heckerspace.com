@@ -5,7 +5,7 @@ import { useDarkMode } from "usehooks-ts";
 
 import { slugify } from "utils/slugify";
 
-import * as S from "./Markdown.styled";
+import S from "./Markdown.module.scss";
 import AnchorTag from "./Overrides/AnchorTag/AnchorTag";
 import CodeBlock from "./Overrides/CodeBlock/CodeBlock";
 import ListItem from "./Overrides/ListItem/ListItem";
@@ -69,7 +69,9 @@ const Markdown: FC<MarkdownProps> = ({
       {raw ? (
         compiledText
       ) : (
-        <S.DefaultSpacing {...rest}>{compiledText}</S.DefaultSpacing>
+        <div className={S.DefaultSpacing} {...rest}>
+          {compiledText}
+        </div>
       )}
     </>
   );

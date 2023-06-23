@@ -1,6 +1,8 @@
 import { FC, ReactNode } from "react";
 
-import * as S from "./ListItem.styled";
+import Icon from "1_components/Icon/Icon";
+
+import S from "./ListItem.module.scss";
 
 export interface ListItemProps {
   children: ReactNode;
@@ -8,10 +10,10 @@ export interface ListItemProps {
 
 const ListItem: FC<ListItemProps> = ({ children, ...rest }) => {
   return (
-    <S.ListItemWrapper {...rest}>
-      <S.ArrowRight variant="arrowRight" />
-      <S.Content>{children}</S.Content>
-    </S.ListItemWrapper>
+    <li className={S.ListItemWrapper} {...rest}>
+      <Icon className={S.ArrowRight} variant="arrowRight" />
+      <div className={S.Content}>{children}</div>
+    </li>
   );
 };
 export default ListItem;

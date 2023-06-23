@@ -42,8 +42,6 @@ const ArticleApp = async ({ params }: any) => {
 
   return (
     <>
-      <h1>{params.slug}</h1>
-
       {/* <S.SingleArticleWrapper ref={articleWrapperRef}>
         <S.Article>
           <S.Header

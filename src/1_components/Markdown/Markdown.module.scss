@@ -1,18 +1,18 @@
-import styled from "styled-components";
+@import "styled/fonts";
+@import "styled/mediaQueries";
 
-import { fonts } from "styled/fonts";
-import { PALETTE } from "styled/palette";
-
-export const DefaultSpacing = styled.div`
+.DefaultSpacing {
+  padding: 1em 0;
+  color: var(--primary_75);
   line-height: 2;
 
   & * {
-    overflow-wrap: break-word;
     word-wrap: anywhere;
+    overflow-wrap: break-word;
   }
 
   h2 {
-    ${fonts.h3}
+    @include h3;
     line-height: 2;
   }
 
@@ -20,50 +20,47 @@ export const DefaultSpacing = styled.div`
     display: inline-block;
     font-style: normal;
     font-weight: 500;
-    ${fonts.code}
+    @include code;
+    transition: 0.3s ease-in-out;
+    margin: 0.1em 0;
+
+    border-radius: 8px;
+    padding: 0 0.25em;
+    color: var(--primary);
+
+    line-height: 1.5;
 
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
       monospace;
 
-    border-radius: 8px;
-    padding: 0 0.25em;
-    margin: 0.1em 0;
-    color: var(--primary);
-
-    line-height: 1.5;
-    transition: 0.3s ease-in-out;
-
     &[data-theme="light"] {
-      background: ${PALETTE.white_75};
-      border: 1px solid ${PALETTE.white_75};
+      border: 1px solid var(--white_75);
+      background: var(--white_75);
     }
 
     &[data-theme="dark"] {
-      background: ${PALETTE.black_20};
       border: 1px solid #262626;
+      background: var(--black_20);
     }
   }
 
   p {
-    ${fonts.body}
-    padding: 1em 0;
-    line-height: 2;
-    color: var(--primary_75);
+    @include body;
+  }
 
-    &:last-child {
-      padding-bottom: 0;
-    }
+  &:last-child {
+    padding-bottom: 0;
   }
 
   blockquote {
-    border-left: 4px solid var(--secondary);
     margin: clamp(24px, 4rem, 40px);
+    border-left: 4px solid var(--secondary);
     padding-left: clamp(24px, 4rem, 40px);
     font-style: oblique;
 
     & p {
-      color: var(--primary);
       padding: unset;
+      color: var(--primary);
     }
   }
 
@@ -86,7 +83,7 @@ export const DefaultSpacing = styled.div`
 
   img,
   video {
-    width: 100%;
     padding: 4rem 0;
+    width: 100%;
   }
-`;
+}

@@ -1,11 +1,14 @@
 import { FC } from "react";
 
-export interface SunbeamsProps {}
+export interface SunbeamsProps {
+  className?: string;
+}
 
-const Sunbeams: FC<SunbeamsProps> = ({ ...rest }) => {
+const Sunbeams: FC<SunbeamsProps> = ({ className, ...rest }) => {
   return (
     <svg
       {...rest}
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

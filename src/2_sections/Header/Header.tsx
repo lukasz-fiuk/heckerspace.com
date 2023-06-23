@@ -1,11 +1,15 @@
 import { FC } from "react";
 
+import { m } from "framer-motion";
+
+import LinearGradient from "1_components/LinearGradient/LinearGradient";
+import Logo from "1_components/Logo/Logo";
 import ShortcutCue from "1_components/ShortcutCue/ShortcutCue";
+import ThemeSwitch from "1_components/ThemeSwitch/ThemeSwitch";
 import { useGlobalState } from "context/globalState";
-import { PALETTE } from "styled/palette";
 
 import { data } from "./Header.data";
-import * as S from "./Header.styled";
+import S from "./Header.module.scss";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import NavLink from "./NavLink/NavLink";
 
@@ -16,43 +20,43 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
 
   const routes = data.navigationLinks.map(({ label, href, keyBind }) => (
     <li key={label}>
-      <S.Row style={{ justifyItems: "end" }}>
+      <div className={S.Row} style={{ justifyItems: "end" }}>
         <ShortcutCue text={keyBind} style={{ justifySelf: "left" }} />
         <NavLink label={label} href={href} />
-      </S.Row>
+      </div>
     </li>
   ));
 
   return (
     <>
-      <S.HeaderWrapper {...rest}>
+      <header className={S.HeaderWrapper} {...rest}>
         <MobileMenu />
 
-        <S.Fader
-          fromColor={{ light: PALETTE.white, dark: PALETTE.codGray }}
-          toColor={{ light: PALETTE.transparent, dark: PALETTE.transparent }}
-        />
+        <LinearGradient className={S.Fader} />
 
-        <S.ColumnLeft>
-          <S.Row>
-            <S.ThemeToggle uniqueId="header_desktop" />
+        <div className={S.ColumnLeft}>
+          <div className={S.Row}>
+            <ThemeSwitch className={S.ThemeToggle} uniqueId="header_desktop" />
             <ShortcutCue text="T" />
-          </S.Row>
+          </div>
 
-          <S.VisualCuesWrapper animate={{ opacity: showKeyBinds ? 1 : 0 }}>
-            <S.Row>
+          <m.aside
+            className={S.VisualCuesWrapper}
+            animate={{ opacity: showKeyBinds ? 1 : 0 }}
+          >
+            <div className={S.Row}>
               {data.hideVisualCues.label}
               <ShortcutCue text={data.hideVisualCues.keyBind} />
-            </S.Row>
-          </S.VisualCuesWrapper>
-        </S.ColumnLeft>
+            </div>
+          </m.aside>
+        </div>
 
-        <S.SvgLogo />
+        <Logo className={S.SvgLogo} />
 
-        <S.NavigationLinks aria-label="Main navigation">
+        <nav className={S.NavigationLinks} aria-label="Main navigation">
           <ul>{routes}</ul>
-        </S.NavigationLinks>
-      </S.HeaderWrapper>
+        </nav>
+      </header>
     </>
   );
 };

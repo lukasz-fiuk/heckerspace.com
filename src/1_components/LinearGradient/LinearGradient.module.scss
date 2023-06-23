@@ -1,0 +1,9 @@
+.LinearGradientWrapper {
+  &[data-theme="light"] {
+    background: linear-gradient(to bottom, var(--white), var(--transparent));
+  }
+
+  &[data-theme="dark"] {
+    background: linear-gradient(to bottom, var(--cod_gray), var(--transparent));
+  }
+}

@@ -1,0 +1,85 @@
+@import "styled/fonts";
+@import "styled/mediaQueries";
+
+.HeaderWrapper {
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  place-items: center;
+  z-index: 100;
+  padding-top: 24px;
+
+  width: 100%;
+}
+
+.SvgLogo {
+  position: relative;
+  height: clamp(60px, 9.6rem, 96px);
+}
+
+.ColumnLeft {
+  display: grid;
+  position: fixed;
+  left: 5vw;
+  grid-auto-flow: column;
+  column-gap: 40px;
+}
+
+.ThemeToggle {
+  display: none;
+
+  @include desktop {
+    display: grid;
+    width: 24px;
+  }
+}
+
+.NavigationLinks {
+  display: none;
+
+  @include desktop {
+    display: inline-block;
+    position: fixed;
+    right: 5vw;
+
+    margin-right: calc(-1em + 8px); // Shift icon outside
+
+    & ul {
+      display: grid;
+      row-gap: 0.25em;
+    }
+  }
+}
+
+.Fader {
+  position: fixed;
+  inset: 0 0 auto 0;
+
+  height: 60px;
+  pointer-events: none;
+
+  @include tablet {
+    height: 96px;
+  }
+}
+
+.VisualCuesWrapper {
+  display: none;
+
+  @include desktop {
+    display: block;
+    pointer-events: none;
+    user-select: none;
+
+    @include small;
+  }
+}
+
+.Row {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 16px;
+
+  white-space: nowrap;
+}

@@ -1,12 +1,13 @@
 import { FC } from "react";
 
 import clsx from "clsx";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import Icon from "1_components/Icon/Icon";
 import { handleScrollTop } from "utils/handleScrollTop";
 
-import * as S from "./Logo.styled";
+import S from "./Logo.module.scss";
 
 export interface LogoProps {
   href?: string;
@@ -32,9 +33,9 @@ const Logo: FC<LogoProps> = ({
   }
 
   return (
-    <S.LogoWrapper
+    <Link
       {...rest}
-      className={clsx(className)}
+      className={clsx(S.LogoWrapper, className)}
       href={href}
       aria-label="Home"
       title="Return to the homepage"
@@ -42,7 +43,7 @@ const Logo: FC<LogoProps> = ({
       scroll={false}
     >
       <Icon variant={variant} />
-    </S.LogoWrapper>
+    </Link>
   );
 };
 export default Logo;
