@@ -23,10 +23,10 @@ const FadeInOut: FC<FadeInOutProps> = ({
   const FadeInOutWrapper = renderAs;
   return (
     <FadeInOutWrapper
-      className={clsx(S.FadeInOutWrapper, className)}
+      {...rest}
+      className={clsx(className, S.FadeInOutWrapper)}
       {...FadeInOutVariants}
       transition={{ duration: duration, ease: "easeInOut" }}
-      {...rest}
     >
       {children && children}
     </FadeInOutWrapper>

@@ -18,11 +18,11 @@ export interface FooterProps {}
 const Footer: FC<FooterProps> = ({ ...rest }) => {
   return (
     <FadeInOut
+      {...rest}
       className={S.FooterWrapper}
       renderAs={m["footer"]}
       aria-label="Main footer"
       duration={COMMONS.defaultTransitionDuration}
-      {...rest}
     >
       <SocialMedia className={S.SocialLinks} iconSize={24} />
       <small className={S.Copyright}>{data.copyright}</small>
