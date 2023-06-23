@@ -1,11 +1,11 @@
 import { FC, ReactNode, useRef } from "react";
 
-import { useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 
 import { Directions } from "types/commonTypes";
 
 import { RevealItemVariants } from "./RevealItem.animations";
-import * as S from "./RevealItem.styled";
+import S from "./RevealItem.module.scss";
 
 export interface RevealItemProps {
   duration?: number;
@@ -25,8 +25,9 @@ const RevealItem: FC<RevealItemProps> = ({
   const isInView = useInView(itemRef, { once: true, amount: 1 });
 
   return (
-    <S.RevealItemWrapper ref={itemRef} {...rest}>
-      <S.SlideIn
+    <div {...rest} className={S.RevealItemWrapper} ref={itemRef}>
+      <m.div
+        className={S.SlideIn}
         initial="initial"
         animate={isInView ? "hidden" : "initial"}
         exit="exit"
@@ -34,10 +35,12 @@ const RevealItem: FC<RevealItemProps> = ({
         transition={{ duration: duration, delay: delay, ease: "easeInOut" }}
       >
         {children}
-      </S.SlideIn>
+      </m.div>
 
-      <S.DimensionGhost aria-hidden>{children}</S.DimensionGhost>
-    </S.RevealItemWrapper>
+      <div className={S.DimensionGhost} aria-hidden>
+        {children}
+      </div>
+    </div>
   );
 };
 export default RevealItem;

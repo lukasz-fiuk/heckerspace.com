@@ -1,14 +1,16 @@
 "use client";
 import { FC } from "react";
 
+import { m } from "framer-motion";
 import Link from "next/link";
 
+import IconButton from "1_components/Buttons/IconButton/IconButton";
 import Markdown from "1_components/Markdown/Markdown";
 import ModuleRenderer, {
   Modules,
 } from "2_sections/ModuleRenderer/ModuleRenderer";
 
-import * as S from "./NextArticle.styled";
+import S from "./NextArticle.module.scss";
 
 export interface NextArticleProps {
   modules: Modules;
@@ -23,30 +25,32 @@ const NextArticle: FC<NextArticleProps> = ({
   ...rest
 }) => {
   return (
-    <S.NextArticleWrapper {...rest}>
+    <section className={S.NextArticleWrapper} {...rest}>
       <Link href={`/article/${slug}`} scroll={false}>
-        <S.Heading
+        <m.div
+          className={S.Heading}
           initial={{ opacity: 0.5 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
         >
-          <S.ArrowButton
+          <IconButton
+            className={S.ArrowButton}
             label="Next article"
             iconVariant="arrowRight"
             hoverDirection="right"
             removeFocus
           />
 
-          <S.Title>
+          <h2 className={S.Title}>
             <Markdown markdown={title} raw />
-          </S.Title>
-        </S.Heading>
+          </h2>
+        </m.div>
       </Link>
 
-      <S.FadedContentWrapper aria-hidden>
+      <div className={S.FadedContentWrapper} aria-hidden>
         <ModuleRenderer modules={modules} disableFocus />
-      </S.FadedContentWrapper>
-    </S.NextArticleWrapper>
+      </div>
+    </section>
   );
 };
 export default NextArticle;

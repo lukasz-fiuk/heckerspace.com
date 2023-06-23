@@ -1,5 +1,6 @@
 import { useState, ReactNode, FC, useEffect } from "react";
 
+import clsx from "clsx";
 import { AnimatePresence, m } from "framer-motion";
 
 import { Directions } from "types/commonTypes";
@@ -13,6 +14,7 @@ interface HoverLoopProps {
   disableInnerHover?: boolean;
   isHovering?: boolean;
   renderAs?: "div" | "span";
+  className?: string;
 }
 
 const HoverLoop: FC<HoverLoopProps> = ({
@@ -21,6 +23,7 @@ const HoverLoop: FC<HoverLoopProps> = ({
   disableInnerHover = false,
   direction,
   renderAs = "span",
+  className,
   ...rest
 }) => {
   const [isExiting, setIsExiting] = useState(false);
@@ -42,7 +45,7 @@ const HoverLoop: FC<HoverLoopProps> = ({
   return (
     <HoverLoopWrapper
       {...rest}
-      className={S.HoverLoopWrapper}
+      className={clsx(S.HoverLoopWrapper, className)}
       onMouseEnter={!disableInnerHover ? handleMouseEnter : undefined}
       onMouseLeave={!disableInnerHover ? handleMouseLeave : undefined}
     >

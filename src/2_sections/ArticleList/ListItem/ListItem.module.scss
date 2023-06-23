@@ -1,0 +1,58 @@
+@import "styled/fonts.scss";
+@import "styled/mediaQueries.scss";
+
+.ListItemWrapper {
+  &:focus-visible {
+    outline: 0;
+  }
+}
+
+.StyledLink {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+  grid-auto-flow: column;
+  column-gap: 80px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ArticleTitle {
+  @include h3;
+  cursor: pointer;
+  padding: 1.25em 0;
+  font-weight: bold;
+}
+
+.ArrowWrapper {
+  display: none;
+
+  @include desktop {
+    display: initial;
+  }
+}
+
+.ArrowIcon {
+  cursor: pointer;
+  width: 86px;
+  height: 54px;
+}
+
+.Underline {
+  position: absolute;
+  transform-origin: left;
+  inset: auto 0 0 0;
+  border-bottom: 1px solid var(--primary_50);
+}
+
+.StatusLabel {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  width: 100%;
+  height: 1.5em;
+  color: var(--primary_50);
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+}

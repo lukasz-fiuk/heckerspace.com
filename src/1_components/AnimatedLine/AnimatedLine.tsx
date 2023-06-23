@@ -11,6 +11,7 @@ export interface AnimatedLineProps {
   delay?: number;
   direction?: Directions;
   dissolve?: boolean;
+  className?: string;
 }
 
 const AnimatedLine: FC<AnimatedLineProps> = ({
@@ -18,6 +19,7 @@ const AnimatedLine: FC<AnimatedLineProps> = ({
   duration = 2.4,
   direction = "right",
   dissolve = false,
+  className,
   ...rest
 }) => {
   const lineRef = useRef<HTMLDivElement>(null);
@@ -25,6 +27,8 @@ const AnimatedLine: FC<AnimatedLineProps> = ({
 
   return (
     <m.div
+      {...rest}
+      className={className}
       aria-hidden
       ref={lineRef}
       initial="initial"
@@ -42,7 +46,6 @@ const AnimatedLine: FC<AnimatedLineProps> = ({
         ease: "easeInOut",
         opacity: { duration: duration, delay: delay + 0.3, ease: "easeInOut" },
       }}
-      {...rest}
     />
   );
 };

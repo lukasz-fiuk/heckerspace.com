@@ -1,0 +1,50 @@
+@import "styled/fonts.scss";
+@import "styled/mediaQueries.scss";
+
+.NextArticleWrapper {
+  display: grid;
+  row-gap: 6.4rem;
+  place-items: center;
+  padding: 12rem 0;
+  height: calc(100vh - var(--footer-height-mobile));
+
+  @include desktop {
+    height: calc(100vh - var(--footer-height-desktop));
+  }
+}
+
+.Heading {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.ArrowButton {
+  @include small;
+  opacity: 0.5;
+  color: var(--primary);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.Title {
+  @include h2;
+  font-weight: bold;
+  text-align: center;
+}
+
+.FadedContentWrapper {
+  position: relative;
+  mask-image: linear-gradient(to bottom, black, transparent);
+  height: 50vh;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+
+  & * {
+    pointer-events: none;
+    user-select: none;
+  }
+}
