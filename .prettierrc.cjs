@@ -1,3 +1,3 @@
 module.exports = {
-  order: "smacss",
+  order: "concentric-css",
 };
