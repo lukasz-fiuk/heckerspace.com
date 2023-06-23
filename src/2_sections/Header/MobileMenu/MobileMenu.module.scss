@@ -1,0 +1,108 @@
+@import "styled/fonts";
+@import "styled/mediaQueries";
+
+.MobileMenuWrapper {
+  position: fixed;
+  // z-index: ${zIndex("absoluteTop")};
+  z-index: 100;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  pointer-events: none;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.BackgroundFader {
+  position: absolute;
+
+  opacity: 0;
+  // z-index: ${zIndex("absoluteTop")};
+  z-index: 100;
+  transition: opacity 0.3s ease-in-out;
+  inset: 0;
+  background: var(--background);
+
+  height: 100vh;
+  pointer-events: none;
+
+  .isOpen {
+    opacity: 1;
+  }
+}
+
+.SvgLogo {
+  position: fixed;
+  left: 50vw;
+  transform: translateX(-50%);
+
+  opacity: 0;
+  // z-index: ${zIndex("absoluteTop")};
+  z-index: 1000;
+
+  transition: opacity 0.4s ease-in-out;
+
+  padding: 24px;
+  height: clamp(60px, 9.6rem, 96px);
+
+  .isOpen {
+    opacity: 1;
+  }
+}
+
+.SideMenu {
+  display: grid;
+  position: absolute;
+  grid-template-rows: 1fr min-content;
+  /* z-index: ${zIndex("overlay")}; */
+  z-index: 100;
+  inset: 0 0 auto 0;
+
+  background: var(--background);
+
+  height: calc(var(--vh) * 100);
+  pointer-events: all;
+}
+
+.NavigationLinks {
+  display: grid;
+  align-items: end;
+  justify-items: left;
+
+  padding: 40px 16px;
+  text-align: left;
+
+  & ul {
+    display: grid;
+    row-gap: 0.5em;
+    text-align: left;
+  }
+}
+
+.TogglesWrapper {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-items: left;
+
+  border-top: 1px solid;
+  padding: 40px 16px;
+  height: min-content;
+  color: var(--primary);
+}
+
+.ThemeToggle {
+  width: 24px;
+}
+
+.CloseButton {
+  cursor: pointer;
+}
+
+.NavLinkComp {
+  font-size: 24rem;
+}

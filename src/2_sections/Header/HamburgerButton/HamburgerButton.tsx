@@ -1,8 +1,10 @@
 import { Dispatch, FC, SetStateAction } from "react";
 
+import { m } from "framer-motion";
+
 import useScrollDirection from "hooks/useScrollDirection";
 
-import * as S from "./HamburgerButton.styled";
+import S from "./HamburgerButton.module.scss";
 
 export interface HamburgerButtonProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -17,7 +19,8 @@ const HamburgerButton: FC<HamburgerButtonProps> = ({
   const { isUserScrollingUp } = useScrollDirection();
 
   return (
-    <S.HamburgerButtonWrapper
+    <m.button
+      className={S.HamburgerButtonWrapper}
       initial={{ opacity: 0 }}
       animate={{ opacity: isUserScrollingUp ? 1 : 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -27,7 +30,7 @@ const HamburgerButton: FC<HamburgerButtonProps> = ({
       {...rest}
     >
       {label}
-    </S.HamburgerButtonWrapper>
+    </m.button>
   );
 };
 export default HamburgerButton;

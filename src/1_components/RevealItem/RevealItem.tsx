@@ -1,5 +1,6 @@
 import { FC, ReactNode, useRef } from "react";
 
+import clsx from "clsx";
 import { m, useInView } from "framer-motion";
 
 import { Directions } from "types/commonTypes";
@@ -12,6 +13,7 @@ export interface RevealItemProps {
   delay?: number;
   direction?: Directions;
   children: ReactNode;
+  className?: string;
 }
 
 const RevealItem: FC<RevealItemProps> = ({
@@ -19,13 +21,18 @@ const RevealItem: FC<RevealItemProps> = ({
   duration = 0.8,
   direction = "up",
   children,
+  className,
   ...rest
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(itemRef, { once: true, amount: 1 });
 
   return (
-    <div {...rest} className={S.RevealItemWrapper} ref={itemRef}>
+    <div
+      {...rest}
+      className={clsx(S.RevealItemWrapper, className)}
+      ref={itemRef}
+    >
       <m.div
         className={S.SlideIn}
         initial="initial"

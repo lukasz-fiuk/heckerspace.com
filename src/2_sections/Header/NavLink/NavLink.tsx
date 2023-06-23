@@ -1,18 +1,23 @@
 import { FC, useState } from "react";
 
+import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
+import Icon from "1_components/Icon/Icon";
+import RevealItem from "1_components/RevealItem/RevealItem";
 
-import * as S from "./NavLink.styled";
+import S from "./NavLink.module.scss";
 
 export interface NavLinkProps {
   label: string;
   href: string;
+  className?: string;
 }
 
-const NavLink: FC<NavLinkProps> = ({ label, href, ...rest }) => {
+const NavLink: FC<NavLinkProps> = ({ label, href, className, ...rest }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const currentRoute = usePathname();
@@ -22,11 +27,11 @@ const NavLink: FC<NavLinkProps> = ({ label, href, ...rest }) => {
   const disableHover = () => setIsHovering(false);
 
   return (
-    <S.NavLinkWrapper
+    <Link
+      className={clsx(S.NavLinkWrapper, isActive && S.Active, className)}
       key={label}
       href={href}
       scroll={false}
-      $isActive={isActive}
       onMouseOver={enableHover}
       onMouseLeave={disableHover}
       onFocus={enableHover}
@@ -40,18 +45,22 @@ const NavLink: FC<NavLinkProps> = ({ label, href, ...rest }) => {
 
       <AnimatePresence>
         {isActive && (
-          <S.IconWrapper direction="right" duration={0.3}>
+          <RevealItem
+            className={S.IconWrapper}
+            direction="right"
+            duration={0.3}
+          >
             <HoverReplace
               direction="up"
               disableInnerHover
               isHovering={isHovering}
             >
-              <S.StarIcon variant="star" />
+              <Icon className={S.StarIcon} variant="star" />
             </HoverReplace>
-          </S.IconWrapper>
+          </RevealItem>
         )}
       </AnimatePresence>
-    </S.NavLinkWrapper>
+    </Link>
   );
 };
 export default NavLink;

@@ -1,14 +1,19 @@
 import { FC, useEffect, useState } from "react";
 
+import clsx from "clsx";
+import { m } from "framer-motion";
 import { usePathname } from "next/navigation";
 
+import Logo from "1_components/Logo/Logo";
+import ThemeSwitch from "1_components/ThemeSwitch/ThemeSwitch";
 import useDisableScroll from "hooks/useDisableScroll";
 import { COMMONS } from "styled/commons";
 
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import { data } from "../Header.data";
+import NavLink from "../NavLink/NavLink";
 
-import * as S from "./MobileMenu.styled";
+import S from "./MobileMenu.module.scss";
 
 export interface MobileMenuProps {}
 
@@ -27,16 +32,17 @@ const MobileMenu: FC<MobileMenuProps> = ({ ...rest }) => {
 
   const routes = navigationLinks.map(({ label, href }) => (
     <li key={label}>
-      <S.NavLinkComp label={label} href={href} />
+      <NavLink className={S.NavLinkComp} label={label} href={href} />
     </li>
   ));
 
   return (
-    <S.MobileMenuWrapper {...rest}>
-      <S.BackgroundFader $isOpen={isOpen} />
-      <S.SvgLogo $isOpen={isOpen} />
+    <div className={S.MobileMenuWrapper} {...rest}>
+      <div className={clsx(S.BackgroundFader, isOpen && S.isOpen)} />
+      <Logo className={clsx(S.SvgLogo, isOpen && S.isOpen)} />
 
-      <S.SideMenu
+      <m.div
+        className={S.SideMenu}
         initial={{ x: "100%" }}
         animate={{ x: isOpen ? 0 : "100%" }}
         transition={{
@@ -44,21 +50,21 @@ const MobileMenu: FC<MobileMenuProps> = ({ ...rest }) => {
           ease: "easeInOut",
         }}
       >
-        <S.NavigationLinks>
+        <nav className={S.NavigationLinks}>
           <ul>{routes}</ul>
-        </S.NavigationLinks>
+        </nav>
 
-        <S.TogglesWrapper>
-          <S.CloseButton onClick={() => setIsOpen(false)}>
+        <div className={S.TogglesWrapper}>
+          <button className={S.CloseButton} onClick={() => setIsOpen(false)}>
             {menu.close}
-          </S.CloseButton>
+          </button>
 
-          <S.ThemeToggle uniqueId="menu_mobile" />
-        </S.TogglesWrapper>
-      </S.SideMenu>
+          <ThemeSwitch className={S.ThemeToggle} uniqueId="menu_mobile" />
+        </div>
+      </m.div>
 
       <HamburgerButton setIsOpen={setIsOpen} />
-    </S.MobileMenuWrapper>
+    </div>
   );
 };
 export default MobileMenu;
