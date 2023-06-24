@@ -1,5 +1,1 @@
-export { default } from "3_containers/SingleArticleApp/SingleArticle";
-
-export const generateStaticParams = async () => {
-  return [{ slug: "hello-heckers" }];
-};
+export { default } from "3_containers/About/About";
