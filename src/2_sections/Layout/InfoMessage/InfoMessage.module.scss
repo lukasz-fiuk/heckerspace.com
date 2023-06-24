@@ -1,0 +1,86 @@
+@import "styled/mediaQueries";
+
+.InfoMessageWrapper {
+  display: none;
+
+  @include desktop {
+    display: grid;
+    position: fixed;
+    z-index: 100;
+    cursor: pointer;
+    inset: 0;
+
+    &::after {
+      position: absolute;
+      opacity: 0;
+
+      transition: 0.8s ease-in-out;
+      inset: 0;
+      background-color: var(--background);
+      content: "";
+
+      & .isOpen {
+        opacity: 0.75;
+      }
+    }
+  }
+}
+
+.Message {
+  all: unset;
+  position: fixed;
+  bottom: 0;
+  left: 50vw;
+  z-index: 1000;
+  margin: 0;
+  border-radius: 8px;
+  background: var(--black_75);
+  padding: 1em !important;
+  color: -var(--white);
+  font-size: 16px !important;
+  text-align: center;
+
+  code {
+    display: inline-block;
+    transition: 0.3s ease-in-out;
+    margin: 0.1em 0;
+    border-radius: 8px;
+    padding: 0 0.25em;
+    color: var(--primary);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+      monospace;
+
+    &[data-theme="light"] {
+      border: 1px solid var(--white_75);
+      background: var(--white_75);
+    }
+
+    &[data-theme="dark"] {
+      border: 1px solid #262626;
+      background: var(--black_20);
+    }
+  }
+}
+
+.CloseButton {
+  display: grid;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  place-items: center;
+  cursor: pointer;
+  border: 2px solid -var(--black_75);
+  border-radius: 100%;
+  background: var(--background);
+  padding: 8px;
+  aspect-ratio: 1;
+  width: 32px;
+  height: 32px;
+  color: var(--primary);
+  line-height: 1;
+  user-select: none;
+  text-align: center;
+}

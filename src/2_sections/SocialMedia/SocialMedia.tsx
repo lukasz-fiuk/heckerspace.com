@@ -3,10 +3,10 @@ import { FC } from "react";
 import clsx from "clsx";
 
 import HoverReplace from "1_components/HoverEffects/HoverReplace/HoverReplace";
-import { IconVariant } from "1_components/Icon/Icon";
+import Icon, { IconVariant } from "1_components/Icon/Icon";
 
 import { data } from "./SocialMedia.data";
-import * as S from "./SocialMedia.styled";
+import S from "./SocialMedia.module.scss";
 
 export interface SocialMediaProps {
   iconSize?: number;
@@ -19,13 +19,14 @@ const SocialMedia: FC<SocialMediaProps> = ({
   ...rest
 }) => {
   return (
-    <S.SocialMediaWrapper
+    <nav
+      className={clsx(S.SocialMediaWrapper, className)}
       {...rest}
       aria-label="Explore our social medias"
-      className={clsx(className)}
     >
       {data.socialMedia.map(({ href, title, ariaLabel, iconVariant }) => (
-        <S.IconWrapper
+        <a
+          className={S.IconWrapper}
           key={title}
           href={href}
           title={title}
@@ -34,14 +35,15 @@ const SocialMedia: FC<SocialMediaProps> = ({
           target="_blank"
         >
           <HoverReplace direction="up">
-            <S.IconComp
-              iconSize={iconSize}
+            <Icon
+              className={S.IconComp}
+              style={{ width: iconSize }}
               variant={iconVariant as IconVariant}
             />
           </HoverReplace>
-        </S.IconWrapper>
+        </a>
       ))}
-    </S.SocialMediaWrapper>
+    </nav>
   );
 };
 export default SocialMedia;

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 
 import clsx from "clsx";
 
@@ -20,6 +20,7 @@ export type IconVariant =
 export interface IconProps {
   variant: IconVariant;
   className?: string;
+  style?: CSSProperties;
 }
 
 const Icon: FC<IconProps> = ({ variant, className, ...rest }) => {

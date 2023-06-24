@@ -16,7 +16,7 @@ $desktop-large: 1280px;
   }
 }
 
-@mixin desktop-large {
+@mixin desktopLarge {
   @media (min-width: $desktop-large) {
     @content;
   }
