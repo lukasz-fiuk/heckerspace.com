@@ -1,6 +1,6 @@
 import { ArticleHeaderProps } from "2_sections/ArticleHeader/ArticleHeader";
 import { Modules } from "2_sections/ModuleRenderer/ModuleRenderer";
-import Article from "pagez/about";
+import Article from "3_containers/SingleArticle/SingleArticle";
 
 import { getArticle } from "./SingleArticle.data";
 
