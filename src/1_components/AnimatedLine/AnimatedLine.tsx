@@ -1,6 +1,6 @@
 import { FC, useRef } from "react";
 
-import { m, useInView } from "framer-motion";
+import { cubicBezier, m, useInView } from "framer-motion";
 
 import { Directions } from "types/commonTypes";
 
@@ -36,15 +36,19 @@ const AnimatedLine: FC<AnimatedLineProps> = ({
       exit={{
         x: "100%",
         opacity: 0,
-        transition: { duration: 0.3, ease: "easeInOut" },
+        transition: { duration: 0.3, ease: cubicBezier(0.22, 0.61, 0.36, 1) },
       }}
       variants={AnimatedLineVariants[direction]}
       custom={{ dissolve }}
       transition={{
         duration: duration,
         delay: delay,
-        ease: "easeInOut",
-        opacity: { duration: duration, delay: delay + 0.3, ease: "easeInOut" },
+        ease: cubicBezier(0.22, 0.61, 0.36, 1),
+        opacity: {
+          duration: duration,
+          delay: delay + 0.3,
+          ease: cubicBezier(0.22, 0.61, 0.36, 1),
+        },
       }}
     />
   );
