@@ -10,7 +10,6 @@ import { SeoProps } from "1_components/SEO/SEO";
 import Footer from "2_sections/Footer/Footer";
 import Header from "2_sections/Header/Header";
 
-import InfoMessage from "./InfoMessage/InfoMessage";
 import S from "./Layout.module.scss";
 
 export interface LayoutProps {
@@ -30,7 +29,6 @@ const Layout: FC<LayoutProps> = ({ children, head }) => {
         <MotionConfig reducedMotion="user">
           <IntroAnimation />
           {/* <SEO {...head} /> */}
-          <InfoMessage />
           <Header />
 
           <AnimatePresence mode="wait">
