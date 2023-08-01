@@ -38,7 +38,7 @@ const Footer: FC<FooterProps> = ({ ...rest }) => {
         </HoverReplace>
       </button>
 
-      <span className={S.Version}>version: 1.0</span>
+      <span className={S.Version}>version: 1.0.0</span>
     </FadeInOut>
   );
 };
