@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 
 import { m } from "framer-motion";
 
@@ -8,6 +8,7 @@ import S from "./ShortcutCue.module.scss";
 
 export interface ShortcutCueProps {
   text: string;
+  style?: CSSProperties;
 }
 
 const ShortcutCue: FC<ShortcutCueProps> = ({ text, ...rest }) => {

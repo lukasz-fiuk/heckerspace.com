@@ -5,7 +5,6 @@ import { m } from "framer-motion";
 import LinearGradient from "1_components/LinearGradient/LinearGradient";
 import Logo from "1_components/Logo/Logo";
 import ShortcutCue from "1_components/ShortcutCue/ShortcutCue";
-import ThemeSwitch from "1_components/ThemeSwitch/ThemeSwitch";
 import { useGlobalState } from "context/globalState";
 
 import { data } from "./Header.data";
@@ -36,7 +35,7 @@ const Header: FC<HeaderProps> = ({ ...rest }) => {
 
         <div className={S.ColumnLeft}>
           <div className={S.Row}>
-            <ThemeSwitch className={S.ThemeToggle} uniqueId="header_desktop" />
+            {/* <ThemeSwitch className={S.ThemeToggle} uniqueId="header_desktop" /> */}
             <ShortcutCue text="T" />
           </div>
 

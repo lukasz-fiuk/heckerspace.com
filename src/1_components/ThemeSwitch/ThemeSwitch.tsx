@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from "react";
+"use client";
+import { FC, useEffect, useRef, useState } from "react";
 
 import clsx from "clsx";
 import { useDarkMode } from "usehooks-ts";
@@ -21,11 +22,20 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({
 }) => {
   const [currentTheme, setCurrentTheme] = useState<ThemeVariants>("dark");
   const { toggle, isDarkMode } = useDarkMode();
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     setCurrentTheme(isDarkMode ? "dark" : "light");
     document.body.setAttribute("data-theme", currentTheme);
     setGlobalState("isDarkMode", isDarkMode);
+
+    // Setting aria label on the client to prevent SSR mismatch
+    if (buttonRef.current) {
+      buttonRef.current.setAttribute(
+        "aria-label",
+        `Switch to ${isDarkMode ? "light" : "dark"} theme`
+      );
+    }
   }, [isDarkMode, currentTheme]);
 
   return (
@@ -34,7 +44,7 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({
       className={clsx(S.ToggleWrapper, className)}
       onClick={toggle}
       title="Toggles light & dark theme"
-      aria-label={`Switch to ${isDarkMode ? "light" : "dark"} theme`}
+      ref={buttonRef}
     >
       <svg
         className={S.Planet}

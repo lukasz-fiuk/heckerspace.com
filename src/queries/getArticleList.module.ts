@@ -3,8 +3,6 @@ export const getArticleList = () => `
   id
   __typename
   title
-  completedLabel
-  viewedLabel
   buttonHref
   buttonLabel
   buttonHoverDirection
