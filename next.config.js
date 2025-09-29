@@ -12,7 +12,10 @@ const nextConfig = {
   },
   compress: true,
   images: {
-    domains: ["media.graphassets.com"],
+    domains: [
+      "media.graphassets.com",
+      "eu-central-1-shared-euc1-02.graphassets.com",
+    ],
   },
   webpack: (config, { dev, isServer }) => {
     // Turn off webpack's "watch" mode
